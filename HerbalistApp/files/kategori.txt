@@ -1,0 +1,6 @@
+0#Bitkiler
+1#Bitki Caylari
+2#Vitaminler
+3#Sarmasiklar
+4#Baharatlar
+5#Kuruyemis
