@@ -12,6 +12,9 @@ public class Agac {
 	private Vector<String> inorder;
 	private Vector<String> postorder;
 
+	/**
+	 * 
+	 */
 	public Agac() {
 		setPreorder(new Vector<String>());
 		setInorder(new Vector<String>());
@@ -20,15 +23,24 @@ public class Agac {
 		node_sayisi++;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node<Bitki> getNode() {
 		return node;
 	}
 
+	/**
+	 * @param node
+	 */
 	public void setNode(Node<Bitki> node) {
 		this.node = node;
 	}
 
 	// Agaca bir dugum eklemeyi saglayan metot
+	/**
+	 * @param newnode
+	 */
 	public void insert(Node<Bitki> newnode) {
 		if (node == null) {
 			node = newnode;
@@ -54,6 +66,10 @@ public class Agac {
 		} // end else not node
 	} // end insert()
 
+	/**
+	 * @param value
+	 * @return
+	 */
 	public boolean remove(String value) {
 
 		if (node == null) {
@@ -82,6 +98,11 @@ public class Agac {
 
 	}
 
+	/**
+	 * @param wanted
+	 * @param data
+	 * @return
+	 */
 	public String find(Node<Bitki> wanted, String data) {
 
 		if (wanted == null) {
@@ -107,6 +128,10 @@ public class Agac {
 	// Metotlari ************************************************
 
 	// Agacin preOrder Dolasilmasi
+	/**
+	 * @param localnode
+	 * @param duzey
+	 */
 	public void preOrder(Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			// System.out.println(localnode.getBitki().getAdi());
@@ -117,6 +142,10 @@ public class Agac {
 	}
 
 	// Agacin inOrder Dolasilmasi
+	/**
+	 * @param localnode
+	 * @param duzey
+	 */
 	public void inOrder(Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			inOrder(localnode.getLeft_node(), duzey);
@@ -127,6 +156,10 @@ public class Agac {
 	}
 
 	// Agacin postOrder Dolasilmasi
+	/**
+	 * @param localnode
+	 * @param duzey
+	 */
 	public void postOrder(Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			postOrder(localnode.getLeft_node(), duzey);
@@ -137,10 +170,16 @@ public class Agac {
 	}
 
 	// Duzey listeleme
+	/**
+	 * @param localnode
+	 */
 	public void duzey_listele(Node<Bitki> localnode) {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public String preOrder_yazdir() {
 		String metin = "";
 		for (int i = 0; i < preorder.size(); i++) {
@@ -149,6 +188,9 @@ public class Agac {
 		return metin;
 	}
 
+	/**
+	 * @return
+	 */
 	public String inOrder_yazdir() {
 		String metin = "";
 		for (int i = 0; i < inorder.size(); i++) {
@@ -157,6 +199,9 @@ public class Agac {
 		return metin;
 	}
 
+	/**
+	 * @return
+	 */
 	public String postOrder_yazdir() {
 		String metin = "";
 		for (int i = 0; i < postorder.size(); i++) {
@@ -165,26 +210,44 @@ public class Agac {
 		return metin;
 	}
 
+	/**
+	 * @param preorder
+	 */
 	public void setPreorder(Vector<String> preorder) {
 		this.preorder = preorder;
 	}
 
+	/**
+	 * @return
+	 */
 	public Vector<String> getPreorder() {
 		return preorder;
 	}
 
+	/**
+	 * @param inorder
+	 */
 	public void setInorder(Vector<String> inorder) {
 		this.inorder = inorder;
 	}
 
+	/**
+	 * @return
+	 */
 	public Vector<String> getInorder() {
 		return inorder;
 	}
 
+	/**
+	 * @param postorder
+	 */
 	public void setPostorder(Vector<String> postorder) {
 		this.postorder = postorder;
 	}
 
+	/**
+	 * @return
+	 */
 	public Vector<String> getPostorder() {
 		return postorder;
 	}

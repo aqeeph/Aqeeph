@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package veri_tabani;
 
 import agac.Node;
@@ -8,23 +6,15 @@ import agaclar.Vector_Agac;
 import deva.Bitki;
 import hash_table.Hash_Table;
 
-/**
- * @author MehmetAkif-PC
- *
- */
 public class Veritabani_Listesi {
-	/**
-	 * @param args
-	 */
+	
 	private static Hash_Table hash_table = new Hash_Table(); // @jve:decl-index=0:
 	private static Vector_Agac agac_vektoru = new Vector_Agac();
 	private static Kategori_veri_tabani kategori_veri_tabani = new Kategori_veri_tabani();
 	private static Bitki_veri_tabani bitki_veri_tabani = new Bitki_veri_tabani();
 	private static Hastalik_veri_tabani hastalik_veri_tabani = new Hastalik_veri_tabani();;
 
-	/**
-	 * @return the hastalik_veri_tabani
-	 */
+
 	public static Hastalik_veri_tabani getHastalik_veri_tabani() {
 		return hastalik_veri_tabani;
 	}
@@ -35,23 +25,17 @@ public class Veritabani_Listesi {
 		setHastalik_veri_tabani(hastalik_veri_tabani_olustur());
 	}
 
-	/**
-	 * @return
-	 */
+
 	private static Hastalik_veri_tabani hastalik_veri_tabani_olustur() {
 		return new Hastalik_veri_tabani("files\\hastalik.txt");
 	}
 
-	/**
-	 * @return
-	 */
+	
 	private static Bitki_veri_tabani bitki_veri_tabani_olustur() {
 		return new Bitki_veri_tabani("files\\bitki.txt");
 	}
 
-	/**
-	 * @return
-	 */
+
 	public static Kategori_veri_tabani kategori_veri_tabani_olustur() {
 		return new Kategori_veri_tabani("files\\kategori.txt");
 	}
@@ -147,10 +131,6 @@ public class Veritabani_Listesi {
 		getBitki_veri_tabani().update_file();
 	}
 
-	/**
-	 * @param kategori
-	 * @return
-	 */
 	public static String kategorisi(int kategori_id) {
 		for (int i = 0; i < Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().size(); i++) {
 			if (Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().elementAt(i)

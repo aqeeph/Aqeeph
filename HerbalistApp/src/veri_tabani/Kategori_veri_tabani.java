@@ -20,9 +20,6 @@ public class Kategori_veri_tabani {
 		dosya_oku(Kategori_veri_tabani.getKullandigi_dosya());
 	}
 
-	/**
-	 * 
-	 */
 	public Kategori_veri_tabani() {
 		// TODO Auto-generated constructor stub
 	}

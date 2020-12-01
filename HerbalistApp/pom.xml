@@ -10,11 +10,6 @@
 	<modules></modules>
 	<properties>
 		<repository_type>azure</repository_type>
-		<encoding>UTF-8</encoding>
-		<properties.build.sourceEncoding>$encoding</properties.build.sourceEncoding>
-		<project.reporting.outputEncoding>$encoding</project.reporting.outputEncoding>
-		<project.resources.sourceEncoding>$encoding</project.resources.sourceEncoding>
-		<archetype.encoding>$encoding</archetype.encoding>
 	</properties>
   <description>HerbalistApp</description>
   	<!-- Build Settings -->

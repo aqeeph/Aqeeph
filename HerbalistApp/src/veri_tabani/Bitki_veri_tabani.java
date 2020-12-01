@@ -12,15 +12,21 @@ import java.util.Vector;
 
 import deva.Bitki;
 
+/**
+ * @author MehmetAkif-PC
+ *
+ */
 public class Bitki_veri_tabani {
 	private Vector<Bitki> bitkiler = new Vector<Bitki>();
 	private String kullandigi_dosya = "";
 
+	/**
+	 * @param dosya_adi
+	 */
 	public Bitki_veri_tabani(String dosya_adi) {
 		setKullandigi_dosya(dosya_adi);
 		Bitki_veri_tabani.dosya_oku(getKullandigi_dosya());
 	}
-
 	/**
 	 * 
 	 */
@@ -28,18 +34,30 @@ public class Bitki_veri_tabani {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @return
+	 */
 	public Vector<Bitki> getBitkiler() {
 		return bitkiler;
 	}
 
+	/**
+	 * @param bitkiler
+	 */
 	public void setBitkiler(Vector<Bitki> bitkiler) {
 		this.bitkiler = bitkiler;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getKullandigi_dosya() {
 		return kullandigi_dosya;
 	}
 
+	/**
+	 * @param kullandigi_dosya
+	 */
 	public void setKullandigi_dosya(String kullandigi_dosya) {
 		this.kullandigi_dosya = kullandigi_dosya;
 	}
@@ -49,6 +67,9 @@ public class Bitki_veri_tabani {
 	// ozellikleri( _ ile ayrilidir)#miktari#fiyati#bitki resminin diskteki
 	// yeri#bitki resminin diskteki adi#bilgi sayisi(onerilen hastaliklar
 	// icin)#onerilen hastaliklar(>>ile ayrilmistir)
+	/**
+	 * 
+	 */
 	public synchronized void add_botan() {
 		// bitki yoksa ekleme yapilamalidir
 

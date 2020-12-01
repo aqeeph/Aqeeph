@@ -2,12 +2,18 @@ package agac;
 
 import deva.Bitki;
 
+/**
+ * @author MehmetAkif-PC
+ *
+ * @param <T> generic tip
+ */
 public class Node<T> {
+	
 	/**
-	 * @param node
-	 * @param sonraki
-	 * @param left_node
-	 * @param right_node
+	 * @param node current node
+	 * @param sonraki sonraki node
+	 * @param left_node sol cocuk dugum
+	 * @param right_node sag cocuk dugum
 	 */
 	public Node(T node, Node<T> sonraki, Node<T> left_node, Node<T> right_node) {
 		super();
@@ -18,22 +24,43 @@ public class Node<T> {
 	}
 
 	// T stands for "Type"
+	/**
+	 * 
+	 */
 	private T node;
 
+	/**
+	 * 
+	 */
 	private Node<T> sonraki;
+	/**
+	 * 
+	 */
 	private Node<T> left_node, right_node;
 
+	/**
+	 * 
+	 */
 	public Node() {
 	}
 
+	/**
+	 * @param t
+	 */
 	public Node(T t) {
 		this.node = t;
 	}
 
+	/**
+	 * @param t
+	 */
 	public void set(T t) {
 		this.node = t;
 	}
 
+	/**
+	 * @return
+	 */
 	public T get() {
 		return node;
 	}
@@ -52,27 +79,46 @@ public class Node<T> {
 		this.sonraki = sonraki;
 	}
 
+	/**
+	 *
+	 */
 	public String toString() {
-
 		return node.toString();
 	}
 
+	/**
+	 * @return
+	 */
 	public Node<T> getLeft_node() {
 		return left_node;
 	}
 
+	/**
+	 * @param left_node
+	 */
 	public void setLeft_node(Node<T> left_node) {
 		this.left_node = left_node;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node<T> getRight_node() {
 		return right_node;
 	}
 
+	/**
+	 * @param right_node
+	 */
 	public void setRight_node(Node<T> right_node) {
 		this.right_node = right_node;
 	}
 
+	/**
+	 * @param value value
+	 * @param parent Node Bitki
+	 * @return true or false
+	 */
 	@SuppressWarnings("unchecked")
 	public boolean remove(String value, Node<Bitki> parent) {
 		if (value.compareTo(((Bitki) this.get()).getAdi()) < 0) {
@@ -100,6 +146,9 @@ public class Node<T> {
 		}
 	}
 
+	/**
+	 * @return left_node.minValue()
+	 */
 	public String minValue() {
 		if (left_node == null) {
 			return ((Bitki) this.get()).getAdi();
@@ -107,5 +156,4 @@ public class Node<T> {
 			return left_node.minValue();
 		}
 	}
-
 }

@@ -17,9 +17,6 @@ public class Hastalik_veri_tabani {
 		setHastaliklar(hastalik_verilerini_oku.dosya_oku(getKullandigi_dosya()));
 	}
 
-	/**
-	 * 
-	 */
 	public Hastalik_veri_tabani() {
 		// TODO Auto-generated constructor stub
 	}
