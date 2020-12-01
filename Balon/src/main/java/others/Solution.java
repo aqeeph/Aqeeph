@@ -1,12 +1,25 @@
 package others;
 
 
+/**
+ * @author MehmetAkif-PC
+ *
+ */
 public class Solution {
-	private static Problem_listesi p;
+	/**
+	 * 
+	 */
+	private static Stack_Yigin_Problemi p;
+	/**
+	 * 
+	 */
 	private static Yigin_Problemi yigin_problemi;
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		setP(new Problem_listesi());
+		setP(new Stack_Yigin_Problemi());
 		if (getP() == null) {
 			System.err.println("problem listesi null");
 			return;
@@ -41,19 +54,31 @@ public class Solution {
 		}
 	}
 
-	public static Problem_listesi getP() {
+	/**
+	 * @return
+	 */
+	public static Stack_Yigin_Problemi getP() {
 		return p;
 	}
 
+	/**
+	 * @return
+	 */
 	public static Yigin_Problemi getY() {
 		return yigin_problemi;
 	}
 
+	/**
+	 * @param y
+	 */
 	public static void setY(Yigin_Problemi y) {
 		Solution.yigin_problemi = y;
 	}
 
-	public static void setP(Problem_listesi p) {
+	/**
+	 * @param p
+	 */
+	public static void setP(Stack_Yigin_Problemi p) {
 		Solution.p = p;
 	}
 }

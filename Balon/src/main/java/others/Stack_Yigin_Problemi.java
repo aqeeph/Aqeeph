@@ -1,13 +1,34 @@
 package others;
 import java.util.Stack;
 
-public class Problem_listesi {
+/**
+ * @author MehmetAkif-PC
+ *
+ */
+public class Stack_Yigin_Problemi {
+	/**
+	 * @param problem_yigini
+	 */
+	public Stack_Yigin_Problemi(Stack<Yigin_Problemi> problem_yigini) {
+		super();
+		this.problem_yigini = problem_yigini;
+	}
+
+	/**
+	 * 
+	 */
 	private Stack<Yigin_Problemi> problem_yigini;
-	public Problem_listesi() {
+	/**
+	 * 
+	 */
+	public Stack_Yigin_Problemi() {
 		super();//2
 		setProblem_yigini(new Stack<Yigin_Problemi>());
 	}
 
+	/**
+	 * 
+	 */
 	void solution() {
 		try {
 			this.problem_yigini.pop().solution();// Paralel hesaplama yap�labilinir.
@@ -17,14 +38,23 @@ public class Problem_listesi {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public Stack<Yigin_Problemi> getProblem_yigini() {
 		return problem_yigini;
 	}
 
+	/**
+	 * @param problem_yigini
+	 */
 	public void setProblem_yigini(Stack<Yigin_Problemi> problem_yigini) {
 		this.problem_yigini = problem_yigini;
 	}
 
+	/**
+	 * @param yigin_Problemi
+	 */
 	void yeni_problem_ekle(Yigin_Problemi yigin_Problemi) {
 		System.err.println("yeni_problem_ekleniyor");
 		try {
@@ -36,9 +66,12 @@ public class Problem_listesi {
 		System.err.println("yeni_problem_eklendi.");
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String toString() {
-		return "Problem_listesi [problem_yigini=" + problem_yigini + ", toString()=" + super.toString() + "]";
+		return "Stack_Yigin_Problemi [problem_yigini=" + problem_yigini + ", toString()=" + super.toString() + "]";
 	}
 
 }

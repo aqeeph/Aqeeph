@@ -1,31 +1,72 @@
 package bagli_liste;
 import balon.Balon;
+import others.Node;
 import others.Renkler;
 
+/**
+ * @author MehmetAkif-PC
+ *
+ */
 public class Bagli_Liste {
-	private Node_balon bas=new Node_balon();
-	private Node_balon yeniBalon=new Node_balon();
-	private Node_balon simdiki=new Node_balon();
-	private Node_balon gecici=new Node_balon();
-	private Node_balon silinecek=new Node_balon();
+	/**
+	 * 
+	 */
+	private Node_balon bas;
+	/**
+	 * 
+	 */
+	private Node_balon yeniBalon;
+	/**
+	 * 
+	 */
+	private Node_balon simdiki;
+	/**
+	 * 
+	 */
+	private Node_balon gecici;
+	/**
+	 * 
+	 */
+	private Node_balon silinecek;
+	/**
+	 * 
+	 */
 	private int katNumarasi;
+	/**
+	 * 
+	 */
 	private int sayac;
+	/**
+	 * 
+	 */
 	String renkler = "";
+	/**
+	 * 
+	 */
 	String renk = null;
-	Node_balon dolas=new Node_balon();// listemiz dairesel oldugu icin sonuna gelinip
+	/**
+	 * 
+	 */
+	Node_balon dolas;// listemiz dairesel oldugu icin sonuna gelinip
 	// gelinmedigini anlamak icin ayrica bir balon olusturmak
 	// lazimdir.
 
+	/**
+	 * @param katNumarasi
+	 */
 	public Bagli_Liste(int katNumarasi) {// constructor
 		this.katNumarasi = katNumarasi;
 		bas = null;
 	}
 
+	/**
+	 * @param no
+	 */
 	public void Ekle(int no) {// bagli diziye eleman ekler.
 		if (bas == null) {// liste yeni olusturuluyorsa;
 			yeni_balon(no);
 			try {
-				bas = yeniBalon;
+				bas = new Node_balon(no,Renkler.random_renk());
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 				return;
@@ -35,7 +76,7 @@ public class Bagli_Liste {
 			}
 			try {
 				//node<balon> bas.setSonraki(node<balon> bas)
-				bas.setSonraki_node_balon(bas);// bagli listeyi dairesel hale getirmek icin
+				bas.root_olarak_ayarla();// bagli listeyi dairesel hale getirmek icin
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 				return;
@@ -66,7 +107,7 @@ public class Bagli_Liste {
 			do {
 				try {
 					//[Node<Balon> gecici].[getSonraki()]
-					gecici.setNode_balon(gecici.getSonraki_node_balon());
+					gecici.sonraki_node_balonu_simdiki_node_balon_olarak_ayarla();
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 					return;
@@ -105,6 +146,9 @@ public class Bagli_Liste {
 		}
 	}
 
+	/**
+	 * @param no
+	 */
 	private void yeni_balon(int no) {
 		try {
 			yeniBalon = new Node_balon();
@@ -116,7 +160,16 @@ public class Bagli_Liste {
 			return;
 		}
 		try {
-			yeniBalon.set(new Balon(no,Renkler.random_renk()));
+			yeniBalon.setNode_balon(new Node<Balon>());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+		try {
+			yeniBalon.set(no,Renkler.random_renk());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -126,6 +179,9 @@ public class Bagli_Liste {
 		}
 	}
 
+	/**
+	 * @param n
+	 */
 	public void patlat(int n) {
 		try {
 			if (bas == null) {
@@ -182,6 +238,9 @@ public class Bagli_Liste {
 		System.out.println(bas.toString());// onu da ekrana yazdiralim.
 	}
 
+	/**
+	 *
+	 */
 	public String toString() {
 		System.err.println("bagli liste ciktisi hazirlaniyor");
 		dolas = bas;
@@ -227,6 +286,9 @@ public class Bagli_Liste {
 		return renkler;
 	}
 
+	/**
+	 * @return
+	 */
 	public boolean doluMu() {// patlat metodu icin gereklidir.
 		if (bas.getNode_balon() == bas.getSonraki_node_balon()) {// etkin kendine esit oldugunda
 										// yani bagli listede sadece bir balon kaldiginda
@@ -237,82 +299,142 @@ public class Bagli_Liste {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getNode_balon() {
 		return bas;
 	}
 
+	/**
+	 * @param bas
+	 */
 	public void setBas(Node_balon bas) {
 		this.bas = bas;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getYeniBalon() {
 		return yeniBalon;
 	}
 
+	/**
+	 * @param yeniBalon
+	 */
 	public void setYeniBalon(Node_balon yeniBalon) {
 		this.yeniBalon = yeniBalon;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getSimdiki() {
 		return simdiki;
 	}
 
+	/**
+	 * @param simdiki
+	 */
 	public void setSimdiki(Node_balon simdiki) {
 		this.simdiki = simdiki;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getGecici() {
 		return gecici;
 	}
 
+	/**
+	 * @param gecici
+	 */
 	public void setGecici(Node_balon gecici) {
 		this.gecici = gecici;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getKatNumarasi() {
 		return katNumarasi;
 	}
 
+	/**
+	 * @param katNumarasi
+	 */
 	public void setKatNumarasi(int katNumarasi) {
 		this.katNumarasi = katNumarasi;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getSayac() {
 		return sayac;
 	}
 
+	/**
+	 * @param sayac
+	 */
 	public void setSayac(int sayac) {
 		this.sayac = sayac;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getSilinecek() {
 		return silinecek;
 	}
 
+	/**
+	 * @param silinecek
+	 */
 	public void setSilinecek(Node_balon silinecek) {
 		this.silinecek = silinecek;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getRenkler() {
 		return renkler;
 	}
 
+	/**
+	 * @param renkler
+	 */
 	public void setRenkler(String renkler) {
 		this.renkler = renkler;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getRenk() {
 		return renk;
 	}
 
+	/**
+	 * @param renk
+	 */
 	public void setRenk(String renk) {
 		this.renk = renk;
 	}
 
+	/**
+	 * @return
+	 */
 	public Node_balon getDolas() {
 		return dolas;
 	}
 
+	/**
+	 * @param dolas
+	 */
 	public void setDolas(Node_balon dolas) {
 		this.dolas = dolas;
 	}

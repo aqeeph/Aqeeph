@@ -7,15 +7,23 @@
   </parent>
   <artifactId>Balon</artifactId>
   <packaging>jar</packaging>
-  <dependencies></dependencies>
-	<dependencyManagement></dependencyManagement>
-	<modules></modules>
+  <modules></modules>
 	<properties>
 		<repository_type>azure</repository_type>
 	</properties>
+	 <description>BalonApp</description>
 		<!-- Build Settings -->
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+		<resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -111,4 +119,12 @@
 		</repository>
 	</distributionManagement>
 	<profiles></profiles>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

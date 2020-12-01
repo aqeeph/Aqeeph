@@ -1,24 +1,56 @@
 package bagli_liste;
 import java.util.Stack;
 
-public class Bagli_Liste_Yigini {
+/**
+ * @author MehmetAkif-PC
+ *
+ */
+public class Stack_Bagli_Liste {
 
+	/**
+	 * @param yigin
+	 * @param gecici
+	 */
+	public Stack_Bagli_Liste(Stack<Bagli_Liste> yigin, Bagli_Liste gecici) {
+		super();
+		this.yigin = yigin;
+		this.gecici = gecici;
+	}
+
+	/**
+	 * 
+	 */
 	private Stack<Bagli_Liste> yigin;
+	/**
+	 * 
+	 */
 	private Bagli_Liste gecici = null;
 
-	public Bagli_Liste_Yigini() {
+	/**
+	 * 
+	 */
+	public Stack_Bagli_Liste() {
 		super();
 		this.yigin = new Stack<Bagli_Liste>();
 	}
 
+	/**
+	 * @return
+	 */
 	public Stack<Bagli_Liste> getYigin() {
 		return yigin;
 	}
 
+	/**
+	 * @param yigin
+	 */
 	public void setYigin(Stack<Bagli_Liste> yigin) {
 		this.yigin = yigin;
 	}
 
+	/**
+	 * @param bagli_liste
+	 */
 	public void push_to_yigin(Bagli_Liste bagli_liste) {
 		// TODO Auto-generated method stub
 		if (bagli_liste == null) {
@@ -35,11 +67,17 @@ public class Bagli_Liste_Yigini {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public boolean yigin_bos_mu() {
 		// TODO Auto-generated method stub
 		return this.getYigin().empty();
 	}
 
+	/**
+	 * @return
+	 */
 	public Bagli_Liste pop_from_yigin() {
 		if (this.yigin == null) {
 		} else {
