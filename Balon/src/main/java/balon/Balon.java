@@ -1,7 +1,7 @@
 package balon;
 import others.Renkler;
 /**
- * @author MehmetAkif-PC
+ * @author MehmetAkif ILYASOGULLARI
  *
  */
 public class Balon {

@@ -1,4 +1,5 @@
 package bagli_liste;
+
 import balon.Balon;
 import others.Node;
 import others.Renkler;
@@ -39,14 +40,6 @@ public class Bagli_Liste {
 	/**
 	 * 
 	 */
-	String renkler = "";
-	/**
-	 * 
-	 */
-	String renk = null;
-	/**
-	 * 
-	 */
 	Node_balon dolas;// listemiz dairesel oldugu icin sonuna gelinip
 	// gelinmedigini anlamak icin ayrica bir balon olusturmak
 	// lazimdir.
@@ -66,7 +59,7 @@ public class Bagli_Liste {
 		if (bas == null) {// liste yeni olusturuluyorsa;
 			yeni_balon(no);
 			try {
-				bas = new Node_balon(no,Renkler.random_renk());
+				bas = new Node_balon(no, Renkler.random_renk());
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 				return;
@@ -75,7 +68,7 @@ public class Bagli_Liste {
 				return;
 			}
 			try {
-				//node<balon> bas.setSonraki(node<balon> bas)
+				// node<balon> bas.setSonraki(node<balon> bas)
 				bas.root_olarak_ayarla();// bagli listeyi dairesel hale getirmek icin
 			} catch (NullPointerException e) {
 				e.printStackTrace();
@@ -106,7 +99,7 @@ public class Bagli_Liste {
 			}
 			do {
 				try {
-					//[Node<Balon> gecici].[getSonraki()]
+					// [Node<Balon> gecici].[getSonraki()]
 					gecici.sonraki_node_balonu_simdiki_node_balon_olarak_ayarla();
 				} catch (NullPointerException e) {
 					e.printStackTrace();
@@ -169,7 +162,7 @@ public class Bagli_Liste {
 			return;
 		}
 		try {
-			yeniBalon.set(no,Renkler.random_renk());
+			yeniBalon.set(no, Renkler.random_renk());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -244,12 +237,15 @@ public class Bagli_Liste {
 	public String toString() {
 		System.err.println("bagli liste ciktisi hazirlaniyor");
 		dolas = bas;
+		StringBuilder stringBuilder = new StringBuilder();
 		do {
 			if (dolas == null) {
 				System.err.println("hata null");
 			} else {
+				
+				
 				try {
-					renk = dolas.toString() + "\n";
+					stringBuilder.append(dolas.toString() + "\n");//node_balone.Node<Balon>.Balon."Balon [renk=" + renk + ", no=" + no + "]" bilgisi
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 					return "hata";
@@ -257,20 +253,6 @@ public class Bagli_Liste {
 					e.printStackTrace();
 					return "hata";
 				}
-			}
-			try {
-				renkler += renk;// ve dolasirken elemanlari balon sinifinda bulunan
-				// yazdir yardimiyla teker teker yazdirir.
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				return "hata";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "hata";
-			}
-			if (dolas == null) {
-				System.err.println("hata null");
-			} else {
 				try {
 					dolas.setNode_balon(dolas.getSonraki_node_balon());
 				} catch (NullPointerException e) {
@@ -283,7 +265,7 @@ public class Bagli_Liste {
 			}
 		} while (dolas != bas);
 		System.err.println("bagli liste ciktisi hazir");
-		return renkler;
+		return stringBuilder.toString();
 	}
 
 	/**
@@ -291,8 +273,8 @@ public class Bagli_Liste {
 	 */
 	public boolean doluMu() {// patlat metodu icin gereklidir.
 		if (bas.getNode_balon() == bas.getSonraki_node_balon()) {// etkin kendine esit oldugunda
-										// yani bagli listede sadece bir balon kaldiginda
-										// doluMu sorusuna "hayir bos yanitini verir
+			// yani bagli listede sadece bir balon kaldiginda
+			// doluMu sorusuna "hayir bos yanitini verir
 			return false;// "hayir bos
 		} else {
 			return true;// "dolu || bas==null || bas.getSonraki()"
@@ -395,34 +377,6 @@ public class Bagli_Liste {
 	 */
 	public void setSilinecek(Node_balon silinecek) {
 		this.silinecek = silinecek;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getRenkler() {
-		return renkler;
-	}
-
-	/**
-	 * @param renkler
-	 */
-	public void setRenkler(String renkler) {
-		this.renkler = renkler;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getRenk() {
-		return renk;
-	}
-
-	/**
-	 * @param renk
-	 */
-	public void setRenk(String renk) {
-		this.renk = renk;
 	}
 
 	/**
