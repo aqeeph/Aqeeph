@@ -41,7 +41,7 @@ public class Renkler {
 	 */
 	public static String random_renk() {
 		// TODO Auto-generated method stub
-		int random_sayi = (int) Math.random();
-		return renkler[random_sayi * renkler.length];
+		int random_sayi = (int) Math.random()*100;
+		return renkler[random_sayi % renkler.length];
 	}
 }

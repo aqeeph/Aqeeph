@@ -49,7 +49,8 @@ public class Agac {
 			Node<Bitki> parent;
 			while (true) {
 				parent = current;
-				if (newnode.get().getAdi().compareTo(current.get().getAdi()) < 0) {
+				//newnode.get().getAdi().compareTo(current.get().getAdi()) < 0
+				if (newnode.getNode().getAdi().compareTo(current.getNode().getAdi()) < 0) {
 					current = current.getLeft_node();// Kucukse sola
 					if (current == null) {
 						parent.setLeft_node(newnode);
@@ -70,19 +71,19 @@ public class Agac {
 	 * @param value
 	 * @return
 	 */
-	public boolean remove(String value) {
+	public boolean agac_remove(String value) {
 
 		if (node == null) {
 			return false;
 		} else {
 
-			if (node.get().getAdi().compareTo(value) == 0) {
+			if (node.getNode().getAdi().compareTo(value) == 0) {
 
 				Node<Bitki> auxnode = new Node<Bitki>(null);
 
 				auxnode.setLeft_node(node);
 
-				boolean result = node.remove(value, auxnode);
+				boolean result = remove(value,node, auxnode);
 
 				node = auxnode.getLeft_node();
 
@@ -90,12 +91,37 @@ public class Agac {
 
 			} else {
 
-				return node.remove(value, null);
+				return remove(value,node, null);
 
 			}
 
 		}
 
+	}
+	public boolean remove(String value,Node<Bitki> current, Node<Bitki> parent) {
+		if (value.compareTo(current.getNode().getAdi()) < 0) {
+			if (current.getLeft_node() != null) {
+				return remove(value,current.getLeft_node(),current);
+			} else {
+				return false;
+			}
+		} else if (value.compareTo(current.getNode().getAdi()) > 0) {
+			if (current.getRight_node() != null) {
+				return remove(value,current.getRight_node(), current);
+			} else {
+				return false;
+			}
+		} else {
+			if (current.getLeft_node() != null && current.getRight_node() != null) {
+				current.getNode().setAdi(current.getRight_node().minValue());
+				remove(current.getNode().getAdi(),current.getRight_node(), current);
+			} else if (parent.getLeft_node() == current) {
+				parent.setLeft_node((current.getLeft_node() != null) ? (Node<Bitki>) current.getLeft_node() : (Node<Bitki>) current.getRight_node());
+			} else if (parent.getRight_node() == current) {
+				parent.setRight_node((current.getLeft_node() != null) ? (Node<Bitki>) current.getLeft_node() : (Node<Bitki>) current.getRight_node());
+			}
+			return true;
+		}
 	}
 
 	/**
@@ -110,7 +136,7 @@ public class Agac {
 			return "Bulunamadi";
 		} else {
 			int sonuc;
-			if ((sonuc = data.compareTo(wanted.get().getAdi())) == 0) {
+			if ((sonuc = data.compareTo(wanted.getNode().getAdi())) == 0) {
 				System.out.println("Bulundu\n");
 				// System.out.println("Bulunan:\n" + wanted.toString());
 				return wanted.toString();
@@ -135,7 +161,7 @@ public class Agac {
 	public void preOrder(Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			// System.out.println(localnode.getBitki().getAdi());
-			preorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.get().getAdi() + "\n");
+			preorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 			preOrder(localnode.getLeft_node(), ++duzey);
 			preOrder(localnode.getRight_node(), duzey);
 		}
@@ -150,7 +176,7 @@ public class Agac {
 		if (localnode != null) {
 			inOrder(localnode.getLeft_node(), duzey);
 			// System.out.println(localnode.getBitki().getAdi());
-			inorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.get().getAdi() + "\n");
+			inorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 			inOrder(localnode.getRight_node(), duzey);
 		}
 	}
@@ -165,7 +191,7 @@ public class Agac {
 			postOrder(localnode.getLeft_node(), duzey);
 			postOrder(localnode.getRight_node(), duzey);
 			// System.out.println(localnode.getBitki().getAdi());
-			postorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.get().getAdi() + "\n");
+			postorder.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 		}
 	}
 

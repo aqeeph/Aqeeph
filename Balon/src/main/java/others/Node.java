@@ -1,39 +1,66 @@
 package others;
+
 /**
- * @author MehmetAkif-PC
+ * @author MEHMET AKIF ILYASOGULLARI
  *
  * @param <T>
  */
 public class Node<T> {
+
+	/**
+	 * @param node       current node
+	 * @param sonraki    sonraki node
+	 * @param left_node  sol cocuk dugum
+	 * @param right_node sag cocuk dugum
+	 */
+	public Node(T node, Node<T> sonraki, Node<T> left_node, Node<T> right_node) {
+		super();
+		this.node = node;
+		this.sonraki = sonraki;
+		this.left_node = left_node;
+		this.right_node = right_node;
+	}
+
 	// T stands for "Type"
 	/**
 	 * 
 	 */
-	private T t;
+	private T node;
 
 	/**
-	 * @param t
+	 * @return the node
 	 */
-	public void set(T t) {
-		this.t = t;
+	public T getNode() {
+		return node;
 	}
 
 	/**
-	 * @return
+	 * @param node the node to set
 	 */
-	public T get() {
-		return t;
+	public void setNode(T node) {
+		this.node = node;
 	}
 
 	/**
 	 * 
 	 */
 	private Node<T> sonraki;
+	/**
+	 * 
+	 */
+	private Node<T> left_node, right_node;
 
 	/**
 	 * 
 	 */
 	public Node() {
+	}
+
+	/**
+	 * @param t
+	 */
+	public Node(T t) {
+		this.node = t;
 	}
 
 	/**
@@ -54,9 +81,38 @@ public class Node<T> {
 	 *
 	 */
 	public String toString() {
-		// return "Balonun numarasi:" + no + "\t" + "Balonun rengi:"+ ((Node<T>)
-		// t).getRenk();
-		return t.toString();
+		if (node == null) {
+			return null;
+		} else {
+			return node.toString();
+		}
 	}
 
+	/**
+	 * @return
+	 */
+	public Node<T> getLeft_node() {
+		return left_node;
+	}
+
+	/**
+	 * @param left_node
+	 */
+	public void setLeft_node(Node<T> left_node) {
+		this.left_node = left_node;
+	}
+
+	/**
+	 * @return
+	 */
+	public Node<T> getRight_node() {
+		return right_node;
+	}
+
+	/**
+	 * @param right_node
+	 */
+	public void setRight_node(Node<T> right_node) {
+		this.right_node = right_node;
+	}
 }

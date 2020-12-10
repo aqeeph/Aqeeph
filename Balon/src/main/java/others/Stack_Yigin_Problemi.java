@@ -30,12 +30,14 @@ public class Stack_Yigin_Problemi {
 	 * 
 	 */
 	void solution() {
+		System.err.println("solution() started");
 		try {
 			this.problem_yigini.pop().solution();// Paralel hesaplama yap�labilinir.
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
 		}
+		System.err.println("solution() finished");
 	}
 
 	/**

@@ -99,7 +99,6 @@
 					</archive>
 					<verbose>true</verbose>
 					<fork>true</fork>
-					<executable>C:\Program Files\Java\jdk-15.0.1\bin\javac</executable>
 					<compilerArgument>-Xlint:unchecked</compilerArgument>
 				</configuration>
 			</plugin>

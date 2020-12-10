@@ -1762,7 +1762,7 @@ public class Herbalist_App {
 		urunun_bulundusu_kategorinin_nosu = Veritabani_Listesi.getAgac_vektoru()
 				.getAranan_urun_hangi_kategoride_bulundu();
 		boolean sonus = Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(urunun_bulundusu_kategorinin_nosu)
-				.remove(jTextField7.getText());
+				.agac_remove(jTextField7.getText());
 		if (sonus == true) {
 			jTextArea8.setText("agac_vektorunden urun Silindi");
 			System.out.println("agac_vektorunden urun Silindi");

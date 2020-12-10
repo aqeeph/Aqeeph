@@ -5,13 +5,18 @@ import java.util.Stack;
  * @author MehmetAkif-PC
  *
  */
-public class Stack_Bagli_Liste {
+public class Stack_Bagli_Liste_balon {
+
+	@Override
+	public String toString() {
+		return "Stack_Bagli_Liste_balon [yigin=" + yigin + ", gecici=" + gecici + "]";
+	}
 
 	/**
 	 * @param yigin
 	 * @param gecici
 	 */
-	public Stack_Bagli_Liste(Stack<Bagli_Liste> yigin, Bagli_Liste gecici) {
+	public Stack_Bagli_Liste_balon(Stack<Bagli_Liste_balon> yigin, Bagli_Liste_balon gecici) {
 		super();
 		this.yigin = yigin;
 		this.gecici = gecici;
@@ -20,39 +25,38 @@ public class Stack_Bagli_Liste {
 	/**
 	 * 
 	 */
-	private Stack<Bagli_Liste> yigin;
+	private Stack<Bagli_Liste_balon> yigin;
 	/**
 	 * 
 	 */
-	private Bagli_Liste gecici = null;
+	private Bagli_Liste_balon gecici = null;
 
 	/**
 	 * 
 	 */
-	public Stack_Bagli_Liste() {
+	public Stack_Bagli_Liste_balon() {
 		super();
-		this.yigin = new Stack<Bagli_Liste>();
+		this.yigin = new Stack<Bagli_Liste_balon>();
 	}
 
 	/**
 	 * @return
 	 */
-	public Stack<Bagli_Liste> getYigin() {
+	public Stack<Bagli_Liste_balon> getYigin() {
 		return yigin;
 	}
 
 	/**
 	 * @param yigin
 	 */
-	public void setYigin(Stack<Bagli_Liste> yigin) {
+	public void setYigin(Stack<Bagli_Liste_balon> yigin) {
 		this.yigin = yigin;
 	}
 
 	/**
 	 * @param bagli_liste
 	 */
-	public void push_to_yigin(Bagli_Liste bagli_liste) {
-		// TODO Auto-generated method stub
+	public void push_to_yigin(Bagli_Liste_balon bagli_liste) {
 		if (bagli_liste == null) {
 			System.out.println("bagli liste null");
 			return;
@@ -71,14 +75,13 @@ public class Stack_Bagli_Liste {
 	 * @return
 	 */
 	public boolean yigin_bos_mu() {
-		// TODO Auto-generated method stub
 		return this.getYigin().empty();
 	}
 
 	/**
 	 * @return
 	 */
-	public Bagli_Liste pop_from_yigin() {
+	public Bagli_Liste_balon pop_from_yigin() {
 		if (this.yigin == null) {
 		} else {
 			if (this.yigin.empty()) {

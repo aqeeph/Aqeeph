@@ -68,7 +68,7 @@ public class Veritabani_Listesi {
 		Node<Bitki> newnode;
 		for (int i = 0; i < getBitki_veri_tabani().getBitkiler().size(); i++) {
 			newnode = new Node<Bitki>(getBitki_veri_tabani().getBitkiler().elementAt(i));
-			aranan = newnode.get().getKategori();
+			aranan = newnode.getNode().getKategori();
 			endex = getKategori_veri_tabani().bitkinin_kategorisini_bul(aranan);
 			getAgac_vektoru().getAgaclar().elementAt(endex).insert(newnode);
 		}
@@ -123,7 +123,7 @@ public class Veritabani_Listesi {
 	public static boolean agac_vektorunden_kaldir(String string) {
 		int Urunun_bulundugu_kategorinin_nosu;
 		Urunun_bulundugu_kategorinin_nosu = agac_vektoru.getAranan_urun_hangi_kategoride_bulundu();
-		return agac_vektoru.getAgaclar().elementAt(Urunun_bulundugu_kategorinin_nosu).remove(string);
+		return agac_vektoru.getAgaclar().elementAt(Urunun_bulundugu_kategorinin_nosu).agac_remove(string);
 	}
 
 	public static void bitki_veri_tabanindan_kaldir(String string) {

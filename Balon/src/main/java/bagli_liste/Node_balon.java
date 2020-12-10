@@ -10,14 +10,6 @@ import others.Renkler;
  */
 public class Node_balon {
 	/**
-	 *
-	 */
-	@Override
-	public String toString() {
-		return "Node_balon [node_balon=" + node_balon + "]";
-	}
-
-	/**
 	 * 
 	 */
 	private Node<Balon> node_balon;
@@ -26,6 +18,15 @@ public class Node_balon {
 	 * 
 	 */
 	public Node_balon() {
+		try {
+			this.node_balon = new Node<Balon>();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class Node_balon {
 			return;
 		}
 		try {
-			this.node_balon.set(new Balon());
+			this.node_balon.setNode(new Balon());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -52,7 +53,7 @@ public class Node_balon {
 			return;
 		}
 		try {
-			this.node_balon.get().setNo(no);
+			this.node_balon.getNode().setNo(no);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -61,7 +62,30 @@ public class Node_balon {
 			return;
 		}
 		try {
-			this.node_balon.get().setRenk(renk);
+			this.node_balon.getNode().setRenk(renk);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+	}
+
+	/**
+	 * @param balon
+	 */
+	public void set(Balon balon) {
+		node_balon.setNode(balon);
+	}
+
+	/**
+	 * @param no
+	 * @param random_renk
+	 */
+	public void set(int no, String random_renk) {
+		try {
+			this.getNode_balon().setNode(new Balon(no, Renkler.random_renk()));
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -88,10 +112,10 @@ public class Node_balon {
 	/**
 	 * @param node_balon
 	 */
-	public void setSonraki_node_balon(Node_balon node_balon) {
+	public void setSonraki_node_balon(Node<Balon> node_balon) {
 		// [Node<Balon> node_balon].[setSonraki([Node_balon node_balon].[Node<Balon>
 		// node_balon])]
-		this.node_balon.setSonraki(node_balon.node_balon);
+		this.node_balon.setSonraki(node_balon);
 	}
 
 	/**
@@ -103,33 +127,33 @@ public class Node_balon {
 	}
 
 	/**
-	 * @param balon
+	 * 
 	 */
-	public void set(Balon balon) {
-		node_balon.set(balon);
-	}
-
-	/**
-	 * @param no
-	 * @param random_renk
-	 */
-	public void set(int no, String random_renk) {
-		try {
-			this.getNode_balon().set(new Balon(no, Renkler.random_renk()));
-		} catch (NullPointerException e) {
-			e.printStackTrace();
+	public void sonraki_node_balonu_simdiki_node_balon_olarak_ayarla() {
+		if (this.node_balon == null) {
+			System.err.println("this.node_balon==null");
+			System.out.println("exit..."); 
+            // Terminate JVM 
+            System.exit(0);
 			return;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return;
+		} else {
+			this.node_balon = this.node_balon.getSonraki();
 		}
 	}
 
-	public void sonraki_node_balonu_simdiki_node_balon_olarak_ayarla() {
-		this.node_balon=this.node_balon.getSonraki();
+	/**
+	 * 
+	 */
+	public void root_olarak_ayarla() {
+		this.node_balon.setSonraki(node_balon);// dairesel hale geldi.
 	}
 
-	public void root_olarak_ayarla() {
-		this.node_balon.setSonraki(node_balon);
+	/**
+	 *
+	 */
+	@Override
+	public String toString() {
+		return "Node_balon [node_balon=" + node_balon + "]";
 	}
+
 }

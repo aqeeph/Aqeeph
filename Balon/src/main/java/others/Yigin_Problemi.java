@@ -14,7 +14,7 @@ public class Yigin_Problemi extends Problem {
 				+ ", getKacta_bir_patlatilacak()=" + getKacta_bir_patlatilacak() + ", getSayac1()=" + getSayac1()
 				+ ", getSayac2()=" + getSayac2() + ", getKatNo()=" + getKatNo() + ", getProblemSayisi()="
 				+ getProblemSayisi() + ", getProblem_cozum_suresi()=" + getProblem_cozum_suresi() + ", getBaslangic()="
-				+ getBaslangic() + ", getBitis()=" + getBitis() + ", getGecici1()=" + getGecici1() + ", getGecici2()="
+				+ getBaslangic() + ", getGecici1()=" + getGecici1() + ", getGecici2()="
 				+ getGecici2() + ", getListe_eleman_sayisi()=" + getListe_eleman_sayisi() + ", isYigin_bos_mu()="
 				+ isYigin_bos_mu() + ", getOrtalama_problem_cozum_suresi()=" + getOrtalama_problem_cozum_suresi()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
@@ -50,7 +50,7 @@ public class Yigin_Problemi extends Problem {
 	 * 
 	 */
 	public void solution() {
-		System.err.println("----------------------------------------");	
+		System.err.println("solution() started");	
 		try {
 			this.coz();
 		} catch (NullPointerException e) {
@@ -63,5 +63,6 @@ public class Yigin_Problemi extends Problem {
 			e.printStackTrace();
 			return;
 		}
+		System.err.println("solution() finished");
 	}
 }
