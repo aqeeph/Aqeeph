@@ -98,6 +98,16 @@ public class Agac {
 		}
 
 	}
+	/**
+	 * @return left_node.minValue()
+	 */
+//	public String minValue(Node<Bitki> current) {
+//		if (current.getLeft_node() == null) {
+//			return current.getNode().getAdi();
+//		} else {
+//			return minValue(current.getLeft_node());
+//		}
+//	}
 	public boolean remove(String value,Node<Bitki> current, Node<Bitki> parent) {
 		if (value.compareTo(current.getNode().getAdi()) < 0) {
 			if (current.getLeft_node() != null) {
@@ -113,7 +123,8 @@ public class Agac {
 			}
 		} else {
 			if (current.getLeft_node() != null && current.getRight_node() != null) {
-				current.getNode().setAdi(current.getRight_node().minValue());
+				//current.getNode().setAdi(minValue(current.getRight_node()));
+				current.getNode().setAdi(current.getRight_node().minNode().getAdi());
 				remove(current.getNode().getAdi(),current.getRight_node(), current);
 			} else if (parent.getLeft_node() == current) {
 				parent.setLeft_node((current.getLeft_node() != null) ? (Node<Bitki>) current.getLeft_node() : (Node<Bitki>) current.getRight_node());

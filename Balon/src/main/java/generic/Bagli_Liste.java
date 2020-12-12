@@ -1,4 +1,4 @@
-package bagli_liste;
+package generic;
 
 
 /**

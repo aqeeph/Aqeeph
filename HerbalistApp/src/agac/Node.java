@@ -1,7 +1,5 @@
 package agac;
 
-import deva.Bitki;
-
 /**
  * @author MehmetAkif-PC
  *
@@ -83,7 +81,11 @@ public class Node<T> {
 	 *
 	 */
 	public String toString() {
-		return node.toString();
+		if (node == null) {
+			return null;
+		} else {
+			return node.toString();
+		}
 	}
 
 	/**
@@ -117,11 +119,11 @@ public class Node<T> {
 	/**
 	 * @return left_node.minValue()
 	 */
-	public String minValue() {
-		if (left_node == null) {
-			return ((Bitki) this.getNode()).getAdi();
+	public T minNode() {
+		if (this.left_node == null) {
+			return this.getNode();
 		} else {
-			return left_node.minValue();
+			return this.left_node.minNode();
 		}
 	}
 }

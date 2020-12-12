@@ -1,4 +1,4 @@
-package others;
+package generic;
 
 /**
  * @author MEHMET AKIF ILYASOGULLARI
@@ -114,5 +114,16 @@ public class Node<T> {
 	 */
 	public void setRight_node(Node<T> right_node) {
 		this.right_node = right_node;
+	}
+
+	/**
+	 * @return
+	 */
+	public T minNode() {
+		if (this.left_node == null) {
+			return this.getNode();
+		} else {
+			return this.left_node.minNode();
+		}
 	}
 }

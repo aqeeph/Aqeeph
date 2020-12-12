@@ -1,5 +1,7 @@
 package herbalist;
 
+import java.awt.Rectangle;
+
 import javax.swing.JTextField;
 
 public class Herbalist_AppJTextFieldData {
@@ -19,7 +21,11 @@ public class Herbalist_AppJTextFieldData {
 	private JTextField jTextField18;
 	private JTextField jTextField19;
 	private JTextField jTextField20;
-	private static JTextField jTextField = null;
+	private static JTextField jTextField;
+	private static JTextField jTextField2;
+	private static JTextField jTextField5;
+	private static JTextField jTextField3;
+	private static JTextField jTextField7;
 
 	public Herbalist_AppJTextFieldData() {
 	}
@@ -164,5 +170,57 @@ public class Herbalist_AppJTextFieldData {
 
 	public void setjTextField20(JTextField jTextField20) {
 		this.jTextField20 = jTextField20;
+	}
+
+	public JTextField getjTextField2() {
+		if (Herbalist_AppJTextFieldData.jTextField2 == null) {
+			Herbalist_AppJTextFieldData.jTextField2 = new JTextField();
+			Herbalist_AppJTextFieldData.jTextField2.setBounds(new Rectangle(0, 32, 291, 20));
+			Herbalist_AppJTextFieldData.jTextField2.setText("");
+		}
+		return Herbalist_AppJTextFieldData.jTextField2;
+	}
+
+	public void setjTextField2(JTextField jTextField2) {
+		Herbalist_AppJTextFieldData.jTextField2 = jTextField2;
+	}
+
+	public JTextField getjTextField5() {
+		if (Herbalist_AppJTextFieldData.jTextField5 == null) {
+			Herbalist_AppJTextFieldData.jTextField5 = new JTextField();
+			Herbalist_AppJTextFieldData.jTextField5.setBounds(new Rectangle(0, 32, 251, 20));
+			Herbalist_AppJTextFieldData.jTextField5.setText("");
+		}
+		return Herbalist_AppJTextFieldData.jTextField5;
+	}
+
+	public void setjTextField5(JTextField jTextField5) {
+		Herbalist_AppJTextFieldData.jTextField5 = jTextField5;
+	}
+
+	public JTextField getjTextField3() {
+		if (Herbalist_AppJTextFieldData.jTextField3 == null) {
+			Herbalist_AppJTextFieldData.jTextField3 = new JTextField();
+			Herbalist_AppJTextFieldData.jTextField3.setBounds(new Rectangle(290, 32, 284, 20));
+			Herbalist_AppJTextFieldData.jTextField3.setText("ilk ince Arama Yapmaniz Gerekmektedir.");
+		}
+		return Herbalist_AppJTextFieldData.jTextField3;
+	}
+
+	public void setjTextField3(JTextField jTextField3) {
+		Herbalist_AppJTextFieldData.jTextField3 = jTextField3;
+	}
+
+	public JTextField getjTextField7() {
+		if (Herbalist_AppJTextFieldData.jTextField7 == null) {
+			Herbalist_AppJTextFieldData.jTextField7 = new JTextField();
+			Herbalist_AppJTextFieldData.jTextField7.setBounds(new Rectangle(1, 32, 300, 20));
+			Herbalist_AppJTextFieldData.jTextField7.setText("");
+		}
+		return Herbalist_AppJTextFieldData.jTextField7;
+	}
+
+	public void setjTextField7(JTextField jTextField7) {
+		Herbalist_AppJTextFieldData.jTextField7 = jTextField7;
 	}
 }

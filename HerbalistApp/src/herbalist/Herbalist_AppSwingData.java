@@ -4,6 +4,7 @@ import javax.swing.JDialog;
 import javax.swing.JMenuBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class Herbalist_AppSwingData {
 	private Herbalist_AppJFrameData jframedata;
@@ -12,13 +13,14 @@ public class Herbalist_AppSwingData {
 	private Herbalist_AppJMenuItemData jmenuitemdata;
 	private Herbalist_AppJDialogData jdialogdata;
 	private Herbalist_AppJTabbedPaneData jtabbedpanedata;
-	private JScrollPane jScrollPane1;
+	private JScrollPaneData jscrollpanedata = new JScrollPaneData();
 	private Herbalist_AppJTextAreaData jtextareadata;
 	private Herbalist_AppJPanelData jpaneldata;
 	private Herbalist_AppJTextFieldData jtextfielddata;
 	private Herbalist_AppJButtonData jbuttondata;
 	private Herbalist_AppJLabelData jlabeldata;
 	private static JTextArea jTextArea8;
+
 
 	public Herbalist_AppSwingData(Herbalist_AppJFrameData jframedata, Herbalist_AppJMenuBarData jmenubardata,
 			Herbalist_AppJMenuData jmenudata, Herbalist_AppJMenuItemData jmenuitemdata,
@@ -81,11 +83,11 @@ public class Herbalist_AppSwingData {
 	}
 
 	public JScrollPane getjScrollPane1() {
-		return jScrollPane1;
+		return jscrollpanedata.getjScrollPane1();
 	}
 
 	public void setjScrollPane1(JScrollPane jScrollPane1) {
-		this.jScrollPane1 = jScrollPane1;
+		this.jscrollpanedata.setjScrollPane1(jScrollPane1);
 	}
 
 	public Herbalist_AppJTextAreaData getJtextareadata() {
@@ -143,4 +145,54 @@ public class Herbalist_AppSwingData {
 	public void setjTextArea8(JTextArea jTextArea8) {
 		Herbalist_AppSwingData.jTextArea8 = jTextArea8;
 	}
+
+	public JTextField getJTextField2() {
+		return jtextfielddata.getjTextField2();
+	}
+
+
+	public void setjTextField2(JTextField jTextField2) {
+		jtextfielddata.setjTextField2(jTextField2);
+	}
+
+	/**
+	 * This method initializes jTextField5
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	public JTextField getJTextField5() {
+		return jtextfielddata.getjTextField5();
+	}
+
+	public void setjTextField5(JTextField jTextField5) {
+		jtextfielddata.setjTextField5(jTextField5);
+	}
+
+	/**
+	 * This method initializes jTextField3
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	public JTextField getJTextField3() {
+		
+		return jtextfielddata.getjTextField3();
+	}
+
+	public void setjTextField3(JTextField jTextField3) {
+		jtextfielddata.setjTextField3(jTextField3);
+	}
+
+	/**
+	 * This method initializes jTextField7
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	public JTextField getJTextField7() {
+		return jtextfielddata.getjTextField7();
+	}
+
+	public void setjTextField7(JTextField jTextField7) {
+		jtextfielddata.setjTextField7(jTextField7);
+	}
+	
 }

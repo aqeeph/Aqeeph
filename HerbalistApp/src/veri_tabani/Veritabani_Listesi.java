@@ -120,7 +120,7 @@ public class Veritabani_Listesi {
 		return yanit;
 	}
 
-	public static boolean agac_vektorunden_kaldir(String string) {
+	public static boolean agac_vektorunden_sil(String string) {
 		int Urunun_bulundugu_kategorinin_nosu;
 		Urunun_bulundugu_kategorinin_nosu = agac_vektoru.getAranan_urun_hangi_kategoride_bulundu();
 		return agac_vektoru.getAgaclar().elementAt(Urunun_bulundugu_kategorinin_nosu).agac_remove(string);
@@ -146,6 +146,11 @@ public class Veritabani_Listesi {
 		stringBuilder.append("3)Varsa lutfen bitki.txt dosyasindaki hatayi duzeltin\n");
 
 		return stringBuilder.toString();
+	}
+	public static String agac_kategorilerinde_ara(String aranan_Urun) {
+		String aranan_bitki = "";
+		aranan_bitki = Veritabani_Listesi.getAgac_vektoru().find(aranan_Urun);
+		return aranan_bitki;
 	}
 
 }

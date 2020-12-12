@@ -1,5 +1,5 @@
 package balon;
-import others.Renkler;
+import renkler.Renkler;
 /**
  * @author MehmetAkif ILYASOGULLARI
  *

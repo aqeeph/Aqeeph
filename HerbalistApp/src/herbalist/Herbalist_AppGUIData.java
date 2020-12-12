@@ -16,8 +16,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Herbalist_AppGUIData {
+	
 	private Herbalist_AppStringData stringdata;
 	private Herbalist_AppSwingData swingdata;
+	
 
 	public Herbalist_AppGUIData(Herbalist_AppStringData stringdata, Herbalist_AppSwingData swingdata,
 			JFrame herbalist_Application, JPanel menu, JMenuBar jJMenuBar, JMenu fileMenu, JMenu editMenu,
@@ -1545,5 +1547,61 @@ public class Herbalist_AppGUIData {
 
 	public void setjButton19(JButton jButton19) {
 		this.swingdata.getJbuttondata().setjButton19(jButton19);
+	}
+
+	public void agac_vectorunden_urun_silindi_mi(boolean sonuc) {
+		if (sonuc == true) {
+			this.getSwingdata().getjTextArea8().setText("agac_vektorunden Urun Silindi");
+			System.out.println("agac_vektorunden Urun Silindi");
+		} else {
+			this.getSwingdata().getjTextArea8().setText("agac_vektorunde Urun Bulunamadi");
+			System.out.println("agac_vektorunde Urun Bulunamadi");
+		}
+	}
+
+	JTextField getJTextField2() {
+		return swingdata.getJTextField2();
+	}
+	public void setjTextField2(JTextField jTextField2) {
+		swingdata.setjTextField2(jTextField2);
+	}
+
+	/**
+	 * This method initializes jTextField3
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	JTextField getJTextField3() {
+		return this.swingdata.getJTextField3();
+	}
+
+	public void setjTextField3(JTextField jTextField3) {
+		this.swingdata.setjTextField3(jTextField3);
+	}
+
+	/**
+	 * This method initializes jTextField5
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	public JTextField getJTextField5() {
+		return this.swingdata.getJTextField5();
+	}
+
+	public void setjTextField5(JTextField jTextField5) {
+		this.swingdata.setjTextField5(jTextField5);
+	}
+
+	/**
+	 * This method initializes jTextField7
+	 * 
+	 * @return javax.swing.JTextField
+	 */
+	public JTextField getJTextField7() {
+		return this.swingdata.getJTextField7();
+	}
+
+	public void setjTextField7(JTextField jTextField7) {
+		this.swingdata.setjTextField7(jTextField7);
 	}
 }

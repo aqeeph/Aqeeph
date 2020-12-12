@@ -58,12 +58,14 @@ public class Stack_Bagli_Liste_balon {
 	 */
 	public void push_to_yigin(Bagli_Liste_balon bagli_liste) {
 		if (bagli_liste == null) {
-			System.out.println("bagli liste null");
+			//System.out.println("bagli liste null");
+			System.exit(0);
 			return;
 		} else {
 			// System.err.println(gecici1);
 			if (yigin == null) {
-				System.out.println("yigin null");
+				//System.out.println("yigin null");
+				System.exit(0);
 				return;
 			} else {
 				this.getYigin().push(bagli_liste);
@@ -85,7 +87,8 @@ public class Stack_Bagli_Liste_balon {
 		if (this.yigin == null) {
 		} else {
 			if (this.yigin.empty()) {
-				System.out.println("yigin bos");
+				//System.out.println("yigin bos");
+				System.exit(0);
 			} else {
 				this.gecici = this.getYigin().pop();
 			}

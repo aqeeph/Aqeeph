@@ -1,4 +1,4 @@
-package others;
+package problem;
 
 import bagli_liste.Bagli_Liste_balon;
 import bagli_liste.Stack_Bagli_Liste_balon;
@@ -175,7 +175,7 @@ public class Problem {
 	 */
 	protected void coz() {
 		this.baslangic = System.nanoTime(); // sistem saati degeri milisaniye olarak alindi.
-		System.err.println("coz() started");
+		//System.err.println("coz() started");
 		this.yigin_bos_mu = this.blynin_yigini_bos_mu();
 		while (!this.yigin_bos_mu) {
 			this.gecici2 = this.bly.pop_from_yigin();
@@ -184,6 +184,7 @@ public class Problem {
 					this.gecici2.patlat(kacta_bir_cikarilacak);
 				} catch (NullPointerException e) {
 					e.printStackTrace();
+					System.exit(0);
 					return;
 				}
 				this.problemSayisi++;
@@ -192,7 +193,7 @@ public class Problem {
 		} // yigit bosalana kadar her bir eleman gecici listeye atilip patlat metoduna
 			// maruz
 			// birakildi ve her bir liste bir balon problemi sayildi.
-		System.err.println("coz() finished");
+		//System.err.println("coz() finished");
 		this.problem_cozum_suresi = System.nanoTime() - this.baslangic;
 		if(this.problem_cozum_suresi==0) {System.out.println("saatte hata var");}
 	}
@@ -207,7 +208,7 @@ public class Problem {
 	/**
 	 * 
 	 */
-	protected void kac_tanede_bir_yigindan_cikarilacak() {
+	protected void kac_tanede_bir_stackden_cikarilacak() {
 		do {
 			System.out.println("n degerini (kac dugumde bir yigindan cikarma isleminin yapilacagini) giriniz:");
 			this.str2 = new Scanner(System.in);
@@ -231,14 +232,15 @@ public class Problem {
 	 * 
 	 */
 	protected void insert_item_to_bly() {
-		System.err.println("insert_item_to_bly() started");
+		//System.err.println("insert_item_to_bly() started");
 		try {
 			while (sayac1 <= uretilecek_olan_balon_sayisi) {
 				this.gecici1 = new Bagli_Liste_balon(katNo);// gruplama araci
 				System.out.println("\n" + katNo + ". kattaki bagli listedeki balonlar:");
 				this.sayac2 = 1;
 				if (this.gecici1 == null) {
-					System.err.println("bagli listeye ekleme yapilamadi.");
+					//System.err.println("bagli listeye ekleme yapilamadi.");
+					System.exit(0);
 					return;
 				} else {
 					while (sayac2 <= liste_eleman_sayisi && sayac1 <= uretilecek_olan_balon_sayisi) {
@@ -246,9 +248,11 @@ public class Problem {
 							this.gecici1.Ekle(this.sayac1);
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
 						this.sayac1++;
@@ -258,15 +262,18 @@ public class Problem {
 						System.out.println("this.gecici1.dolas():" + this.gecici1.dolas());
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						System.exit(0);
 						return;
 					} catch (Exception e) {
 						e.printStackTrace();
+						System.exit(0);
 						return;
 					}
 					try {
 						this.push_to_bly(this.gecici1);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						System.exit(0);
 						return;
 					}
 					this.katNo++;
@@ -277,9 +284,10 @@ public class Problem {
 			}
 		} catch (NullPointerException e) {
 			e.printStackTrace();
+			System.exit(0);
 			return;
 		}
-		System.err.println("insert_item_to_bly() finished");
+		//System.err.println("insert_item_to_bly() finished");
 	}
 
 	/**
@@ -488,7 +496,7 @@ public class Problem {
 	/**
 	 * @return
 	 */
-	protected boolean isYigin_bos_mu() {
+	protected boolean isStack_bos_mu() {
 		return yigin_bos_mu;
 	}
 

@@ -1,4 +1,4 @@
-package others;
+package renkler;
 
 /**
  * @author MehmetAkif-PC

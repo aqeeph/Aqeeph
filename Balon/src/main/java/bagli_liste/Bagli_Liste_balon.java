@@ -4,8 +4,9 @@
 package bagli_liste;
 
 import balon.Balon;
-import others.Node;
-import others.Renkler;
+import generic.Bagli_Liste;
+import generic.Node;
+import renkler.Renkler;
 
 /**
  * @author MEHMET AKIF ILYASOGULLARI
@@ -24,8 +25,9 @@ public class Bagli_Liste_balon {
 		super();
 		if (this.bagli_liste_balon == null) {
 			this.bagli_liste_balon = new Bagli_Liste<Node_balon>();
-			System.err.println("hata1 Bagli_Liste_balon() this.bagli_liste_balon==null)");
-			System.err.println("consructor 1)");
+			// System.err.println("hata1 Bagli_Liste_balon()
+			// this.bagli_liste_balon==null)");
+			// System.err.println("consructor 1)");
 			this.bagli_liste_balon.setBas(new Node_balon());
 			this.bagli_liste_balon.setYeniBalon(new Node_balon());
 			this.bagli_liste_balon.setSimdiki(new Node_balon());
@@ -38,7 +40,7 @@ public class Bagli_Liste_balon {
 			this.bagli_liste_balon.getSilinecek().setNode_balon(new Node<Balon>());
 			this.bagli_liste_balon.getDolas().setNode_balon(new Node<Balon>());
 		} else {
-			System.err.println("consructor 1)");
+			// System.err.println("consructor 1)");
 			this.bagli_liste_balon.setBas(new Node_balon());
 			this.bagli_liste_balon.setYeniBalon(new Node_balon());
 			this.bagli_liste_balon.setSimdiki(new Node_balon());
@@ -79,7 +81,7 @@ public class Bagli_Liste_balon {
 			this.bagli_liste_balon.getDolas().setNode_balon(new Node<Balon>());
 			this.bagli_liste_balon.setKatNumarasi(katNo);
 		} else {
-			System.err.println("consructor 2)");
+			// System.err.println("consructor 2)");
 			this.bagli_liste_balon.setBas(new Node_balon());
 			this.bagli_liste_balon.setYeniBalon(new Node_balon());
 			this.bagli_liste_balon.setSimdiki(new Node_balon());
@@ -94,29 +96,64 @@ public class Bagli_Liste_balon {
 			this.bagli_liste_balon.getDolas().setNode_balon(new Node<Balon>());
 		}
 	}
-
+	private Node_balon yeni_balon(int no) {
+		try {
+			this.bagli_liste_balon.setYeniBalon(new Node_balon());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.exit(0);
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+			return null;
+		}
+		try {
+			this.bagli_liste_balon.getYeniBalon().setNode_balon(new Node<Balon>());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.exit(0);
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+			return null;
+		}
+		try {
+			this.bagli_liste_balon.getYeniBalon().set(no, Renkler.random_renk());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.exit(0);
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return this.bagli_liste_balon.getYeniBalon();
+	}
 	/**
 	 * @param no
 	 */
 	public void Ekle(int no) {// bagli diziye eleman ekler.
-		System.out.println("Ekle(int no) started");
+		// System.out.println("Ekle(int no) started");
 		if (this.bagli_liste_balon == null) {
-			System.err.println("Ekle(int no)  this.bagli_liste_balon==null)");
-			System.out.println("exit...");
+			// System.err.println("Ekle(int no) this.bagli_liste_balon==null)");
+			// System.out.println("exit...");
 			// Terminate JVM
 			System.exit(0);
 		} else {
 			// bagli_liste_balon = new Bagli_Liste<Node_balon>();
 			if (this.bagli_liste_balon.getBas() == null) {// liste yeni olusturuluyorsa;
-				System.err.println("Ekle(int no)  this.bagli_liste_balon.getBas()==null)");
-				System.out.println("exit...");
+				// System.err.println("Ekle(int no) this.bagli_liste_balon.getBas()==null)");
+				// System.out.println("exit...");
 				// Terminate JVM
 				System.exit(0);
 			} else {
 				// this.bagli_liste_balon.setBas(new Node_balon());
 				if (this.bagli_liste_balon.getBas().getNode_balon() == null) {
-					System.err.println("Ekle(int no)  this.bagli_liste_balon.getBas().getNode_balon() == null");
-					System.out.println("exit...");
+					// System.err.println("Ekle(int no)
+					// this.bagli_liste_balon.getBas().getNode_balon() == null");
+					// System.out.println("exit...");
 					// Terminate JVM
 					System.exit(0);
 				} else {
@@ -127,14 +164,17 @@ public class Bagli_Liste_balon {
 						this.bagli_liste_balon.getBas().getNode_balon().setNode(new Balon(no, Renkler.random_renk()));
 						System.out.println("eklenen balon:" + this.bagli_liste_balon.getBas().toString());
 						try {
-							this.bagli_liste_balon.getBas().getNode_balon()
-									.setSonraki(this.bagli_liste_balon.getBas().getNode_balon());
-							// bas.root_olarak_ayarla();// bagli listeyi dairesel hale getirmek icin
+//							this.bagli_liste_balon.getBas().getNode_balon()
+//									.setSonraki(this.bagli_liste_balon.getBas().getNode_balon());
+							this.bagli_liste_balon.getBas().root_olarak_ayarla();// bagli listeyi dairesel hale getirmek
+																					// icin
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
 					} else {
@@ -144,9 +184,11 @@ public class Bagli_Liste_balon {
 									.setNode_balon(this.bagli_liste_balon.getBas().getNode_balon());
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
 						try {
@@ -154,9 +196,11 @@ public class Bagli_Liste_balon {
 									.setNode_balon(this.bagli_liste_balon.getBas().getNode_balon());
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
 						do {
@@ -165,9 +209,11 @@ public class Bagli_Liste_balon {
 										.sonraki_node_balonu_simdiki_node_balon_olarak_ayarla();
 							} catch (NullPointerException e) {
 								e.printStackTrace();
+								System.exit(0);
 								return;
 							} catch (Exception e) {
 								e.printStackTrace();
+								System.exit(0);
 								return;
 							}
 							try {
@@ -175,9 +221,11 @@ public class Bagli_Liste_balon {
 										.setNode_balon(this.bagli_liste_balon.getGecici().getSonraki_node_balon());
 							} catch (NullPointerException e) {
 								e.printStackTrace();
+								System.exit(0);
 								return;
 							} catch (Exception e) {
 								e.printStackTrace();
+								System.exit(0);
 								return;
 							}
 						} while (this.bagli_liste_balon.getSimdiki().getNode_balon() != this.bagli_liste_balon.getBas()
@@ -188,9 +236,11 @@ public class Bagli_Liste_balon {
 									.setSonraki_node_balon(this.bagli_liste_balon.getYeniBalon().getNode_balon());
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
 						try {
@@ -198,17 +248,34 @@ public class Bagli_Liste_balon {
 									.setSonraki_node_balon(this.bagli_liste_balon.getBas().getNode_balon());
 						} catch (NullPointerException e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						} catch (Exception e) {
 							e.printStackTrace();
+							System.exit(0);
 							return;
 						}
-						System.out.println("eklenen balon:" + this.bagli_liste_balon.getYeniBalon().toString());
+						try {
+							System.out.println("eklenen balon:" + this.bagli_liste_balon.getYeniBalon().toString());
+						} catch (NullPointerException e) {
+							e.printStackTrace();
+							System.exit(0);
+							return;
+						}catch (OutOfMemoryError e) {
+							e.printStackTrace();
+							System.exit(0);
+							return;
+						} catch (Exception e) {
+							e.printStackTrace();
+							System.exit(0);
+							return;
+						}
+
 					}
 				}
 			}
 		}
-		System.out.println("Ekle(int no) finished");
+		// System.out.println("Ekle(int no) finished");
 	}
 
 	/**
@@ -217,7 +284,8 @@ public class Bagli_Liste_balon {
 	public Bagli_Liste_balon(Bagli_Liste<Node_balon> bagli_liste_balon) {
 		super();
 		if (bagli_liste_balon == null) {
-			System.err.println("hata3 Bagli_Liste_balon(Bagli_Liste<Node_balon> bagli_liste_balon==null)");
+			// System.err.println("hata3 Bagli_Liste_balon(Bagli_Liste<Node_balon>
+			// bagli_liste_balon==null)");
 			this.bagli_liste_balon = new Bagli_Liste<Node_balon>();
 			this.bagli_liste_balon.setBas(new Node_balon());
 			this.bagli_liste_balon.setYeniBalon(new Node_balon());
@@ -231,7 +299,7 @@ public class Bagli_Liste_balon {
 			this.bagli_liste_balon.getSilinecek().setNode_balon(new Node<Balon>());
 			this.bagli_liste_balon.getDolas().setNode_balon(new Node<Balon>());
 		} else {
-			System.err.println("consructor 3)");
+			// System.err.println("consructor 3)");
 			this.bagli_liste_balon = bagli_liste_balon;
 		}
 	}
@@ -261,58 +329,31 @@ public class Bagli_Liste_balon {
 	/**
 	 * @param no
 	 */
-	private Node_balon yeni_balon(int no) {
-		try {
-			this.bagli_liste_balon.setYeniBalon(new Node_balon());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		}
-		try {
-			this.bagli_liste_balon.getYeniBalon().setNode_balon(new Node<Balon>());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		}
-		try {
-			this.bagli_liste_balon.getYeniBalon().set(no, Renkler.random_renk());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return this.bagli_liste_balon.getYeniBalon();
-		}
-		return this.bagli_liste_balon.getYeniBalon();
-	}
+	
 
 	/**
 	 * @param n
 	 */
 	public void patlat(int n) {
-		System.err.println("patlat(int n) started");
+		// System.err.println("patlat(int n) started");
 		StringBuilder stringBuilder = new StringBuilder();
 		if (this.bagli_liste_balon.getBas() == null) {
-			System.err.println(
-					"hata patlat(int n) : this.bagli_liste_balon.getBas() == null");
+			// System.err.println(
+			// "hata patlat(int n) : this.bagli_liste_balon.getBas() == null");
 			return;
 		} else {
 			if (this.bagli_liste_balon.getBas().getNode_balon() == null) {
-				System.err.println(
-						"hata patlat(int n) : this.bagli_liste_balon.getBas().getNode_balon() == null");
+				// System.err.println(
+				// "hata patlat(int n) : this.bagli_liste_balon.getBas().getNode_balon() ==
+				// null");
 				return;
 			} else {
 				if (this.bagli_liste_balon.getBas().getNode_balon().getNode() == null) {
-					System.err.println(
-							"hata patlat(int n) : this.bagli_liste_balon.getBas().getNode_balon().getNode()==null");
+					// System.err.println(
+					// "hata patlat(int n) :
+					// this.bagli_liste_balon.getBas().getNode_balon().getNode()==null");
 					return;
-				}else {
+				} else {
 					try {
 						this.bagli_liste_balon.getSilinecek()
 								.setNode_balon(this.bagli_liste_balon.getBas().getSonraki_node_balon());// silinecek
@@ -377,27 +418,27 @@ public class Bagli_Liste_balon {
 		stringBuilder.append("\n\n" + this.bagli_liste_balon.getKatNumarasi() + ".katta " + "kalan;\t");
 		stringBuilder.append(this.bagli_liste_balon.getBas().toString());// onu da ekrana yazdiralim.
 		System.out.println(stringBuilder.toString());
-		System.err.println("patlat(int n) finished");
+		//System.err.println("patlat(int n) finished");
 	}
 
 	/**
 	 * @return
 	 */
 	public String dolas() {
-		System.err.println("dolas() started");
+		//System.err.println("dolas() started");
 		StringBuilder stringBuilder = new StringBuilder();
 		if (this.bagli_liste_balon == null) {
-			System.err.println("hata bagli_liste_balon==null");
+			//System.err.println("hata bagli_liste_balon==null");
 		} else {
 			// System.err.println("hata bagli_liste_balon null değil");
 			if (this.bagli_liste_balon.getBas() == null) {
-				System.err.println("hata this.bagli_liste_balon.getBas() == null");
+				//System.err.println("hata this.bagli_liste_balon.getBas() == null");
 			} else {
 				if (this.bagli_liste_balon.getBas().getNode_balon() == null) {
-					System.err.println("hata this.bagli_liste_balon.getBas().getNode_balon()==null");
+					//System.err.println("hata this.bagli_liste_balon.getBas().getNode_balon()==null");
 				} else {
 					if (this.bagli_liste_balon.getBas().getNode_balon().getNode() == null) {
-						System.err.println("hata this.bagli_liste_balon.getBas().getNode_balon().getNode()==null");
+						//System.err.println("hata this.bagli_liste_balon.getBas().getNode_balon().getNode()==null");
 					} else {
 						this.bagli_liste_balon.setDolas(this.bagli_liste_balon.getBas());
 						do {
@@ -428,7 +469,7 @@ public class Bagli_Liste_balon {
 				}
 			}
 		}
-		System.err.println("dolas() finished");
+		//System.err.println("dolas() finished");
 		return stringBuilder.toString();
 	}
 

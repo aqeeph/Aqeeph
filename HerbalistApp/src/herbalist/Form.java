@@ -4,13 +4,31 @@ import java.util.Vector;
 
 import javax.swing.SwingUtilities;
 
-import veri_tabani.Veritabani_Listesi;
-
 public class Form {
+	/**
+	 * 
+	 */
+	private Runnable herbalist_app_runnable;
+	/**
+	 * @return the herbalist_app_runnable
+	 */
+	public Runnable getHerbalist_app_runnable() {
+		return herbalist_app_runnable;
+	}
 
+	/**
+	 * @param herbalist_app_runnable the herbalist_app_runnable to set
+	 */
+	public void setHerbalist_app_runnable(Runnable herbalist_app_runnable) {
+		this.herbalist_app_runnable = herbalist_app_runnable;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public String toString() {
-		return "Form []";
+		return "Form [herbalist_app_runnable=" + herbalist_app_runnable + "]";
 	}
 
 	/**
@@ -18,17 +36,7 @@ public class Form {
 	 */
 	public Form() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * 
-	 */
-	void herbalist_appgui() {
-		Veritabani_Listesi.veri_tabanlarini_olustur();
-		Veritabani_Listesi.veri_tabanlarini_veri_yapilarina_kopyala();
-
-		SwingUtilities.invokeLater(new Runnable() {
+		herbalist_app_runnable =new Runnable() {
 			public void run() {
 				Herbalist_App application = new Herbalist_App(new Herbalist_AppGUIData(new Herbalist_AppStringData(),
 						new Herbalist_AppSwingData(new Herbalist_AppJFrameData(), new Herbalist_AppJMenuBarData(),
@@ -50,7 +58,14 @@ public class Form {
 						null, null, null, null, null, null, null, null, null, null));
 				application.getHerbalist_Application().setVisible(true);
 			}
-		});
+		};
+	}
+
+	/**
+	 * 
+	 */
+	void herbalist_appgui() {
+		SwingUtilities.invokeLater(herbalist_app_runnable);
 	}
 
 }

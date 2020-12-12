@@ -1,8 +1,8 @@
 package bagli_liste;
 
 import balon.Balon;
-import others.Node;
-import others.Renkler;
+import generic.Node;
+import renkler.Renkler;
 
 /**
  * @author MehmetAkif-PC
