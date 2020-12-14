@@ -1,24 +1,23 @@
 package agac;
 
-import java.util.Vector;
-
 import deva.Bitki;
+import deva.Vector_string;
 
 public class Agac {
 	public Node<Bitki> node;
 	public int node_sayisi = 0;
 
-	private Vector<String> preorder;
-	private Vector<String> inorder;
-	private Vector<String> postorder;
+	private Vector_string preorder;
+	private Vector_string inorder;
+	private Vector_string postorder;
 
 	/**
 	 * 
 	 */
 	public Agac() {
-		setPreorder(new Vector<String>());
-		setInorder(new Vector<String>());
-		setPostorder(new Vector<String>());
+		setPreorder(new Vector_string());
+		setInorder(new Vector_string());
+		setPostorder(new Vector_string());
 		node = null;
 		node_sayisi++;
 	}
@@ -250,42 +249,42 @@ public class Agac {
 	/**
 	 * @param preorder
 	 */
-	public void setPreorder(Vector<String> preorder) {
+	public void setPreorder(Vector_string preorder) {
 		this.preorder = preorder;
 	}
 
 	/**
 	 * @return
 	 */
-	public Vector<String> getPreorder() {
+	public Vector_string getPreorder() {
 		return preorder;
 	}
 
 	/**
-	 * @param inorder
+	 * @param vector_string
 	 */
-	public void setInorder(Vector<String> inorder) {
-		this.inorder = inorder;
+	public void setInorder(Vector_string vector_string) {
+		this.inorder = vector_string;
 	}
 
 	/**
 	 * @return
 	 */
-	public Vector<String> getInorder() {
+	public Vector_string getInorder() {
 		return inorder;
 	}
 
 	/**
-	 * @param postorder
+	 * @param vector_string
 	 */
-	public void setPostorder(Vector<String> postorder) {
-		this.postorder = postorder;
+	public void setPostorder(Vector_string vector_string) {
+		this.postorder = vector_string;
 	}
 
 	/**
 	 * @return
 	 */
-	public Vector<String> getPostorder() {
+	public Vector_string getPostorder() {
 		return postorder;
 	}
 } // class Agac

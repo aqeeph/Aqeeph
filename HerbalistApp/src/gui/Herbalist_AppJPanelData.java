@@ -1,4 +1,4 @@
-package herbalist;
+package gui;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

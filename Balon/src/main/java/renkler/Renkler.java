@@ -1,4 +1,4 @@
-package renkler;
+package main.java.renkler;
 
 /**
  * @author MehmetAkif-PC

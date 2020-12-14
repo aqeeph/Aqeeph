@@ -1,5 +1,5 @@
-package balon;
-import renkler.Renkler;
+package main.java.balon;
+import main.java.renkler.Renkler;
 /**
  * @author MehmetAkif ILYASOGULLARI
  *

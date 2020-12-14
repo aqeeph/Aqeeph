@@ -1,7 +1,7 @@
 /**
  * 
  */
-package herbalist;
+package gui;
 
 import javax.swing.JFrame;
 
@@ -9,6 +9,11 @@ import javax.swing.JFrame;
  * @author MehmetAkif-PC
  */
 public class Herbalist_AppJFrameData {
+	@Override
+	public String toString() {
+		return "Herbalist_AppJFrameData [Herbalist_Application=" + Herbalist_Application + "]";
+	}
+
 	/**
 	 * 
 	 */

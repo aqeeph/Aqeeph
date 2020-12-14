@@ -1,4 +1,4 @@
-package herbalist;
+package gui;
 
 import javax.swing.JDialog;
 import javax.swing.JMenuBar;
@@ -7,6 +7,50 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Herbalist_AppSwingData {
+	@Override
+	public String toString() {
+		return "Herbalist_AppSwingData [jframedata=" + jframedata + ", jmenubardata=" + jmenubardata + ", jmenudata="
+				+ jmenudata + ", jmenuitemdata=" + jmenuitemdata + ", jdialogdata=" + jdialogdata + ", jtabbedpanedata="
+				+ jtabbedpanedata + ", jscrollpanedata=" + jscrollpanedata + ", jtextareadata=" + jtextareadata
+				+ ", jpaneldata=" + jpaneldata + ", jtextfielddata=" + jtextfielddata + ", jbuttondata=" + jbuttondata
+				+ ", jlabeldata=" + jlabeldata + "]";
+	}
+
+	/**
+	 * @param jframedata
+	 * @param jmenubardata
+	 * @param jmenudata
+	 * @param jmenuitemdata
+	 * @param jdialogdata
+	 * @param jtabbedpanedata
+	 * @param jscrollpanedata
+	 * @param jtextareadata
+	 * @param jpaneldata
+	 * @param jtextfielddata
+	 * @param jbuttondata
+	 * @param jlabeldata
+	 */
+	public Herbalist_AppSwingData(Herbalist_AppJFrameData jframedata, Herbalist_AppJMenuBarData jmenubardata,
+			Herbalist_AppJMenuData jmenudata, Herbalist_AppJMenuItemData jmenuitemdata,
+			Herbalist_AppJDialogData jdialogdata, Herbalist_AppJTabbedPaneData jtabbedpanedata,
+			JScrollPaneData jscrollpanedata, Herbalist_AppJTextAreaData jtextareadata,
+			Herbalist_AppJPanelData jpaneldata, Herbalist_AppJTextFieldData jtextfielddata,
+			Herbalist_AppJButtonData jbuttondata, Herbalist_AppJLabelData jlabeldata) {
+		super();
+		this.jframedata = jframedata;
+		this.jmenubardata = jmenubardata;
+		this.jmenudata = jmenudata;
+		this.jmenuitemdata = jmenuitemdata;
+		this.jdialogdata = jdialogdata;
+		this.jtabbedpanedata = jtabbedpanedata;
+		this.jscrollpanedata = jscrollpanedata;
+		this.jtextareadata = jtextareadata;
+		this.jpaneldata = jpaneldata;
+		this.jtextfielddata = jtextfielddata;
+		this.jbuttondata = jbuttondata;
+		this.jlabeldata = jlabeldata;
+	}
+
 	private Herbalist_AppJFrameData jframedata;
 	private Herbalist_AppJMenuBarData jmenubardata;
 	private Herbalist_AppJMenuData jmenudata;
@@ -19,7 +63,7 @@ public class Herbalist_AppSwingData {
 	private Herbalist_AppJTextFieldData jtextfielddata;
 	private Herbalist_AppJButtonData jbuttondata;
 	private Herbalist_AppJLabelData jlabeldata;
-	private static JTextArea jTextArea8;
+	
 
 
 	public Herbalist_AppSwingData(Herbalist_AppJFrameData jframedata, Herbalist_AppJMenuBarData jmenubardata,
@@ -139,11 +183,11 @@ public class Herbalist_AppSwingData {
 	}
 
 	public JTextArea getjTextArea8() {
-		return jTextArea8;
+		return this.jtextareadata.getjTextArea8();
 	}
 
 	public void setjTextArea8(JTextArea jTextArea8) {
-		Herbalist_AppSwingData.jTextArea8 = jTextArea8;
+		this.jtextareadata.setjTextArea8(jTextArea8);
 	}
 
 	public JTextField getJTextField2() {

@@ -1,6 +1,6 @@
-package stack;
+package main.java.stack;
 
-import problem.Problem;
+import main.java.problem.Problem;
 
 /**
  * @author MehmetAkif-PC

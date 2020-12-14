@@ -1,8 +1,14 @@
-package herbalist;
+package gui;
 
 import java.util.Vector;
 
 public class Herbalist_AppStringData {
+	@Override
+	public String toString() {
+		return "Herbalist_AppStringData [yanit=" + yanit + ", belirtiler=" + belirtiler + ", nedenler=" + nedenler
+				+ ", tedaviler=" + tedaviler + ", bitkiler=" + bitkiler + "]";
+	}
+
 	private String yanit;
 	private Vector<String> belirtiler;
 	private Vector<String> nedenler;

@@ -1,7 +1,7 @@
-package main;
+package main.java.main;
 
-import stack.Stack_Problemi;
-import stack.Stack_Stack_Problemi;
+import main.java.stack.Stack_Problemi;
+import main.java.stack.Stack_Stack_Problemi;
 
 /**
  * @author MehmetAkif-PC

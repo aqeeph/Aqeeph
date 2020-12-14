@@ -1,7 +1,7 @@
 /**
  * 
  */
-package herbalist;
+package gui;
 
 import javax.swing.JLabel;
 

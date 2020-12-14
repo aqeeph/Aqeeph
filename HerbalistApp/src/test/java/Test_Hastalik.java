@@ -1,4 +1,4 @@
-package test;
+package test.java;
 
 import veri_tabani.Hastalik_veri_tabani;
 

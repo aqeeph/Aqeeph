@@ -5,4 +5,4 @@
  * @author MEHMET AKIF ILYASOGULLARI
  *
  */
-package generic;
+package main.java.generic;

@@ -1,4 +1,4 @@
-package test;
+package test.java;
 
 import java.awt.BorderLayout;
 import java.awt.Event;
@@ -26,6 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import dert.Hastalik;
+import deva.Vector_string;
 import veri_tabani.Kategori;
 import veri_tabani.Veritabani_Listesi;
 
@@ -786,18 +787,7 @@ public class Herbalist_App {
 		return jTextArea1;
 	}
 
-	private static String aranan_urunun_bilgilerini_listele(String aranan_urun) {
-		String yanit = "";
 
-		for (int i = 0; i < Veritabani_Listesi.getAgac_vektoru().getAgaclar().size(); i++) {
-			yanit = Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(i)
-					.find(Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(i).getNode(), aranan_urun);
-			if (yanit.compareTo("Bulunamadi") != 0) {
-				break;
-			}
-		}
-		return yanit;
-	}
 
 	/**
 	 * This method initializes jButton
@@ -811,7 +801,7 @@ public class Herbalist_App {
 			jButton.setText("Aranan urunun Bilgilerini Listele");
 			jButton.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					jTextArea1.setText(aranan_urunun_bilgilerini_listele(jTextField.getText()));
+					jTextArea1.setText(Veritabani_Listesi.aranan_urunun_bilgilerini_listele(jTextField.getText()));
 					System.out.println("Aranan urun Bilgileri Listelendi");
 					// Auto-generated
 					// Event stub
@@ -1031,7 +1021,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setInorder(new Vector<String>());
+								.setInorder(new Vector_string());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						jTextArea2.setText(
@@ -1077,7 +1067,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPreorder(new Vector<String>());
+								.setPreorder(new Vector_string());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						// jTextArea3.setText(getAgac_vektoru().getagaclar().elementAt(endex).inOrder_yazdir());
@@ -1123,7 +1113,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPostorder(new Vector<String>());
+								.setPostorder(new Vector_string());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						// jTextArea6.setText(getAgac_vektoru().getagaclar().elementAt(endex).postOrder_yazdir());

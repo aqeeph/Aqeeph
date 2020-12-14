@@ -5,4 +5,4 @@
  * @author MEHMET AKIF ILYASOGULLARI
  *
  */
-package problem;
+package main.java.problem;

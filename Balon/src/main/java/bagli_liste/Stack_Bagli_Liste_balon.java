@@ -1,4 +1,4 @@
-package bagli_liste;
+package main.java.bagli_liste;
 import java.util.Stack;
 
 /**

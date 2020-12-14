@@ -1,4 +1,4 @@
-package herbalist;
+package gui;
 
 import javax.swing.JTextArea;
 
@@ -19,6 +19,7 @@ public class Herbalist_AppJTextAreaData {
 	private JTextArea jTextArea13;
 	private JTextArea jTextArea14;
 	private JTextArea jTextArea15;
+	private static JTextArea jTextArea8;
 
 	public Herbalist_AppJTextAreaData() {
 	}
@@ -149,5 +150,13 @@ public class Herbalist_AppJTextAreaData {
 
 	public void setjTextArea15(JTextArea jTextArea15) {
 		this.jTextArea15 = jTextArea15;
+	}
+
+	public JTextArea getjTextArea8() {
+		return jTextArea8;
+	}
+
+	public void setjTextArea8(JTextArea jTextArea8) {
+		Herbalist_AppJTextAreaData.jTextArea8 = jTextArea8;
 	}
 }

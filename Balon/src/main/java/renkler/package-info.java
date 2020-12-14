@@ -5,4 +5,4 @@
  * @author MEHMET AKIF ILYASOGULLARI
  *
  */
-package renkler;
+package main.java.renkler;

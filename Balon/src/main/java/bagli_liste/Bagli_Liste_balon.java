@@ -1,12 +1,12 @@
 /**
  * 
  */
-package bagli_liste;
+package main.java.bagli_liste;
 
-import balon.Balon;
-import generic.Bagli_Liste;
-import generic.Node;
-import renkler.Renkler;
+import main.java.balon.Balon;
+import main.java.generic.Bagli_Liste;
+import main.java.generic.Node;
+import main.java.renkler.Renkler;
 
 /**
  * @author MEHMET AKIF ILYASOGULLARI

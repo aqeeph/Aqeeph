@@ -1,10 +1,20 @@
-package herbalist;
+package gui;
 
 import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 
 public class Herbalist_AppJTextFieldData {
+	@Override
+	public String toString() {
+		return "Herbalist_AppJTextFieldData [jTextField1=" + jTextField1 + ", jTextField4=" + jTextField4
+				+ ", jTextField6=" + jTextField6 + ", jTextField8=" + jTextField8 + ", jTextField9=" + jTextField9
+				+ ", jTextField10=" + jTextField10 + ", jTextField12=" + jTextField12 + ", jTextField13=" + jTextField13
+				+ ", jTextField14=" + jTextField14 + ", jTextField15=" + jTextField15 + ", jTextField11=" + jTextField11
+				+ ", jTextField16=" + jTextField16 + ", jTextField17=" + jTextField17 + ", jTextField18=" + jTextField18
+				+ ", jTextField19=" + jTextField19 + ", jTextField20=" + jTextField20 + "]";
+	}
+
 	private JTextField jTextField1;
 	private JTextField jTextField4;
 	private JTextField jTextField6;

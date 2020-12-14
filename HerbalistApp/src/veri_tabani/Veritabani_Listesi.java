@@ -1,6 +1,7 @@
 
 package veri_tabani;
 
+import agac.Agac;
 import agac.Node;
 import agaclar.Vector_Agac;
 import deva.Bitki;
@@ -8,11 +9,23 @@ import hash_table.Hash_Table;
 
 public class Veritabani_Listesi {
 	
-	private static Hash_Table hash_table = new Hash_Table(); // @jve:decl-index=0:
-	private static Vector_Agac agac_vektoru = new Vector_Agac();
-	private static Kategori_veri_tabani kategori_veri_tabani = new Kategori_veri_tabani();
-	private static Bitki_veri_tabani bitki_veri_tabani = new Bitki_veri_tabani();
-	private static Hastalik_veri_tabani hastalik_veri_tabani = new Hastalik_veri_tabani();;
+	/**
+	 * 
+	 */
+	public Veritabani_Listesi() {
+		super();
+		Veritabani_Listesi.hash_table = new Hash_Table();
+		Veritabani_Listesi.agac_vektoru = new Vector_Agac();
+		Veritabani_Listesi.kategori_veri_tabani = new Kategori_veri_tabani();
+		Veritabani_Listesi.bitki_veri_tabani = new Bitki_veri_tabani();
+		Veritabani_Listesi.hastalik_veri_tabani = new Hastalik_veri_tabani();
+	}
+
+	private static Hash_Table hash_table;
+	private static Vector_Agac agac_vektoru;
+	private static Kategori_veri_tabani kategori_veri_tabani;
+	private static Bitki_veri_tabani bitki_veri_tabani;
+	private static Hastalik_veri_tabani hastalik_veri_tabani;
 
 
 	public static Hastalik_veri_tabani getHastalik_veri_tabani() {
@@ -151,6 +164,68 @@ public class Veritabani_Listesi {
 		String aranan_bitki = "";
 		aranan_bitki = Veritabani_Listesi.getAgac_vektoru().find(aranan_Urun);
 		return aranan_bitki;
+	}
+
+	public static String agac_vektorundeki_su_indexteki_elemani_preorder_yazdir(int endex) {
+		return Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder_yazdir();
+	}
+	public static String agac_vektorundeki_su_indexteki_elemani_postorder_yazdir(int endex) {
+		return Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder_yazdir();
+	}
+	public static String agac_vektorundeki_su_indexteki_elemani_inorder_yazdir(int endex) {
+		return Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder_yazdir();
+	}
+	
+	public static String aranan_urunun_bilgilerini_listele(String aranan_urun) {
+		String yanit = "";
+
+		for (int i = 0; i < Veritabani_Listesi.getAgac_vektoru().getAgaclar().size(); i++) {
+			yanit = Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(i)
+					.find(Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(i).getNode(), aranan_urun);
+			if (yanit.compareTo("Bulunamadi") != 0) {
+				break;
+			}
+		}
+		return yanit;
+	}
+
+	public static int kategori_veri_tabanindaki_aranan_kategorinin_indexi() {
+		return Veritabani_Listesi.getKategori_veri_tabani()
+				.getAranan_kategori_kacinci_sirada_bulundu();
+	}
+
+	public static Agac getAgac_vektoru_getAgaclar_elementAt(int endex) {
+		return Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex);
+	}
+
+	public static int su_kategorideki_agacin_node_sayisi(int endex) {
+		return Veritabani_Listesi.getAgac_vektoru_getAgaclar_elementAt(endex).node_sayisi;
+	}
+
+	public static int getKategori_veri_tabaninda_Aranan_kategori_kacinci_sirada_bulundu() {
+		return Veritabani_Listesi.getKategori_veri_tabani()
+				.getAranan_kategori_kacinci_sirada_bulundu();
+	}
+
+	public static void verilen_indexteki_elemanin_postorder_ciktisini_hazirla(int endex) {
+		Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder(
+				Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+		
+	}
+	public static void verilen_indexteki_elemanin_preorder_ciktisini_hazirla(int endex) {
+		Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder(
+				Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+		
+	}
+	public static void verilen_indexteki_elemanin_inorder_ciktisini_hazirla(int endex) {
+		Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder(
+				Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+		
+	}
+
+	public static void kategori_veri_tabanina_kategori_ekle(String kategori) {
+		Veritabani_Listesi.getKategori_veri_tabani().kategori_ekle(kategori);
+		
 	}
 
 }

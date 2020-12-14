@@ -2,4 +2,4 @@
  * @author MehmetAkif-PC
  *
  */
-package bagli_liste;
+package main.java.bagli_liste;

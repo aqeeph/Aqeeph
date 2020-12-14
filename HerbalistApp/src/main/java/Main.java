@@ -1,8 +1,9 @@
 /**
  * 
  */
-package herbalist;
+package main.java;
 
+import herbalist.Form;
 import veri_tabani.Veritabani_Listesi;
 
 /**

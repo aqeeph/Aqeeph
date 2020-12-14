@@ -1,7 +1,7 @@
 /**
  * 
  */
-package herbalist;
+package gui;
 
 import javax.swing.JMenuBar;
 
@@ -9,6 +9,11 @@ import javax.swing.JMenuBar;
  * @author  MehmetAkif-PC
  */
 public class Herbalist_AppJMenuBarData {
+	@Override
+	public String toString() {
+		return "Herbalist_AppJMenuBarData [jJMenuBar=" + jJMenuBar + "]";
+	}
+
 	/**
 	 * 
 	 */

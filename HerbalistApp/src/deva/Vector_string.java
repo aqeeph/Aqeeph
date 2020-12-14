@@ -10,14 +10,31 @@ import java.util.Vector;
  */
 public class Vector_string {
 	/**
+	 *
+	 */
+	@Override
+	public String toString() {
+		return "Vector_string [stringlistesi=" + stringlistesi + "]";
+	}
+
+	/**
+	 * @param stringlistesi
+	 */
+	public Vector_string(Vector<String> stringlistesi) {
+		super();
+		this.stringlistesi = stringlistesi;
+	}
+
+	/**
 	 * 
 	 */
-	private Vector<String> stringlistesi = new Vector<String>();
+	private Vector<String> stringlistesi;
 
 	/**
 	 * 
 	 */
 	public Vector_string() {
+		this.stringlistesi = new Vector<String>();
 	}
 
 	/**

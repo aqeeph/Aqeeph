@@ -1,4 +1,4 @@
-package herbalist;
+package gui;
 
 import java.util.Vector;
 
@@ -17,6 +17,21 @@ import javax.swing.JTextField;
 
 public class Herbalist_AppGUIData {
 	
+	@Override
+	public String toString() {
+		return "Herbalist_AppGUIData [stringdata=" + stringdata + ", swingdata=" + swingdata + "]";
+	}
+
+	/**
+	 * @param stringdata
+	 * @param swingdata
+	 */
+	public Herbalist_AppGUIData(Herbalist_AppStringData stringdata, Herbalist_AppSwingData swingdata) {
+		super();
+		this.stringdata = stringdata;
+		this.swingdata = swingdata;
+	}
+
 	private Herbalist_AppStringData stringdata;
 	private Herbalist_AppSwingData swingdata;
 	
@@ -1559,7 +1574,7 @@ public class Herbalist_AppGUIData {
 		}
 	}
 
-	JTextField getJTextField2() {
+	public JTextField getJTextField2() {
 		return swingdata.getJTextField2();
 	}
 	public void setjTextField2(JTextField jTextField2) {
@@ -1571,7 +1586,7 @@ public class Herbalist_AppGUIData {
 	 * 
 	 * @return javax.swing.JTextField
 	 */
-	JTextField getJTextField3() {
+	public JTextField getJTextField3() {
 		return this.swingdata.getJTextField3();
 	}
 

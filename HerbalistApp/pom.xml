@@ -130,8 +130,8 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit-dep</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
+			<version>4.11</version>
+			<scope>src</scope>
 		</dependency>
 	</dependencies>
 	<description>HerbalistApp</description>

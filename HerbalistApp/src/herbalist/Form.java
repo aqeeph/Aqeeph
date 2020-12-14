@@ -4,6 +4,21 @@ import java.util.Vector;
 
 import javax.swing.SwingUtilities;
 
+import gui.Herbalist_AppGUIData;
+import gui.Herbalist_AppJButtonData;
+import gui.Herbalist_AppJDialogData;
+import gui.Herbalist_AppJFrameData;
+import gui.Herbalist_AppJLabelData;
+import gui.Herbalist_AppJMenuBarData;
+import gui.Herbalist_AppJMenuData;
+import gui.Herbalist_AppJMenuItemData;
+import gui.Herbalist_AppJPanelData;
+import gui.Herbalist_AppJTabbedPaneData;
+import gui.Herbalist_AppJTextAreaData;
+import gui.Herbalist_AppJTextFieldData;
+import gui.Herbalist_AppStringData;
+import gui.Herbalist_AppSwingData;
+
 public class Form {
 	/**
 	 * 
@@ -64,7 +79,7 @@ public class Form {
 	/**
 	 * 
 	 */
-	void herbalist_appgui() {
+	public void herbalist_appgui() {
 		SwingUtilities.invokeLater(herbalist_app_runnable);
 	}
 

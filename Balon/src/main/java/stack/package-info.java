@@ -5,4 +5,4 @@
  * @author MEHMET AKIF ILYASOGULLARI
  *
  */
-package stack;
+package main.java.stack;

@@ -1,7 +1,7 @@
-package problem;
+package main.java.problem;
 
-import bagli_liste.Bagli_Liste_balon;
-import bagli_liste.Stack_Bagli_Liste_balon;
+import main.java.bagli_liste.Bagli_Liste_balon;
+import main.java.bagli_liste.Stack_Bagli_Liste_balon;
 import java.util.Scanner;
 
 /**
