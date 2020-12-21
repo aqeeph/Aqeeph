@@ -6,9 +6,9 @@ import javax.swing.JPanel;
 public class Herbalist_AppJPanelData {
 	private JPanel Menu;
 	private JPanel aboutContentPane;
-	private JPanel jPanel;
-	private JPanel jPanel1;
-	private JPanel jPanel2;
+	private JPanel musteri_bolumu;
+	private JPanel firma_bolumu;
+	private JPanel Adindan_Urun_Arama_ve_Listeleme_bolumu;
 	private JPanel Belirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi;
 	private JPanel Verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Istenebilir_Listelenmesi;
 	private JPanel Urun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi;
@@ -50,28 +50,28 @@ public class Herbalist_AppJPanelData {
 		this.aboutContentPane = aboutContentPane;
 	}
 
-	public JPanel getjPanel() {
-		return jPanel;
+	public JPanel getmusteri_bolumu() {
+		return musteri_bolumu;
 	}
 
-	public void setjPanel(JPanel jPanel) {
-		this.jPanel = jPanel;
+	public void setmusteri_bolumu(JPanel jPanel) {
+		this.musteri_bolumu = jPanel;
 	}
 
-	public JPanel getjPanel1() {
-		return jPanel1;
+	public JPanel getfirma_bolumu() {
+		return firma_bolumu;
 	}
 
-	public void setjPanel1(JPanel jPanel1) {
-		this.jPanel1 = jPanel1;
+	public void setfirma_bolumu(JPanel jPanel) {
+		this.firma_bolumu = jPanel;
 	}
 
-	public JPanel getjPanel2() {
-		return jPanel2;
+	public JPanel getAdindan_Urun_Arama_ve_Listeleme_bolumu() {
+		return Adindan_Urun_Arama_ve_Listeleme_bolumu;
 	}
 
-	public void setjPanel2(JPanel jPanel2) {
-		this.jPanel2 = jPanel2;
+	public void setAdindan_Urun_Arama_ve_Listeleme_bolumu(JPanel jPanel) {
+		this.Adindan_Urun_Arama_ve_Listeleme_bolumu = jPanel;
 	}
 
 	public JPanel getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi() {

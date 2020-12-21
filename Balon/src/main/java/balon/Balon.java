@@ -30,7 +30,6 @@ public class Balon {
 
 	@SuppressWarnings("unused")
 	private Balon(int no) {
-		// TODO Auto-generated constructor stub
 		this.no = no;
 		this.renk = Renkler.random_renk();
 	}

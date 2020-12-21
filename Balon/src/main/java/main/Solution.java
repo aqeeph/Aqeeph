@@ -23,28 +23,42 @@ public class Solution {
 			System.exit(0);
 			return;
 		} else {
-			try {
-				getP().yeni_problem_ekle(new Stack_Problemi());
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				System.exit(0);
-				return;
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.exit(0);
-				return;
-			}
-			try {
-				getP().solution();
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				System.exit(0);
-				return;
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.exit(0);
-				return;
-			}
+			Solution.yeni_problem_ekle();
+			Solution.problemi_coz();
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private static void problemi_coz() {
+		try {
+			getP().solution();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.exit(0);
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+			return;
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private static void yeni_problem_ekle() {
+		try {
+			getP().yeni_problem_ekle(new Stack_Problemi());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.exit(0);
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+			return;
 		}
 	}
 

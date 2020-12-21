@@ -1,18 +1,50 @@
 package dert;
 
 import java.util.StringTokenizer;
-import java.util.Vector;
+import deva.Capsule_Vector_String;
 
 //Hastaliklara iliskin bilgiler(Hastalik adi,belirtileri ,nedenleri,tedavisi,onerilen bitkiler )
 //Hastalik adi#belirtileri(_ ile tutuluyor)#nedenleri(_ ile tutuluyor)#tedavisi(_ ile tutuluyor)#bilgi_sayisi>>onerilen bitkiler(>> ile tutuluyor)
 public class Hastalik {
-	public static StringTokenizer st;
+	/**
+	 * 
+	 */
+	private static StringTokenizer st;
+	/**
+	 * 
+	 */
 	private String adi = "";
+	/**
+	 * 
+	 */
 	private int bilgi_sayisi;
-	private Vector<String> belirtileri, nedenleri, tedavisi, onerilen_bitkiler;
+	
+	/**
+	 * 
+	 */
+	private Capsule_Vector_String belirtileri;
+	/**
+	 * 
+	 */
+	private Capsule_Vector_String nedenleri;
+	/**
+	 * 
+	 */
+	private Capsule_Vector_String tedavisi;
+	/**
+	 * 
+	 */
+	private Capsule_Vector_String onerilen_bitkiler;
 
-	public Hastalik(String adi, Vector<String> belirtileri, Vector<String> nedenleri, Vector<String> tedavisi,
-			Vector<String> onerilen_bitkiler) {
+	/**
+	 * @param adi
+	 * @param belirtileri
+	 * @param nedenleri
+	 * @param tedavisi
+	 * @param onerilen_bitkiler
+	 */
+	public Hastalik(String adi, Capsule_Vector_String belirtileri, Capsule_Vector_String nedenleri, Capsule_Vector_String tedavisi,
+			Capsule_Vector_String onerilen_bitkiler) {
 		setAdi(adi);
 		setBelirtileri(belirtileri);
 		setNedenleri(nedenleri);
@@ -20,13 +52,20 @@ public class Hastalik {
 		setOnerilen_bitkiler(onerilen_bitkiler);
 	}
 
+	/**
+	 * @param adi
+	 * @param belirtileri
+	 * @param nedenleri
+	 * @param tedavisi
+	 * @param onerilen_bitkiler
+	 */
 	public Hastalik(String adi, String belirtileri, String nedenleri, String tedavisi, String onerilen_bitkiler) {
 		setAdi(adi);
 		System.out.println("adi: " + adi + "\n");
-		setBelirtileri(new Vector<String>());
-		setNedenleri(new Vector<String>());
-		setTedavisi(new Vector<String>());
-		setOnerilen_bitkiler(new Vector<String>());
+		setBelirtileri(new Capsule_Vector_String());
+		setNedenleri(new Capsule_Vector_String());
+		setTedavisi(new Capsule_Vector_String());
+		setOnerilen_bitkiler(new Capsule_Vector_String());
 		st = new StringTokenizer(belirtileri, "_");
 		while (st.hasMoreTokens()) {
 			getBelirtileri().add(st.nextToken());// belirtiler ekleniyor
@@ -46,54 +85,93 @@ public class Hastalik {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public String getAdi() {
 		return adi;
 	}
 
+	/**
+	 * @param adi
+	 */
 	public void setAdi(String adi) {
 		this.adi = adi;
 	}
 
-	public void setBelirtileri(Vector<String> belirtileri) {
+	/**
+	 * @param belirtileri
+	 */
+	public void setBelirtileri(Capsule_Vector_String belirtileri) {
 		this.belirtileri = belirtileri;
 	}
 
-	public Vector<String> getBelirtileri() {
+	/**
+	 * @return
+	 */
+	public Capsule_Vector_String getBelirtileri() {
 		return belirtileri;
 	}
 
-	public void setNedenleri(Vector<String> nedenleri) {
+	/**
+	 * @param nedenleri
+	 */
+	public void setNedenleri(Capsule_Vector_String nedenleri) {
 		this.nedenleri = nedenleri;
 	}
 
-	public Vector<String> getNedenleri() {
+	/**
+	 * @return
+	 */
+	public Capsule_Vector_String getNedenleri() {
 		return nedenleri;
 	}
 
-	public void setTedavisi(Vector<String> tedavisi) {
+	/**
+	 * @param tedavisi
+	 */
+	public void setTedavisi(Capsule_Vector_String tedavisi) {
 		this.tedavisi = tedavisi;
 	}
 
-	public Vector<String> getTedavisi() {
+	/**
+	 * @return
+	 */
+	public Capsule_Vector_String getTedavisi() {
 		return tedavisi;
 	}
 
-	public void setOnerilen_bitkiler(Vector<String> onerilen_bitkiler) {
+	/**
+	 * @param onerilen_bitkiler
+	 */
+	public void setOnerilen_bitkiler(Capsule_Vector_String onerilen_bitkiler) {
 		this.onerilen_bitkiler = onerilen_bitkiler;
 	}
 
-	public Vector<String> getonerilen_bitkiler() {
+	/**
+	 * @return
+	 */
+	public Capsule_Vector_String getonerilen_bitkiler() {
 		return onerilen_bitkiler;
 	}
 
+	/**
+	 * @param bilgi_sayisi
+	 */
 	public void setBilgi_sayisi(int bilgi_sayisi) {
 		this.bilgi_sayisi = bilgi_sayisi;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getBilgi_sayisi() {
 		return bilgi_sayisi;
 	}
 
+	/**
+	 *
+	 */
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Adi              :");
@@ -110,47 +188,52 @@ public class Hastalik {
 		return stringBuilder.toString();
 	}
 
+	/**
+	 * @param onerilen_bitki
+	 */
 	public void add_onerilen_bitki(String onerilen_bitki) {
 		onerilen_bitkiler.add(onerilen_bitki);
 	}
 
+	/**
+	 * @return
+	 */
 	private String onerilen_bitkiler_toString() {
-		String metin = "";
-		for (int i = 0; i < onerilen_bitkiler.size(); i++) {
-			metin += onerilen_bitkiler.elementAt(i);
-		}
-		return metin;
+		return onerilen_bitkiler.toString();
 	}
 
+	/**
+	 * @param onerilen_tedavi
+	 */
 	public void add_tedavi(String onerilen_tedavi) {
 		tedavisi.add(onerilen_tedavi);
 	}
 
+	/**
+	 * @return
+	 */
 	private String tedavisi_toString() {
-		String metin = "";
-		for (int i = 0; i < tedavisi.size(); i++) {
-			metin += tedavisi.elementAt(i);
-		}
-		return metin;
+		return tedavisi.toString();
 	}
 
+	/**
+	 * @param yeni_neden
+	 */
 	public void add_neden(String yeni_neden) {
 		nedenleri.add(yeni_neden);
 	}
 
+	/**
+	 * @return
+	 */
 	private String nedenleri_toString() {
-		String metin = "";
-		for (int i = 0; i < nedenleri.size(); i++) {
-			metin += nedenleri.elementAt(i);
-		}
-		return metin;
+		return nedenleri.toString();
 	}
 
+	/**
+	 * @return
+	 */
 	private String belirtileri_toString() {
-		String metin = "";
-		for (int i = 0; i < belirtileri.size(); i++) {
-			metin += belirtileri.elementAt(i);
-		}
-		return metin;
+		return belirtileri.toString();
 	}
 }

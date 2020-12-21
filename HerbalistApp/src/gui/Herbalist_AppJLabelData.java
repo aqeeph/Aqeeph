@@ -40,15 +40,11 @@ public class Herbalist_AppJLabelData {
 	private JLabel jLabel27;
 	private JLabel jLabel50;
 	private JLabel aboutVersionLabel;
-	private JLabel Musteri_Menusu_Basligi;
-	private JLabel Personel_Menusu_Basligi;
-	private JLabel jLabel2;
 	private JLabel jLabel3;
 	private JLabel jLabel4;
 	private JLabel jLabel5;
 	private JLabel jLabel6;
 	private JLabel jLabel7;
-	private JLabel jLabel8;
 	private JLabel jLabel9;
 	private JLabel jLabel10;
 	private JLabel jLabel61;
@@ -487,48 +483,6 @@ public class Herbalist_AppJLabelData {
 	}
 
 	/**
-	 * @return the musteri_Menusu_Basligi
-	 */
-	public JLabel getMusteri_Menusu_Basligi() {
-		return Musteri_Menusu_Basligi;
-	}
-
-	/**
-	 * @param musteri_Menusu_Basligi the musteri_Menusu_Basligi to set
-	 */
-	public void setMusteri_Menusu_Basligi(JLabel musteri_Menusu_Basligi) {
-		Musteri_Menusu_Basligi = musteri_Menusu_Basligi;
-	}
-
-	/**
-	 * @return the personel_Menusu_Basligi
-	 */
-	public JLabel getPersonel_Menusu_Basligi() {
-		return Personel_Menusu_Basligi;
-	}
-
-	/**
-	 * @param personel_Menusu_Basligi the personel_Menusu_Basligi to set
-	 */
-	public void setPersonel_Menusu_Basligi(JLabel personel_Menusu_Basligi) {
-		Personel_Menusu_Basligi = personel_Menusu_Basligi;
-	}
-
-	/**
-	 * @return the jLabel2
-	 */
-	public JLabel getjLabel2() {
-		return jLabel2;
-	}
-
-	/**
-	 * @param jLabel2 the jLabel2 to set
-	 */
-	public void setjLabel2(JLabel jLabel2) {
-		this.jLabel2 = jLabel2;
-	}
-
-	/**
 	 * @return the jLabel3
 	 */
 	public JLabel getjLabel3() {
@@ -596,20 +550,6 @@ public class Herbalist_AppJLabelData {
 	 */
 	public void setjLabel7(JLabel jLabel7) {
 		this.jLabel7 = jLabel7;
-	}
-
-	/**
-	 * @return the jLabel8
-	 */
-	public JLabel getjLabel8() {
-		return jLabel8;
-	}
-
-	/**
-	 * @param jLabel8 the jLabel8 to set
-	 */
-	public void setjLabel8(JLabel jLabel8) {
-		this.jLabel8 = jLabel8;
 	}
 
 	/**

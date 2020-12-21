@@ -1,20 +1,18 @@
 package gui;
 
-import java.util.Vector;
+import deva.Capsule_Vector_String;
 
 public class Herbalist_AppStringData {
+	private String yanit;
+	private Capsule_Vector_String belirtiler;
+	private Capsule_Vector_String nedenler;
+	private Capsule_Vector_String tedaviler;
+	private Capsule_Vector_String bitkiler;
 	@Override
 	public String toString() {
-		return "Herbalist_AppStringData [yanit=" + yanit + ", belirtiler=" + belirtiler + ", nedenler=" + nedenler
-				+ ", tedaviler=" + tedaviler + ", bitkiler=" + bitkiler + "]";
+		return "Herbalist_AppStringData [yanit=" + yanit + ", belirtiler=" + belirtiler.toString() + ", nedenler=" + nedenler.toString()
+				+ ", tedaviler=" + tedaviler.toString() + ", bitkiler=" + bitkiler.toString() + "]";
 	}
-
-	private String yanit;
-	private Vector<String> belirtiler;
-	private Vector<String> nedenler;
-	private Vector<String> tedaviler;
-	private Vector<String> bitkiler;
-
 	public Herbalist_AppStringData() {
 	}
 
@@ -26,35 +24,35 @@ public class Herbalist_AppStringData {
 		this.yanit = yanit;
 	}
 
-	public Vector<String> getBelirtiler() {
+	public Capsule_Vector_String getBelirtiler() {
 		return belirtiler;
 	}
 
-	public void setBelirtiler(Vector<String> belirtiler) {
+	public void setBelirtiler(Capsule_Vector_String belirtiler) {
 		this.belirtiler = belirtiler;
 	}
 
-	public Vector<String> getNedenler() {
+	public Capsule_Vector_String getNedenler() {
 		return nedenler;
 	}
 
-	public void setNedenler(Vector<String> nedenler) {
+	public void setNedenler(Capsule_Vector_String nedenler) {
 		this.nedenler = nedenler;
 	}
 
-	public Vector<String> getTedaviler() {
+	public Capsule_Vector_String getTedaviler() {
 		return tedaviler;
 	}
 
-	public void setTedaviler(Vector<String> tedaviler) {
+	public void setTedaviler(Capsule_Vector_String tedaviler) {
 		this.tedaviler = tedaviler;
 	}
 
-	public Vector<String> getBitkiler() {
+	public Capsule_Vector_String getBitkiler() {
 		return bitkiler;
 	}
 
-	public void setBitkiler(Vector<String> bitkiler) {
+	public void setBitkiler(Capsule_Vector_String bitkiler) {
 		this.bitkiler = bitkiler;
 	}
 }

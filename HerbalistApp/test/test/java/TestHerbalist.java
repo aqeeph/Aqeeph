@@ -16,7 +16,7 @@ public class TestHerbalist extends TestCase {
 			e.printStackTrace();
 		}
 		try {
-			assertEquals("Bulundu", Veritabani_Listesi.getHash_table().hastalik_hash_table_de_var_mi("Anemi"));
+			assertEquals("Bulundu", Veritabani_Listesi.Hash_tableda_hastalik_ara("Anemi"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

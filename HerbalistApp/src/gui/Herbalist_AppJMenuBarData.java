@@ -9,16 +9,14 @@ import javax.swing.JMenuBar;
  * @author  MehmetAkif-PC
  */
 public class Herbalist_AppJMenuBarData {
-	@Override
-	public String toString() {
-		return "Herbalist_AppJMenuBarData [jJMenuBar=" + jJMenuBar + "]";
-	}
-
 	/**
 	 * 
 	 */
 	private JMenuBar jJMenuBar;
-
+	@Override
+	public String toString() {
+		return "Herbalist_AppJMenuBarData [jJMenuBar=" + jJMenuBar + "]";
+	}
 	/**
 	 * 
 	 */

@@ -8,34 +8,24 @@ import java.util.Vector;
 /**
  * @author MehmetAkif-PC
  */
-public class Vector_string {
-	/**
-	 *
-	 */
-	@Override
-	public String toString() {
-		return "Vector_string [stringlistesi=" + stringlistesi + "]";
-	}
-
-	/**
-	 * @param stringlistesi
-	 */
-	public Vector_string(Vector<String> stringlistesi) {
-		super();
-		this.stringlistesi = stringlistesi;
-	}
-
+public class Capsule_Vector_String {
 	/**
 	 * 
 	 */
 	private Vector<String> stringlistesi;
-
+	/**
+	 * @param stringlistesi
+	 */
+	public Capsule_Vector_String(Vector<String> stringlistesi) {
+		super();
+		this.stringlistesi = stringlistesi;
+	}
 	/**
 	 * 
 	 */
-	public Vector_string() {
+	public Capsule_Vector_String() {
 		this.stringlistesi = new Vector<String>();
-	}
+	}	
 
 	/**
 	 * @return the stringlistesi
@@ -78,5 +68,16 @@ public class Vector_string {
 	 */
 	public String lastElement() {
 		return stringlistesi.lastElement();
+	}
+	/**
+	 *
+	 */
+	@Override
+	public String toString() {
+		String text = "";
+		for (int i = 0; i < stringlistesi.size(); i++) {
+			text += stringlistesi.elementAt(i);
+		}
+		return text;
 	}
 }

@@ -3,15 +3,14 @@ package gui;
 import javax.swing.JMenu;
 
 public class Herbalist_AppJMenuData {
+	private JMenu fileMenu;
+	private JMenu editMenu;
+	private JMenu helpMenu;
 	@Override
 	public String toString() {
 		return "Herbalist_AppJMenuData [fileMenu=" + fileMenu + ", editMenu=" + editMenu + ", helpMenu=" + helpMenu
 				+ "]";
 	}
-
-	private JMenu fileMenu;
-	private JMenu editMenu;
-	private JMenu helpMenu;
 
 	public Herbalist_AppJMenuData() {
 	}

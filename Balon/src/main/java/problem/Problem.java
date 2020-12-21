@@ -1,6 +1,6 @@
 package main.java.problem;
 
-import main.java.bagli_liste.Bagli_Liste_balon;
+import main.java.bagli_liste.Bagli_Liste_Node_Balon;
 import main.java.bagli_liste.Stack_Bagli_Liste_balon;
 import java.util.Scanner;
 
@@ -68,11 +68,11 @@ public class Problem {
 	/**
 	 * 
 	 */
-	private Bagli_Liste_balon gecici1;
+	private Bagli_Liste_Node_Balon gecici1;
 	/**
 	 * 
 	 */
-	private Bagli_Liste_balon gecici2;
+	private Bagli_Liste_Node_Balon gecici2;
 	/**
 	 * 
 	 */
@@ -107,7 +107,7 @@ public class Problem {
 	 */
 	public Problem(Stack_Bagli_Liste_balon bly, Scanner str1, Scanner str2, int uretilecek_olan_balon_sayisi,
 			int kacta_bir_cikarilacak, int sayac1, int sayac2, int katNo, int problemSayisi, long problem_cozum_suresi,
-			long baslangic, Bagli_Liste_balon gecici1, Bagli_Liste_balon gecici2, int liste_eleman_sayisi,
+			long baslangic, Bagli_Liste_Node_Balon gecici1, Bagli_Liste_Node_Balon gecici2, int liste_eleman_sayisi,
 			boolean yigin_bos_mu, long ortalama_problem_cozum_suresi) {
 		super();
 		this.bly = bly;
@@ -235,7 +235,7 @@ public class Problem {
 		//System.err.println("insert_item_to_bly() started");
 		try {
 			while (sayac1 <= uretilecek_olan_balon_sayisi) {
-				this.gecici1 = new Bagli_Liste_balon(katNo);// gruplama araci
+				this.gecici1 = new Bagli_Liste_Node_Balon(katNo);// gruplama araci
 				System.out.println("\n" + katNo + ". kattaki bagli listedeki balonlar:");
 				this.sayac2 = 1;
 				if (this.gecici1 == null) {
@@ -293,7 +293,7 @@ public class Problem {
 	/**
 	 * @param gecici1
 	 */
-	protected void push_to_bly(Bagli_Liste_balon gecici1) {
+	protected void push_to_bly(Bagli_Liste_Node_Balon gecici1) {
 		this.bly.push_to_yigin(this.gecici1);
 	}
 
@@ -454,28 +454,28 @@ public class Problem {
 	/**
 	 * @return
 	 */
-	protected Bagli_Liste_balon getGecici1() {
+	protected Bagli_Liste_Node_Balon getGecici1() {
 		return gecici1;
 	}
 
 	/**
 	 * @param gecici1
 	 */
-	protected void setGecici1(Bagli_Liste_balon gecici1) {
+	protected void setGecici1(Bagli_Liste_Node_Balon gecici1) {
 		this.gecici1 = gecici1;
 	}
 
 	/**
 	 * @return
 	 */
-	protected Bagli_Liste_balon getGecici2() {
+	protected Bagli_Liste_Node_Balon getGecici2() {
 		return gecici2;
 	}
 
 	/**
 	 * @param gecici2
 	 */
-	protected void setGecici2(Bagli_Liste_balon gecici2) {
+	protected void setGecici2(Bagli_Liste_Node_Balon gecici2) {
 		this.gecici2 = gecici2;
 	}
 

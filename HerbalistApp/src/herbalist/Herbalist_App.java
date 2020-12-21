@@ -2,6 +2,7 @@ package herbalist;
 
 import java.awt.BorderLayout;
 import java.awt.Event;
+import java.awt.HeadlessException;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import dert.Hastalik;
-import deva.Vector_string;
+import deva.Capsule_Vector_String;
 import gui.Herbalist_AppGUIData;
 import gui.Herbalist_AppJTextFieldData;
 import veri_tabani.Veritabani_Listesi;
@@ -43,13 +44,20 @@ public class Herbalist_App {
 	 * @return
 	 */
 	private JTabbedPane getKullanici_Menusu() {
+		Kullanici_Menusu_init();
+		return herbalist_app_guidata.getKullanici_Menusu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kullanici_Menusu_init() {
 		if (herbalist_app_guidata.getKullanici_Menusu() == null) {
 			herbalist_app_guidata.setKullanici_Menusu(new JTabbedPane());
 			herbalist_app_guidata.getKullanici_Menusu().setBounds(new Rectangle(0, 0, 985, 635));
-			herbalist_app_guidata.getKullanici_Menusu().addTab(null, null, getJPanel(), null);
-			herbalist_app_guidata.getKullanici_Menusu().addTab(null, null, getJPanel1(), null);
+			herbalist_app_guidata.getKullanici_Menusu().addTab("Musterilerin Kulanabilecekleri Bolum", null, getmusteri_bolumu(), null);
+			herbalist_app_guidata.getKullanici_Menusu().addTab("Sadece Firma Personelinin Kullanabilecegi Bolum", null, getfirma_bolumu(), null);
 		}
-		return herbalist_app_guidata.getKullanici_Menusu();
 	}
 
 	/**
@@ -57,17 +65,20 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJPanel() {
-		if (herbalist_app_guidata.getjPanel() == null) {
-			herbalist_app_guidata.setMusteri_Menusu_Basligi(new JLabel());
-			herbalist_app_guidata.getMusteri_Menusu_Basligi().setBounds(new Rectangle(0, 0, 343, 16));
-			herbalist_app_guidata.getMusteri_Menusu_Basligi().setText("Musterilerin Kulanabilecekleri Bolum");
-			herbalist_app_guidata.setjPanel(new JPanel());
-			herbalist_app_guidata.getjPanel().setLayout(null);
-			herbalist_app_guidata.getjPanel().add(getMusteri_Menusu(), null);
-			herbalist_app_guidata.getjPanel().add(herbalist_app_guidata.getMusteri_Menusu_Basligi(), null);
+	private JPanel getmusteri_bolumu() {
+		musteri_bolumu_init();
+		return herbalist_app_guidata.getmusteri_bolumu();
+	}
+
+	/**
+	 * 
+	 */
+	private void musteri_bolumu_init() {
+		if (herbalist_app_guidata.getmusteri_bolumu() == null) {
+			herbalist_app_guidata.setmusteri_bolumu(new JPanel());
+			herbalist_app_guidata.getmusteri_bolumu().setLayout(null);
+			herbalist_app_guidata.getmusteri_bolumu().add(getMusteri_Menusu(), null);
 		}
-		return herbalist_app_guidata.getjPanel();
 	}
 
 	/**
@@ -75,18 +86,20 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJPanel1() {
-		if (herbalist_app_guidata.getjPanel1() == null) {
-			herbalist_app_guidata.setPersonel_Menusu_Basligi(new JLabel());
-			herbalist_app_guidata.getPersonel_Menusu_Basligi().setBounds(new Rectangle(0, 0, 346, 16));
-			herbalist_app_guidata.getPersonel_Menusu_Basligi()
-					.setText("Sadece Firma Personelinin Kullanabilecegi Bolum");
-			herbalist_app_guidata.setjPanel1(new JPanel());
-			herbalist_app_guidata.getjPanel1().setLayout(null);
-			herbalist_app_guidata.getjPanel1().add(herbalist_app_guidata.getPersonel_Menusu_Basligi(), null);
-			herbalist_app_guidata.getjPanel1().add(getPersonel_Menusu(), null);
+	private JPanel getfirma_bolumu() {
+		firma_bolumu_init();
+		return herbalist_app_guidata.getfirma_bolumu();
+	}
+
+	/**
+	 * 
+	 */
+	private void firma_bolumu_init() {
+		if (herbalist_app_guidata.getfirma_bolumu() == null) {
+			herbalist_app_guidata.setfirma_bolumu(new JPanel());
+			herbalist_app_guidata.getfirma_bolumu().setLayout(null);
+			herbalist_app_guidata.getfirma_bolumu().add(getPersonel_Menusu(), null);
 		}
-		return herbalist_app_guidata.getjPanel1();
 	}
 
 	/**
@@ -95,27 +108,34 @@ public class Herbalist_App {
 	 * @return javax.swing.JTabbedPane
 	 */
 	private JTabbedPane getMusteri_Menusu() {
+		Musteri_Menusu_init();
+		return herbalist_app_guidata.getMusteri_Menusu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Musteri_Menusu_init() {
 		if (herbalist_app_guidata.getMusteri_Menusu() == null) {
 			herbalist_app_guidata.setMusteri_Menusu(new JTabbedPane());
 			herbalist_app_guidata.getMusteri_Menusu().setBounds(new Rectangle(0, 16, 979, 589));
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null, getJPanel2(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Adindan Urun Arama ve Bilgilerini Listeleme", null, getAdindan_Urun_Arama_ve_Listeleme_bolumu(), null);
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Belirli Fiyatlar Arasindaki Tum Urunlerin Bulunup Listelenmesi", null,
 					getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Verilen Bir Kelimenin Kategori Agaclarinda Tutulan Bitkilerin Ozellikleri Icinden Aratilmasi,Bulunan Bitki Isimlerinin Listelenmesi", null,
 					getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi(),
 					null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Urun Siparisi (Birden Cok Paket Istenebilir )ve Alimi", null,
 					getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Ilgili Agacin Derinligini ve Eleman Sayisini Yazdirma", null,
 					getKategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null, getKategori_Agaclarini_Dengeleme(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Kategori Agaclarini Dengeleme", null, getKategori_Agaclarini_Dengeleme(), null);
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Verilen Bir Hastaliga Iliskin Bilgilerin Listelenmesi (Hash Table'dan)", null,
 					getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan(), null);
-			herbalist_app_guidata.getMusteri_Menusu().addTab(null, null,
+			herbalist_app_guidata.getMusteri_Menusu().addTab("Belli Bir Hastaliga iyi Gelebilen Bitkilerin Fiyatlarina Gire Heap'e Atilmasi", null,
 					getBelli_Bir_Hastaliga_Iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gore_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi(),
 					null);
 		}
-		return herbalist_app_guidata.getMusteri_Menusu();
 	}
 
 	/**
@@ -123,17 +143,20 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJPanel2() {
-		if (herbalist_app_guidata.getjPanel2() == null) {
-			herbalist_app_guidata.setjLabel2(new JLabel());
-			herbalist_app_guidata.getjLabel2().setBounds(new Rectangle(0, 0, 974, 16));
-			herbalist_app_guidata.getjLabel2().setText("Adindan Urun Arama ve Bilgilerini Listeleme");
+	private JPanel getAdindan_Urun_Arama_ve_Listeleme_bolumu() {
+		Adindan_Urun_Arama_ve_Listeleme_bolumu_init();
+		return herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme_bolumu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Adindan_Urun_Arama_ve_Listeleme_bolumu_init() {
+		if (herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme_bolumu() == null) {
 			herbalist_app_guidata.setjPanel2(new JPanel());
-			herbalist_app_guidata.getjPanel2().setLayout(null);
-			herbalist_app_guidata.getjPanel2().add(herbalist_app_guidata.getjLabel2(), null);
-			herbalist_app_guidata.getjPanel2().add(getAdindan_Urun_Arama_ve_Listeleme(), null);
+			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme_bolumu().setLayout(null);
+			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme_bolumu().add(getAdindan_Urun_Arama_ve_Listeleme(), null);
 		}
-		return herbalist_app_guidata.getjPanel2();
 	}
 
 	/**
@@ -143,6 +166,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi() {
+		Belirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi_init();
+		return herbalist_app_guidata.getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Belirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi_init() {
 		if (herbalist_app_guidata.getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi() == null) {
 			herbalist_app_guidata.setjLabel48(new JLabel());
 			herbalist_app_guidata.getjLabel48().setBounds(new Rectangle(330, 17, 166, 16));
@@ -171,7 +202,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi()
 					.add(getJTextArea15(), null);
 		}
-		return herbalist_app_guidata.getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi();
 	}
 
 	/**
@@ -180,6 +210,15 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi() {
+		Verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi_init();
+		return herbalist_app_guidata
+				.getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi_init() {
 		if (herbalist_app_guidata
 				.getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi() == null) {
 			herbalist_app_guidata.setjLabel4(new JLabel());
@@ -196,8 +235,6 @@ public class Herbalist_App {
 					.getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi()
 					.add(herbalist_app_guidata.getjLabel4(), null);
 		}
-		return herbalist_app_guidata
-				.getVerilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Isimlerinin_Listelenmesi();
 	}
 
 	/**
@@ -206,6 +243,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi() {
+		Urun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi_init();
+		return herbalist_app_guidata.getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Urun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi_init() {
 		if (herbalist_app_guidata.getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi() == null) {
 			herbalist_app_guidata.setjLabel5(new JLabel());
 			herbalist_app_guidata.getjLabel5().setBounds(new Rectangle(0, 2, 779, 16));
@@ -215,7 +260,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi()
 					.add(herbalist_app_guidata.getjLabel5(), null);
 		}
-		return herbalist_app_guidata.getUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi();
 	}
 
 	/**
@@ -224,6 +268,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JTabbedPane
 	 */
 	private JTabbedPane getPersonel_Menusu() {
+		Personel_Menusu_init();
+		return herbalist_app_guidata.getPersonel_Menusu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Personel_Menusu_init() {
 		if (herbalist_app_guidata.getPersonel_Menusu() == null) {
 			herbalist_app_guidata.setPersonel_Menusu(new JTabbedPane());
 			herbalist_app_guidata.getPersonel_Menusu().setBounds(new Rectangle(0, 16, 979, 590));
@@ -233,7 +285,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getPersonel_Menusu().addTab(null, null, getUrun_Bilgilerinde_Degisiklik(), null);
 			herbalist_app_guidata.getPersonel_Menusu().addTab(null, null, getYeni_Hastalik_Bilgisi_Girisi(), null);
 		}
-		return herbalist_app_guidata.getPersonel_Menusu();
 	}
 
 	/**
@@ -242,6 +293,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel Kategori_Ekleme_ve_Kategori_Silme() {
+		Kategori_Ekleme_ve_Kategori_Silme_init();
+		return herbalist_app_guidata.getjPanel6();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Ekleme_ve_Kategori_Silme_init() {
 		if (herbalist_app_guidata.getjPanel6() == null) {
 			herbalist_app_guidata.setjLabel12(new JLabel());
 			herbalist_app_guidata.getjLabel12().setBounds(new Rectangle(0, 0, 779, 16));
@@ -251,7 +310,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getjPanel6().add(herbalist_app_guidata.getjLabel12(), null);
 			herbalist_app_guidata.getjPanel6().add(getKategori_Ekleme_ve_Silme_Menusu(), null);
 		}
-		return herbalist_app_guidata.getjPanel6();
 	}
 
 	/**
@@ -260,6 +318,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getFirmaya_Yeni_Turde_Urun_Girisi() {
+		Firmaya_Yeni_Turde_Urun_Girisi_init();
+		return herbalist_app_guidata.getFirmaya_Yeni_Turde_Urun_Girisi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Firmaya_Yeni_Turde_Urun_Girisi_init() {
 		if (herbalist_app_guidata.getFirmaya_Yeni_Turde_Urun_Girisi() == null) {
 			herbalist_app_guidata.setjLabel49(new JLabel());
 			herbalist_app_guidata.getjLabel49().setBounds(new Rectangle(241, 16, 316, 16));
@@ -280,7 +346,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getFirmaya_Yeni_Turde_Urun_Girisi().add(getJTextField18(), null);
 			herbalist_app_guidata.getFirmaya_Yeni_Turde_Urun_Girisi().add(getJButton19(), null);
 		}
-		return herbalist_app_guidata.getFirmaya_Yeni_Turde_Urun_Girisi();
 	}
 
 	/**
@@ -289,6 +354,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getAdindan_Urun_Arama_ve_Silme() {
+		Adindan_Urun_Arama_ve_Silme_init();
+		return herbalist_app_guidata.getAdindan_Urun_Arama_ve_Silme();
+	}
+
+	/**
+	 * 
+	 */
+	private void Adindan_Urun_Arama_ve_Silme_init() {
 		if (herbalist_app_guidata.getAdindan_Urun_Arama_ve_Silme() == null) {
 			herbalist_app_guidata.setjLabel33(new JLabel());
 			herbalist_app_guidata.getjLabel33().setBounds(new Rectangle(-1, 72, 112, 16));
@@ -315,7 +388,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Silme().add(getUrun_Bilgisi_Listeleyici(), null);
 			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Silme().add(getJTextArea8(), null);
 		}
-		return herbalist_app_guidata.getAdindan_Urun_Arama_ve_Silme();
 	}
 
 	/**
@@ -324,6 +396,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getUrun_Bilgilerinde_Degisiklik() {
+		Urun_Bilgilerinde_Degisiklik_init();
+		return herbalist_app_guidata.getUrun_Bilgilerinde_Degisiklik();
+	}
+
+	/**
+	 * 
+	 */
+	private void Urun_Bilgilerinde_Degisiklik_init() {
 		if (herbalist_app_guidata.getUrun_Bilgilerinde_Degisiklik() == null) {
 			herbalist_app_guidata.setjLabel17(new JLabel());
 			herbalist_app_guidata.getjLabel17().setBounds(new Rectangle(0, 0, 775, 16));
@@ -333,7 +413,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getUrun_Bilgilerinde_Degisiklik().add(herbalist_app_guidata.getjLabel17(), null);
 			herbalist_app_guidata.getUrun_Bilgilerinde_Degisiklik().add(getJTextArea(), null);
 		}
-		return herbalist_app_guidata.getUrun_Bilgilerinde_Degisiklik();
 	}
 
 	/**
@@ -342,6 +421,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getYeni_Hastalik_Bilgisi_Girisi() {
+		Yeni_Hastalik_Bilgisi_Girisi_init();
+		return herbalist_app_guidata.getYeni_Hastalik_Bilgisi_Girisi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Yeni_Hastalik_Bilgisi_Girisi_init() {
 		if (herbalist_app_guidata.getYeni_Hastalik_Bilgisi_Girisi() == null) {
 			herbalist_app_guidata.setjLabel45(new JLabel());
 			herbalist_app_guidata.getjLabel45().setBounds(new Rectangle(4, 448, 220, 23));
@@ -415,7 +502,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getYeni_Hastalik_Bilgisi_Girisi().add(getJTextArea14(), null);
 			herbalist_app_guidata.getYeni_Hastalik_Bilgisi_Girisi().add(herbalist_app_guidata.getjLabel45(), null);
 		}
-		return herbalist_app_guidata.getYeni_Hastalik_Bilgisi_Girisi();
 	}
 
 	/**
@@ -425,10 +511,18 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getKategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma() {
+		Kategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma_init();
+		return herbalist_app_guidata.getKategori_Listeleme_Agac_Derinligi_ve_Eleman_Sayisini_Yazdirma();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma_init() {
 		if (herbalist_app_guidata.getKategori_Listeleme_Agac_Derinligi_ve_Eleman_Sayisini_Yazdirma() == null) {
 			herbalist_app_guidata.setjLabel10(new JLabel());
 			herbalist_app_guidata.getjLabel10().setBounds(new Rectangle(0, 16, 783, 16));
-			herbalist_app_guidata.getjLabel10().setText(" ilgili Aiacin Derinligini ve Eleman Sayisini Yazdirma");
+			herbalist_app_guidata.getjLabel10().setText("Ilgili Agacin Derinligini ve Eleman Sayisini Yazdirma");
 			herbalist_app_guidata.setjLabel6(new JLabel());
 			herbalist_app_guidata.getjLabel6().setBounds(new Rectangle(1, 2, 778, 16));
 			herbalist_app_guidata.getjLabel6().setText(
@@ -442,7 +536,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getKategori_Listeleme_Agac_Derinligi_ve_Eleman_Sayisini_Yazdirma()
 					.add(getJTabbedPane3(), null);
 		}
-		return herbalist_app_guidata.getKategori_Listeleme_Agac_Derinligi_ve_Eleman_Sayisini_Yazdirma();
 	}
 
 	/**
@@ -451,6 +544,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getKategori_Agaclarini_Dengeleme() {
+		Kategori_Agaclarini_Dengeleme_init();
+		return herbalist_app_guidata.getKategori_Agaclarini_Dengeleme();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Agaclarini_Dengeleme_init() {
 		if (herbalist_app_guidata.getKategori_Agaclarini_Dengeleme() == null) {
 			herbalist_app_guidata.setjLabel7(new JLabel());
 			herbalist_app_guidata.getjLabel7().setBounds(new Rectangle(2, 1, 778, 16));
@@ -459,7 +560,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getKategori_Agaclarini_Dengeleme().setLayout(null);
 			herbalist_app_guidata.getKategori_Agaclarini_Dengeleme().add(herbalist_app_guidata.getjLabel7(), null);
 		}
-		return herbalist_app_guidata.getKategori_Agaclarini_Dengeleme();
 	}
 
 	/**
@@ -469,19 +569,21 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan() {
+		Verilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan_init();
+		return herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan();
+	}
+
+	/**
+	 * 
+	 */
+	private void Verilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan_init() {
 		if (herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan() == null) {
 			herbalist_app_guidata.setjLabel34(new JLabel());
 			herbalist_app_guidata.getjLabel34().setBounds(new Rectangle(0, 16, 260, 16));
-			herbalist_app_guidata.getjLabel34().setText("Aranan Hastaligin Adini GUruniz");
-			herbalist_app_guidata.setjLabel8(new JLabel());
-			herbalist_app_guidata.getjLabel8().setBounds(new Rectangle(0, 0, 783, 16));
-			herbalist_app_guidata.getjLabel8()
-					.setText("Verilen Bir Hastaliia Iliskin Bilgilerin Listelenmesi (Hash Table'dan)");
+			herbalist_app_guidata.getjLabel34().setText("Aranan Hastaligin Adini Giriniz");
 			herbalist_app_guidata.setVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan(new JPanel());
 			herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan()
 					.setLayout(null);
-			herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan()
-					.add(herbalist_app_guidata.getjLabel8(), null);
 			herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan()
 					.add(getJTextField9(), null);
 			herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan()
@@ -491,7 +593,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan()
 					.add(getJTextArea9(), null);
 		}
-		return herbalist_app_guidata.getVerilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan();
 	}
 
 	/**
@@ -500,6 +601,15 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getBelli_Bir_Hastaliga_Iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gore_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi() {
+		Belli_Bir_Hastaliga_Iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gore_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi_init();
+		return herbalist_app_guidata
+				.getBelli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi();
+	}
+
+	/**
+	 * 
+	 */
+	private void Belli_Bir_Hastaliga_Iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gore_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi_init() {
 		if (herbalist_app_guidata
 				.getBelli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi() == null) {
 			herbalist_app_guidata.setjLabel11(new JLabel());
@@ -508,7 +618,7 @@ public class Herbalist_App {
 			herbalist_app_guidata.setjLabel9(new JLabel());
 			herbalist_app_guidata.getjLabel9().setBounds(new Rectangle(0, 1, 780, 16));
 			herbalist_app_guidata.getjLabel9()
-					.setText("Belli Bir Hastaliia iyi Gelebilen Bitkilerin Fiyatlarina Gire Heap'e Atilmasi");
+					.setText("Belli Bir Hastaliga iyi Gelebilen Bitkilerin Fiyatlarina Gire Heap'e Atilmasi");
 			herbalist_app_guidata
 					.setBelli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi(
 							new JPanel());
@@ -522,8 +632,6 @@ public class Herbalist_App {
 					.getBelli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi()
 					.add(herbalist_app_guidata.getjLabel11(), null);
 		}
-		return herbalist_app_guidata
-				.getBelli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi();
 	}
 
 	/**
@@ -586,13 +694,20 @@ public class Herbalist_App {
 	 * @return javax.swing.JTabbedPane
 	 */
 	private JTabbedPane getKategori_Ekleme_ve_Silme_Menusu() {
+		Kategori_Ekleme_ve_Silme_Menusu_init();
+		return herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Ekleme_ve_Silme_Menusu_init() {
 		if (herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu() == null) {
 			herbalist_app_guidata.setKategori_Ekleme_ve_Silme_Menusu(new JTabbedPane());
 			herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu().setBounds(new Rectangle(0, 16, 973, 555));
 			herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu().addTab(null, null, getKategori_Ekleme(), null);
 			herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu().addTab(null, null, getKategori_Silme(), null);
 		}
-		return herbalist_app_guidata.getKategori_Ekleme_ve_Silme_Menusu();
 	}
 
 	/**
@@ -601,6 +716,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getKategori_Ekleme() {
+		Kategori_Ekleme_init();
+		return herbalist_app_guidata.getKategori_Ekleme();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Ekleme_init() {
 		if (herbalist_app_guidata.getKategori_Ekleme() == null) {
 			herbalist_app_guidata.setjLabel29(new JLabel());
 			herbalist_app_guidata.getjLabel29().setBounds(new Rectangle(290, 16, 283, 16));
@@ -624,7 +747,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getKategori_Ekleme().add(getJTextArea4(), null);
 			herbalist_app_guidata.getKategori_Ekleme().add(getKategori_Listeleyici(), null);
 		}
-		return herbalist_app_guidata.getKategori_Ekleme();
 	}
 
 	/**
@@ -633,6 +755,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getKategori_Silme() {
+		Kategori_Silme_init();
+		return herbalist_app_guidata.getKategori_Silme();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Silme_init() {
 		if (herbalist_app_guidata.getKategori_Silme() == null) {
 			herbalist_app_guidata.setjLabel32(new JLabel());
 			herbalist_app_guidata.getjLabel32().setBounds(new Rectangle(0, 72, 111, 16));
@@ -659,7 +789,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getKategori_Silme().add(getKategori_Listeleyici_2(), null);
 			herbalist_app_guidata.getKategori_Silme().add(getJTextArea7(), null);
 		}
-		return herbalist_app_guidata.getKategori_Silme();
 	}
 
 	/**
@@ -683,6 +812,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getAdindan_Urun_Arama_ve_Listeleme() {
+		Adindan_Urun_Arama_ve_Listeleme_init();
+		return herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme();
+	}
+
+	/**
+	 * 
+	 */
+	private void Adindan_Urun_Arama_ve_Listeleme_init() {
 		if (herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme() == null) {
 			herbalist_app_guidata.setAdindan_Urun_Arama_ve_Listeleme(new JPanel());
 			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme().setLayout(null);
@@ -690,7 +827,6 @@ public class Herbalist_App {
 			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme().add(getJPanel23(), null);
 			herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme().add(getJTextArea1(), null);
 		}
-		return herbalist_app_guidata.getAdindan_Urun_Arama_ve_Listeleme();
 	}
 
 	/**
@@ -962,7 +1098,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setInorder(new Vector_string());
+								.setInorder(new Capsule_Vector_String());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						herbalist_app_guidata.getjTextArea2().setText(
@@ -1010,7 +1146,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPreorder(new Vector_string());
+								.setPreorder(new Capsule_Vector_String());
 						Veritabani_Listesi.verilen_indexteki_elemanin_preorder_ciktisini_hazirla(endex);
 						;
 						herbalist_app_guidata.getjTextArea3().setText(Veritabani_Listesi.agac_vektorundeki_su_indexteki_elemani_preorder_yazdir(endex));
@@ -1055,7 +1191,7 @@ public class Herbalist_App {
 									.compareTo("Biyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex=Veritabani_Listesi.getKategori_veri_tabaninda_Aranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPostorder(new Vector_string());
+								.setPostorder(new Capsule_Vector_String());
 						Veritabani_Listesi.verilen_indexteki_elemanin_postorder_ciktisini_hazirla(endex);
 						herbalist_app_guidata.getjTextArea6().setText(Veritabani_Listesi.agac_vektorundeki_su_indexteki_elemani_postorder_yazdir(endex));
 					}
@@ -1248,7 +1384,7 @@ public class Herbalist_App {
 			herbalist_app_guidata.getjButton7().addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
 					Hastalik aranan;
-					aranan = Veritabani_Listesi.getHash_table().getHash()
+					aranan = Veritabani_Listesi.getHash_table().getHash_hastalik()
 							.get(herbalist_app_guidata.getjTextField4().getText());
 					if (aranan == null) {
 						herbalist_app_guidata.getjTextField10().setText("Bulunamadi");
@@ -1285,6 +1421,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JButton
 	 */
 	private JButton getKategori_Listeleyici() {
+		Kategori_Listeleyici_init();
+		return herbalist_app_guidata.getKategori_Listeleyici();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Listeleyici_init() {
 		if (herbalist_app_guidata.getKategori_Listeleyici() == null) {
 			herbalist_app_guidata.setKategori_Listeleyici(new JButton());
 			herbalist_app_guidata.getKategori_Listeleyici().setBounds(new Rectangle(166, 69, 152, 17));
@@ -1313,7 +1457,6 @@ public class Herbalist_App {
 				}
 			});
 		}
-		return herbalist_app_guidata.getKategori_Listeleyici();
 	}
 
 
@@ -1412,6 +1555,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JButton
 	 */
 	private JButton getKategori_Listeleyici_2() {
+		Kategori_Listeleyici_2_init();
+		return herbalist_app_guidata.getKategori_Listeleyici_2();
+	}
+
+	/**
+	 * 
+	 */
+	private void Kategori_Listeleyici_2_init() {
 		if (herbalist_app_guidata.getKategori_Listeleyici_2() == null) {
 			herbalist_app_guidata.setKategori_Listeleyici_2(new JButton());
 			herbalist_app_guidata.getKategori_Listeleyici_2().setBounds(new Rectangle(109, 73, 143, 16));
@@ -1440,7 +1591,6 @@ public class Herbalist_App {
 				}
 			});
 		}
-		return herbalist_app_guidata.getKategori_Listeleyici_2();
 	}
 
 	/**
@@ -1570,6 +1720,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JButton
 	 */
 	private JButton getUrun_Bilgisi_Listeleyici() {
+		Urun_Bilgisi_Listeleyici_init();
+		return herbalist_app_guidata.getUrun_Bilgisi_Listeleyici();
+	}
+
+	/**
+	 * 
+	 */
+	private void Urun_Bilgisi_Listeleyici_init() {
 		if (herbalist_app_guidata.getUrun_Bilgisi_Listeleyici() == null) {
 			herbalist_app_guidata.setUrun_Bilgisi_Listeleyici(new JButton());
 			herbalist_app_guidata.getUrun_Bilgisi_Listeleyici().setBounds(new Rectangle(110, 73, 193, 15));
@@ -1597,7 +1755,6 @@ public class Herbalist_App {
 				}
 			});
 		}
-		return herbalist_app_guidata.getUrun_Bilgisi_Listeleyici();
 	}
 
 	/**
@@ -1619,13 +1776,20 @@ public class Herbalist_App {
 	 * @return javax.swing.JTextArea
 	 */
 	private JTextArea getGecici_metin_kutusu() {
+		Gecici_metin_kutusu_init();
+		return herbalist_app_guidata.getGecici_metin_kutusu();
+	}
+
+	/**
+	 * 
+	 */
+	private void Gecici_metin_kutusu_init() {
 		if (herbalist_app_guidata.getGecici_metin_kutusu() == null) {
 			herbalist_app_guidata.setGecici_metin_kutusu(new JTextArea());
 			herbalist_app_guidata.getGecici_metin_kutusu().setBounds(new Rectangle(604, 58, 238, 150));
 			herbalist_app_guidata.getGecici_metin_kutusu().setText(
 					"String adi\n, String kategori\n, String latince_adi\n, int miktari\n,float fiyati\n, String diskteki_yeri\n, String diskteki_adi\n,Vector<String> inerilen_hastaliklar\n, Vector<String> izellikleri");
 		}
-		return herbalist_app_guidata.getGecici_metin_kutusu();
 	}
 
 	/**
@@ -1654,16 +1818,12 @@ public class Herbalist_App {
 			herbalist_app_guidata.getjButton12().setText("Aranan Hastaligin Bilgilerini Listele");
 			herbalist_app_guidata.getjButton12().addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					herbalist_app_guidata.setYanit(Veritabani_Listesi.getHash_table().getHash()
+					herbalist_app_guidata.setYanit(Veritabani_Listesi.getHash_table().getHash_hastalik()
 							.get(herbalist_app_guidata.getjTextField9().getText()).toString());
 
 					if (herbalist_app_guidata.getYanit() != null) {
 						herbalist_app_guidata.getjTextArea9().setText(herbalist_app_guidata.getYanit());
 						System.out.println("Aranan Hastaligin Bilgileri Listelendi");
-						// Auto-generated
-						// Event
-						// stub
-						// mouseClicked()
 					} else {
 						herbalist_app_guidata.getjTextArea9().setText("Bulunamadi");
 					}
@@ -2001,7 +2161,7 @@ public class Herbalist_App {
 						Hastalik yeni = new Hastalik(herbalist_app_guidata.getjTextField4().getText(),
 								herbalist_app_guidata.getBelirtiler(), herbalist_app_guidata.getNedenler(),
 								herbalist_app_guidata.getTedaviler(), herbalist_app_guidata.getBitkiler());
-						Veritabani_Listesi.getHash_table().getHash()
+						Veritabani_Listesi.getHash_table().getHash_hastalik()
 								.put(herbalist_app_guidata.getjTextField4().getText(), yeni);
 						Veritabani_Listesi.getHastalik_veri_tabani().getHastaliklar().add(yeni);
 						Veritabani_Listesi.getHastalik_veri_tabani().update_file();
@@ -2191,22 +2351,7 @@ public class Herbalist_App {
 		return herbalist_app_guidata.getjButton19();
 	}
 
-	/**
-	 * This method initializes Herbalist_Application
-	 * 
-	 * @return javax.swing.JFrame
-	 */
-	public JFrame getHerbalist_Application() {
-		if (herbalist_app_guidata.getHerbalist_Application() == null) {
-			herbalist_app_guidata.setHerbalist_Application(new JFrame());
-			herbalist_app_guidata.getHerbalist_Application().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			herbalist_app_guidata.getHerbalist_Application().setJMenuBar(getJJMenuBar());
-			herbalist_app_guidata.getHerbalist_Application().setSize(1000, 700);
-			herbalist_app_guidata.getHerbalist_Application().setContentPane(getMenu());
-			herbalist_app_guidata.getHerbalist_Application().setTitle("Herbalist Uygulamasi");
-		}
-		return herbalist_app_guidata.getHerbalist_Application();
-	}
+
 
 	/**
 	 * This method initializes Menu
@@ -2288,16 +2433,25 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getExitMenuItem() {
+		ExitMenuItem_init();
+		return herbalist_app_guidata.getExitMenuItem();
+	}
+    private ActionListener exitActionListener = new ActionListener()
+    {
+        public void actionPerformed(ActionEvent arg0) 
+        {
+        	System.exit(0);
+        }
+    };
+	/**
+	 * 
+	 */
+	private void ExitMenuItem_init() {
 		if (herbalist_app_guidata.getExitMenuItem() == null) {
 			herbalist_app_guidata.setExitMenuItem(new JMenuItem());
 			herbalist_app_guidata.getExitMenuItem().setText("Cikis");
-			herbalist_app_guidata.getExitMenuItem().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					System.exit(0);
-				}
-			});
+			herbalist_app_guidata.getExitMenuItem().addActionListener(exitActionListener);
 		}
-		return herbalist_app_guidata.getExitMenuItem();
 	}
 
 	/**
@@ -2306,6 +2460,14 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getAboutMenuItem() {
+		AboutMenuItem_init();
+		return herbalist_app_guidata.getAboutMenuItem();
+	}
+
+	/**
+	 * 
+	 */
+	private void AboutMenuItem_init() {
 		if (herbalist_app_guidata.getAboutMenuItem() == null) {
 			herbalist_app_guidata.setAboutMenuItem(new JMenuItem());
 			herbalist_app_guidata.getAboutMenuItem().setText("Hakkinda");
@@ -2320,7 +2482,6 @@ public class Herbalist_App {
 				}
 			});
 		}
-		return herbalist_app_guidata.getAboutMenuItem();
 	}
 
 	/**
@@ -2329,12 +2490,19 @@ public class Herbalist_App {
 	 * @return javax.swing.JDialog
 	 */
 	private JDialog getAboutDialog() {
+		AboutDialog_init();
+		return herbalist_app_guidata.getAboutDialog();
+	}
+
+	/**
+	 * 
+	 */
+	private void AboutDialog_init() {
 		if (herbalist_app_guidata.getAboutDialog() == null) {
 			herbalist_app_guidata.setAboutDialog(new JDialog(getHerbalist_Application(), true));
 			herbalist_app_guidata.getAboutDialog().setTitle("Hakkinda");
 			herbalist_app_guidata.getAboutDialog().setContentPane(getAboutContentPane());
 		}
-		return herbalist_app_guidata.getAboutDialog();
 	}
 
 	/**
@@ -2343,12 +2511,19 @@ public class Herbalist_App {
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getAboutContentPane() {
+		AboutContentPane_init();
+		return herbalist_app_guidata.getAboutContentPane();
+	}
+
+	/**
+	 * 
+	 */
+	private void AboutContentPane_init() {
 		if (herbalist_app_guidata.getAboutContentPane() == null) {
 			herbalist_app_guidata.setAboutContentPane(new JPanel());
 			herbalist_app_guidata.getAboutContentPane().setLayout(new BorderLayout());
 			herbalist_app_guidata.getAboutContentPane().add(getAboutVersionLabel(), BorderLayout.CENTER);
 		}
-		return herbalist_app_guidata.getAboutContentPane();
 	}
 
 	/**
@@ -2357,12 +2532,19 @@ public class Herbalist_App {
 	 * @return javax.swing.JLabel
 	 */
 	private JLabel getAboutVersionLabel() {
+		AboutVersionLabel_init();
+		return herbalist_app_guidata.getAboutVersionLabel();
+	}
+
+	/**
+	 * 
+	 */
+	private void AboutVersionLabel_init() {
 		if (herbalist_app_guidata.getAboutVersionLabel() == null) {
 			herbalist_app_guidata.setAboutVersionLabel(new JLabel());
 			herbalist_app_guidata.getAboutVersionLabel().setText("Versiyon 1.1");
 			herbalist_app_guidata.getAboutVersionLabel().setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		return herbalist_app_guidata.getAboutVersionLabel();
 	}
 
 	/**
@@ -2371,13 +2553,20 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getCutMenuItem() {
+		CutMenuItem_init();
+		return herbalist_app_guidata.getCutMenuItem();
+	}
+
+	/**
+	 * 
+	 */
+	private void CutMenuItem_init() {
 		if (herbalist_app_guidata.getCutMenuItem() == null) {
 			herbalist_app_guidata.setCutMenuItem(new JMenuItem());
 			herbalist_app_guidata.getCutMenuItem().setText("Kes");
 			herbalist_app_guidata.getCutMenuItem()
 					.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Event.CTRL_MASK, true));
 		}
-		return herbalist_app_guidata.getCutMenuItem();
 	}
 
 	/**
@@ -2386,13 +2575,20 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getCopyMenuItem() {
+		CopyMenuItem_init();
+		return herbalist_app_guidata.getCopyMenuItem();
+	}
+
+	/**
+	 * 
+	 */
+	private void CopyMenuItem_init() {
 		if (herbalist_app_guidata.getCopyMenuItem() == null) {
 			herbalist_app_guidata.setCopyMenuItem(new JMenuItem());
 			herbalist_app_guidata.getCopyMenuItem().setText("Kopyala");
 			herbalist_app_guidata.getCopyMenuItem()
 					.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.CTRL_MASK, true));
 		}
-		return herbalist_app_guidata.getCopyMenuItem();
 	}
 
 	/**
@@ -2401,13 +2597,20 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getPasteMenuItem() {
+		PasteMenuItem_init();
+		return herbalist_app_guidata.getPasteMenuItem();
+	}
+
+	/**
+	 * 
+	 */
+	private void PasteMenuItem_init() {
 		if (herbalist_app_guidata.getPasteMenuItem() == null) {
 			herbalist_app_guidata.setPasteMenuItem(new JMenuItem());
 			herbalist_app_guidata.getPasteMenuItem().setText("Yapistir");
 			herbalist_app_guidata.getPasteMenuItem()
 					.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK, true));
 		}
-		return herbalist_app_guidata.getPasteMenuItem();
 	}
 
 	/**
@@ -2416,13 +2619,57 @@ public class Herbalist_App {
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getSaveMenuItem() {
+		SaveMenuItem_init();
+		return herbalist_app_guidata.getSaveMenuItem();
+	}
+
+	/**
+	 * 
+	 */
+	private void SaveMenuItem_init() {
 		if (herbalist_app_guidata.getSaveMenuItem() == null) {
 			herbalist_app_guidata.setSaveMenuItem(new JMenuItem());
 			herbalist_app_guidata.getSaveMenuItem().setText("Kaydet");
 			herbalist_app_guidata.getSaveMenuItem()
 					.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK, true));
 		}
-		return herbalist_app_guidata.getSaveMenuItem();
+	}
+	/**
+	 * This method initializes Herbalist_Application
+	 * 
+	 * @return javax.swing.JFrame
+	 */
+	public JFrame getHerbalist_Application() {
+		try {
+			Herbalist_Application_init();
+		} catch (HeadlessException e) {
+			System.out.println("Sistem görsel uygulamayı desteklemiyor.");
+			e.printStackTrace();
+			System.exit(0);
+		}
+		return herbalist_app_guidata.getHerbalist_Application();
+	}
+
+	/**
+	 * @throws HeadlessException
+	 */
+	private void Herbalist_Application_init() throws HeadlessException {
+		if (herbalist_app_guidata.getHerbalist_Application() == null) {
+			herbalist_app_guidata.setHerbalist_Application(new JFrame());
+			herbalist_app_guidata.getHerbalist_Application().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			herbalist_app_guidata.getHerbalist_Application().setJMenuBar(getJJMenuBar());
+			herbalist_app_guidata.getHerbalist_Application().setSize(1000, 700);
+			herbalist_app_guidata.getHerbalist_Application().setContentPane(getMenu());
+			herbalist_app_guidata.getHerbalist_Application().setTitle("Herbalist Uygulamasi");
+		}
+	}
+
+	public ActionListener getFirstActionListener() {
+		return exitActionListener;
+	}
+
+	public void setFirstActionListener(ActionListener firstActionListener) {
+		this.exitActionListener = firstActionListener;
 	}
 
 }

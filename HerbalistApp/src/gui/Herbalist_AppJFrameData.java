@@ -9,16 +9,14 @@ import javax.swing.JFrame;
  * @author MehmetAkif-PC
  */
 public class Herbalist_AppJFrameData {
-	@Override
-	public String toString() {
-		return "Herbalist_AppJFrameData [Herbalist_Application=" + Herbalist_Application + "]";
-	}
-
 	/**
 	 * 
 	 */
 	private JFrame Herbalist_Application;
-
+	@Override
+	public String toString() {
+		return "Herbalist_AppJFrameData [Herbalist_Application=" + Herbalist_Application + "]";
+	}
 	/**
 	 * 
 	 */

@@ -1,9 +1,8 @@
 package herbalist;
 
-import java.util.Vector;
-
 import javax.swing.SwingUtilities;
 
+import deva.Capsule_Vector_String;
 import gui.Herbalist_AppGUIData;
 import gui.Herbalist_AppJButtonData;
 import gui.Herbalist_AppJDialogData;
@@ -68,8 +67,8 @@ public class Form {
 						null, null, "", null, null, null, null, null, null, null, null, null, null, null, null, null,
 						null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 						null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-						null, null, null, null, null, null, null, null, null, null, null, null, new Vector<String>(),
-						new Vector<String>(), new Vector<String>(), new Vector<String>(), null, null, null, null, null,
+						null, null, null, null, null, null, null, null, null, null, null, null, new Capsule_Vector_String(),
+						new Capsule_Vector_String(), new Capsule_Vector_String(), new Capsule_Vector_String(), null, null, null, null, null,
 						null, null, null, null, null, null, null, null, null, null));
 				application.getHerbalist_Application().setVisible(true);
 			}

@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
-import java.util.Vector;
-
 import deva.Bitki;
 
 /**
@@ -17,35 +15,22 @@ import deva.Bitki;
  *
  */
 public class Bitki_veri_tabani {
-	private Vector<Bitki> bitkiler = new Vector<Bitki>();
+	private Capsule_Vector_Bitki vector_bitki;
 	private String kullandigi_dosya = "";
 
 	/**
 	 * @param dosya_adi
 	 */
 	public Bitki_veri_tabani(String dosya_adi) {
-		setKullandigi_dosya(dosya_adi);
-		Bitki_veri_tabani.dosya_oku(getKullandigi_dosya());
+		vector_bitki = new Capsule_Vector_Bitki();
+		kullandigi_dosya=dosya_adi;
+		vector_bitki=Bitki_veri_tabani.dosya_oku(kullandigi_dosya);
 	}
 	/**
 	 * 
 	 */
 	public Bitki_veri_tabani() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return
-	 */
-	public Vector<Bitki> getBitkiler() {
-		return bitkiler;
-	}
-
-	/**
-	 * @param bitkiler
-	 */
-	public void setBitkiler(Vector<Bitki> bitkiler) {
-		this.bitkiler = bitkiler;
+		setVector_bitki(new Capsule_Vector_Bitki());
 	}
 
 	/**
@@ -78,8 +63,8 @@ public class Bitki_veri_tabani {
 		int evet = 1, hayir = 0;
 
 		// Burasi ust menude yapilamali
-		for (int i = 0; i < bitkiler.size(); i++) {
-			bitki_adi = bitkiler.elementAt(i).getAdi();
+		for (int i = 0; i < vector_bitki.size(); i++) {
+			bitki_adi = vector_bitki.elementAt(i).getAdi();
 			if (yeni_bitkinin_adi.compareTo(bitki_adi) == 0) {
 				bitki_zaten_var_mi = evet;
 			}
@@ -96,10 +81,10 @@ public class Bitki_veri_tabani {
 
 	public synchronized void remove(String data) {
 		String bitki_adi = "";
-		for (int i = 0; i < bitkiler.size(); i++) {
-			bitki_adi = bitkiler.elementAt(i).getAdi();
+		for (int i = 0; i < vector_bitki.size(); i++) {
+			bitki_adi = vector_bitki.elementAt(i).getAdi();
 			if (bitki_adi.compareTo(data) == 0) {
-				bitkiler.remove(i);
+				vector_bitki.remove(i);
 				break;
 			}
 		}
@@ -110,17 +95,15 @@ public class Bitki_veri_tabani {
 		Bitki bitki;
 
 		try {
-			final BufferedWriter out = new BufferedWriter(new FileWriter(getKullandigi_dosya()));
+			FileWriter file_writer=new FileWriter(getKullandigi_dosya());
+			final BufferedWriter out = new BufferedWriter(file_writer);
 			final PrintWriter pw = new PrintWriter(out);
 			// buffer icin flussh metodu var
-			for (int i = 0; i < bitkiler.size(); i++) {
-				bitki = bitkiler.elementAt(i);
-				metin += bitki.getAdi() + "#" + bitki.getKategori() + "#" + bitki.getLatince_adi() + "#"
-						+ bitkinin_ozellikleri(bitki) + "#" + bitki.getMiktari() + "#" + bitki.getFiyati() + "#"
-						+ bitki.getDiskteki_yeri() + "#" + bitki.getDiskteki_adi() + "#"
-						+ bitki.getonerilen_hastaliklar().size();
+			for (int i = 0; i < vector_bitki.size(); i++) {
+				bitki = vector_bitki.elementAt(i);
+				metin+=bitki.toUpdateString();
 				if (bitki.getonerilen_hastaliklar().size() != 0) {
-					metin += faydali_oldugu_hastaliklar(bitki);
+					metin += bitki.faydali_oldugu_hastaliklar();
 				}
 				pw.println(metin);
 				pw.flush();
@@ -131,37 +114,19 @@ public class Bitki_veri_tabani {
 		}
 	}
 
-	private String faydali_oldugu_hastaliklar(Bitki bitki) {
-		String metin = "";
-		for (int i = 0; i < bitki.getonerilen_hastaliklar().size(); i++) {
-			metin += ">>" + bitki.getonerilen_hastaliklar().elementAt(i);
-		}
-		return metin;
-	}
-
-	private String bitkinin_ozellikleri(Bitki bitki) {
-		String metin = "";
-		int n = bitki.getozellikleri().size() - 1;
-		for (int i = 0; i < n; i++) {
-			metin += bitki.getozellikleri().elementAt(i) + "_";
-		}
-		metin += bitki.getozellikleri().lastElement();
-		return metin;
-	}
-
 	public String urunleri_listele(float min, float max) {
 		String metin = "";
 		float bitkinin_fiyati;
-		for (int i = 0; i < bitkiler.size(); i++) {
-			bitkinin_fiyati = bitkiler.elementAt(i).getFiyati();
+		for (int i = 0; i < vector_bitki.size(); i++) {
+			bitkinin_fiyati = vector_bitki.elementAt(i).getFiyati();
 			if (min <= bitkinin_fiyati && bitkinin_fiyati <= max) {
-				metin += bitkiler.elementAt(i).getAdi() + "\n";
+				metin += vector_bitki.elementAt(i).getAdi() + "\n";
 			}
 		}
 		return metin;
 	}
 
-	public static Vector<Bitki> dosya_oku(final String fileName) {
+	public static synchronized Capsule_Vector_Bitki dosya_oku(final String fileName) {
 		// Bitkiye iliskin bilgiler(bitki adi# kategori(bitkiler isin 0,bitki
 		// sayilari icin 1,vitaminler icin 2)#bitkinin latince ismi#bitkinin
 		// ozellikleri( _ ile ayrilidir)#miktari#fiyati#bitki resminin diskteki
@@ -169,7 +134,7 @@ public class Bitki_veri_tabani {
 		// isin)#onerilen hastaliklar(>>ile ayrilmistir)
 		// final Vector<Kisi> kisiler =
 		// kisileriOku("kullanicilar.txt");
-		Vector<Bitki> bitkiler = new Vector<Bitki>();
+		Capsule_Vector_Bitki vector_bitki = new Capsule_Vector_Bitki();
 
 		// burada tanimliyoruz boylece finally blogunda gorulebiliyor
 		BufferedReader input = null;
@@ -184,9 +149,11 @@ public class Bitki_veri_tabani {
 			StringTokenizer st3;
 			int bilgi_sayisi;
 			while ((line = input.readLine()) != null) {
+				System.out.println("line"+line);
 				st = new StringTokenizer(line, "#");
 				bitki = new Bitki(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(),
 						st.nextToken(), st.nextToken(), st.nextToken());
+				System.out.println("bitki"+bitki);
 				String onerilen_hastaliklar = st.nextToken();
 				st2 = new StringTokenizer(onerilen_hastaliklar, ">>");
 				bilgi_sayisi = Integer.parseInt(st2.nextToken());
@@ -199,7 +166,7 @@ public class Bitki_veri_tabani {
 						bitki.getonerilen_hastaliklar().add(st3.nextToken());
 					}
 				}
-				bitkiler.add(bitki);
+				vector_bitki.add(bitki);
 			}
 		} catch (final FileNotFoundException ex) {
 			// Dosya bulunamadi hatasi
@@ -220,6 +187,12 @@ public class Bitki_veri_tabani {
 				ex.printStackTrace();
 			}
 		}
-		return bitkiler;
+		return vector_bitki;
+	}
+	public Capsule_Vector_Bitki getVector_bitki() {
+		return vector_bitki;
+	}
+	public void setVector_bitki(Capsule_Vector_Bitki vector_bitki) {
+		this.vector_bitki = vector_bitki;
 	}
 }

@@ -3,23 +3,20 @@ package gui;
 import javax.swing.JMenuItem;
 
 public class Herbalist_AppJMenuItemData {
-	@Override
-	public String toString() {
-		return "Herbalist_AppJMenuItemData [exitMenuItem=" + exitMenuItem + ", aboutMenuItem=" + aboutMenuItem
-				+ ", cutMenuItem=" + cutMenuItem + ", copyMenuItem=" + copyMenuItem + ", pasteMenuItem=" + pasteMenuItem
-				+ ", saveMenuItem=" + saveMenuItem + "]";
-	}
-
 	private JMenuItem exitMenuItem;
 	private JMenuItem aboutMenuItem;
 	private JMenuItem cutMenuItem;
 	private JMenuItem copyMenuItem;
 	private JMenuItem pasteMenuItem;
 	private JMenuItem saveMenuItem;
-
+	@Override
+	public String toString() {
+		return "Herbalist_AppJMenuItemData [exitMenuItem=" + exitMenuItem + ", aboutMenuItem=" + aboutMenuItem
+				+ ", cutMenuItem=" + cutMenuItem + ", copyMenuItem=" + copyMenuItem + ", pasteMenuItem=" + pasteMenuItem
+				+ ", saveMenuItem=" + saveMenuItem + "]";
+	}
 	public Herbalist_AppJMenuItemData() {
 	}
-
 	public JMenuItem getExitMenuItem() {
 		return exitMenuItem;
 	}

@@ -7,8 +7,6 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -26,7 +24,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import dert.Hastalik;
-import deva.Vector_string;
+import deva.Capsule_Vector_String;
 import veri_tabani.Kategori;
 import veri_tabani.Veritabani_Listesi;
 
@@ -965,7 +963,7 @@ public class Herbalist_App {
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex);
 						jTextField20.setText(
-								"" + Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).node_sayisi);
+								"" + Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode_sayisi());
 					}
 					System.out.println("mouseClicked()");
 					// Event stub
@@ -1021,7 +1019,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setInorder(new Vector_string());
+								.setInorder(new Capsule_Vector_String());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						jTextArea2.setText(
@@ -1067,7 +1065,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPreorder(new Vector_string());
+								.setPreorder(new Capsule_Vector_String());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						// jTextArea3.setText(getAgac_vektoru().getagaclar().elementAt(endex).inOrder_yazdir());
@@ -1113,7 +1111,7 @@ public class Herbalist_App {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
-								.setPostorder(new Vector_string());
+								.setPostorder(new Capsule_Vector_String());
 						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder(
 								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
 						// jTextArea6.setText(getAgac_vektoru().getagaclar().elementAt(endex).postOrder_yazdir());
@@ -1400,7 +1398,7 @@ public class Herbalist_App {
 			jButton7.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
 					Hastalik aranan;
-					aranan = Veritabani_Listesi.getHash_table().getHash().get(jTextField4.getText());
+					aranan = Veritabani_Listesi.getHash_table().getHash_hastalik().get(jTextField4.getText());
 					if (aranan == null) {
 						jTextField10.setText("Bulunamadi");
 						yanit = "";
@@ -1852,7 +1850,7 @@ public class Herbalist_App {
 			jButton12.setText("Aranan Hastalisin Bilgilerini Listele");
 			jButton12.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					yanit = Veritabani_Listesi.getHash_table().getHash().get(jTextField9.getText()).toString();
+					yanit = Veritabani_Listesi.getHash_table().getHash_hastalik().get(jTextField9.getText()).toString();
 
 					if (yanit != null) {
 						jTextArea9.setText(yanit);
@@ -1929,10 +1927,10 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JButton
 	 */
-	public Vector<String> belirtiler = new Vector<String>(); // @jve:decl-index=0:
-	public Vector<String> nedenler = new Vector<String>(); // @jve:decl-index=0:
-	public Vector<String> tedaviler = new Vector<String>(); // @jve:decl-index=0:
-	public Vector<String> bitkiler = new Vector<String>(); // @jve:decl-index=0:
+	public Capsule_Vector_String belirtiler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String nedenler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String tedaviler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String bitkiler = new Capsule_Vector_String(); // @jve:decl-index=0:
 	private JLabel jLabel46 = null;
 	private JLabel jLabel47 = null;
 	private JLabel jLabel48 = null;
@@ -2221,7 +2219,7 @@ public class Herbalist_App {
 					if (jTextField10.getText().compareTo("Bulunamadi") == 0) {
 						jTextArea14.setText("Veriler Kaydediliyor");
 						Hastalik yeni = new Hastalik(jTextField4.getText(), belirtiler, nedenler, tedaviler, bitkiler);
-						Veritabani_Listesi.getHash_table().getHash().put(jTextField4.getText(), yeni);
+						Veritabani_Listesi.getHash_table().getHash_hastalik().put(jTextField4.getText(), yeni);
 						Veritabani_Listesi.getHastalik_veri_tabani().getHastaliklar().add(yeni);
 						Veritabani_Listesi.getHastalik_veri_tabani().update_file();
 						jTextArea14.setText("Veriler Kaydedildi");

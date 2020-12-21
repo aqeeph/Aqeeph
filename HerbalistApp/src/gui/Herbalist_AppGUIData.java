@@ -1,7 +1,5 @@
 package gui;
 
-import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -15,8 +13,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import deva.Capsule_Vector_String;
+
 public class Herbalist_AppGUIData {
-	
+	private Herbalist_AppStringData stringdata;
+	private Herbalist_AppSwingData swingdata;
 	@Override
 	public String toString() {
 		return "Herbalist_AppGUIData [stringdata=" + stringdata + ", swingdata=" + swingdata + "]";
@@ -32,8 +33,7 @@ public class Herbalist_AppGUIData {
 		this.swingdata = swingdata;
 	}
 
-	private Herbalist_AppStringData stringdata;
-	private Herbalist_AppSwingData swingdata;
+
 	
 
 	public Herbalist_AppGUIData(Herbalist_AppStringData stringdata, Herbalist_AppSwingData swingdata,
@@ -41,7 +41,7 @@ public class Herbalist_AppGUIData {
 			JMenu helpMenu, JMenuItem exitMenuItem, JMenuItem aboutMenuItem, JMenuItem cutMenuItem,
 			JMenuItem copyMenuItem, JMenuItem pasteMenuItem, JMenuItem saveMenuItem, JDialog aboutDialog,
 			JPanel aboutContentPane, JLabel aboutVersionLabel, JTabbedPane kullanici_Menusu, JPanel jPanel,
-			JPanel jPanel1, JTabbedPane miiteri_Menusu, JPanel jPanel2,
+			JPanel jPanel1, JTabbedPane musteri_Menusu, JPanel jPanel2,
 			JPanel belirli_Fiyatlar_Arasindaki_Tim_Tirlerin_Bulunup_Listelenmesi,
 			JPanel verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_isimlerinin_Listelenmesi,
 			JPanel Urun_Siparisi_Birden_Cok_Paket_istenebilir_ve_Alimi, JLabel musteri_Menusu_Basligi,
@@ -72,8 +72,8 @@ public class Herbalist_AppGUIData {
 			JLabel jLabel39, JTextField jTextField14, JButton jButton16, JLabel jLabel40, JButton jButton17,
 			JTextField jTextField15, JTextArea jTextArea10, JLabel jLabel41, JLabel jLabel42, JTextArea jTextArea11,
 			JLabel jLabel43, JTextArea jTextArea12, JLabel jLabel44, JTextArea jTextArea13, JButton jButton18,
-			JLabel jLabel36, JTextArea jTextArea14, JLabel jLabel45, Vector<String> belirtiler, Vector<String> nedenler,
-			Vector<String> tedaviler, Vector<String> bitkiler, JLabel jLabel46, JLabel jLabel47, JLabel jLabel48,
+			JLabel jLabel36, JTextArea jTextArea14, JLabel jLabel45, Capsule_Vector_String belirtiler, Capsule_Vector_String nedenler,
+			Capsule_Vector_String tedaviler, Capsule_Vector_String bitkiler, JLabel jLabel46, JLabel jLabel47, JLabel jLabel48,
 			JTextField jTextField11, JTextField jTextField16, JButton jButton13, JTextArea jTextArea15,
 			JTextField jTextField17, JLabel jLabel49, JTextField jTextField18, JLabel jLabel27, JTextField jTextField19,
 			JLabel jLabel50, JTextField jTextField20, JButton jButton19) {
@@ -95,10 +95,10 @@ public class Herbalist_AppGUIData {
 		this.swingdata.getJpaneldata().setAboutContentPane(aboutContentPane);
 		this.swingdata.getJlabeldata().setAboutVersionLabel(aboutVersionLabel);
 		swingdata.getJtabbedpanedata().setKullanici_Menusu(kullanici_Menusu);
-		this.swingdata.getJpaneldata().setjPanel(jPanel);
-		this.swingdata.getJpaneldata().setjPanel1(jPanel1);
-		swingdata.getJtabbedpanedata().setMusteri_Menusu(miiteri_Menusu);
-		this.swingdata.getJpaneldata().setjPanel2(jPanel2);
+		this.swingdata.getJpaneldata().setmusteri_bolumu(jPanel);
+		this.swingdata.getJpaneldata().setfirma_bolumu(jPanel1);
+		swingdata.getJtabbedpanedata().setMusteri_Menusu(musteri_Menusu);
+		this.swingdata.getJpaneldata().setAdindan_Urun_Arama_ve_Listeleme_bolumu(jPanel2);
 		swingdata.getJpaneldata().setBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi(
 				belirli_Fiyatlar_Arasindaki_Tim_Tirlerin_Bulunup_Listelenmesi);
 		swingdata.getJpaneldata()
@@ -106,15 +106,12 @@ public class Herbalist_AppGUIData {
 						verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_isimlerinin_Listelenmesi);
 		swingdata.getJpaneldata().setUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi(
 				Urun_Siparisi_Birden_Cok_Paket_istenebilir_ve_Alimi);
-		swingdata.getJlabeldata().setMusteri_Menusu_Basligi(musteri_Menusu_Basligi);
-		swingdata.getJlabeldata().setPersonel_Menusu_Basligi(personel_Menusu_Basligi);
 		swingdata.getJtabbedpanedata().setPersonel_Menusu(personel_Menusu);
 		this.swingdata.getJpaneldata().setjPanel6(jPanel6);
 		swingdata.getJpaneldata().setFirmaya_Yeni_Turde_Urun_Girisi(firmaya_Yeni_Tirde_Urun_Girisi);
 		swingdata.getJpaneldata().setAdindan_Urun_Arama_ve_Silme(adindan_Urun_Arama_ve_Silme);
 		swingdata.getJpaneldata().setUrun_Bilgilerinde_Degisiklik(Urun_Bilgilerinde_Degisiklik);
 		swingdata.getJpaneldata().setYeni_Hastalik_Bilgisi_Girisi(yeni_Hastalik_Bilgisi_Girisi);
-		this.swingdata.getJlabeldata().setjLabel2(jLabel2);
 		this.swingdata.getJlabeldata().setjLabel3(jLabel3);
 		this.swingdata.getJlabeldata().setjLabel4(jLabel4);
 		this.swingdata.getJlabeldata().setjLabel5(jLabel5);
@@ -128,7 +125,6 @@ public class Herbalist_AppGUIData {
 						belli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi);
 		this.swingdata.getJlabeldata().setjLabel6(jLabel6);
 		this.swingdata.getJlabeldata().setjLabel7(jLabel7);
-		this.swingdata.getJlabeldata().setjLabel8(jLabel8);
 		this.swingdata.getJlabeldata().setjLabel9(jLabel9);
 		this.swingdata.getJlabeldata().setjLabel10(jLabel10);
 		this.swingdata.getJtabbedpanedata().setjTabbedPane3(jTabbedPane3);
@@ -404,20 +400,20 @@ public class Herbalist_AppGUIData {
 		swingdata.getJtabbedpanedata().setKullanici_Menusu(kullanici_Menusu);
 	}
 
-	public JPanel getjPanel() {
-		return swingdata.getJpaneldata().getjPanel();
+	public JPanel getmusteri_bolumu() {
+		return swingdata.getJpaneldata().getmusteri_bolumu();
 	}
 
-	public void setjPanel(JPanel jPanel) {
-		this.swingdata.getJpaneldata().setjPanel(jPanel);
+	public void setmusteri_bolumu(JPanel jPanel) {
+		this.swingdata.getJpaneldata().setmusteri_bolumu(jPanel);
 	}
 
-	public JPanel getjPanel1() {
-		return swingdata.getJpaneldata().getjPanel1();
+	public JPanel getfirma_bolumu() {
+		return swingdata.getJpaneldata().getfirma_bolumu();
 	}
 
-	public void setjPanel1(JPanel jPanel1) {
-		this.swingdata.getJpaneldata().setjPanel1(jPanel1);
+	public void setfirma_bolumu(JPanel jPanel1) {
+		this.swingdata.getJpaneldata().setfirma_bolumu(jPanel1);
 	}
 
 	public JTabbedPane getMusteri_Menusu() {
@@ -428,12 +424,12 @@ public class Herbalist_AppGUIData {
 		swingdata.getJtabbedpanedata().setMusteri_Menusu(miiteri_Menusu);
 	}
 
-	public JPanel getjPanel2() {
-		return swingdata.getJpaneldata().getjPanel2();
+	public JPanel getAdindan_Urun_Arama_ve_Listeleme_bolumu() {
+		return swingdata.getJpaneldata().getAdindan_Urun_Arama_ve_Listeleme_bolumu();
 	}
 
 	public void setjPanel2(JPanel jPanel2) {
-		this.swingdata.getJpaneldata().setjPanel2(jPanel2);
+		this.swingdata.getJpaneldata().setAdindan_Urun_Arama_ve_Listeleme_bolumu(jPanel2);
 	}
 
 	public JPanel getBelirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi() {
@@ -466,22 +462,6 @@ public class Herbalist_AppGUIData {
 			JPanel Urun_Siparisi_Birden_Cok_Paket_istenebilir_ve_Alimi) {
 		swingdata.getJpaneldata().setUrun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi(
 				Urun_Siparisi_Birden_Cok_Paket_istenebilir_ve_Alimi);
-	}
-
-	public JLabel getMusteri_Menusu_Basligi() {
-		return swingdata.getJlabeldata().getMusteri_Menusu_Basligi();
-	}
-
-	public void setMusteri_Menusu_Basligi(JLabel miiteri_Menusu_Basligi) {
-		swingdata.getJlabeldata().setMusteri_Menusu_Basligi(miiteri_Menusu_Basligi);
-	}
-
-	public JLabel getPersonel_Menusu_Basligi() {
-		return swingdata.getJlabeldata().getPersonel_Menusu_Basligi();
-	}
-
-	public void setPersonel_Menusu_Basligi(JLabel personel_Menusu_Basligi) {
-		swingdata.getJlabeldata().setPersonel_Menusu_Basligi(personel_Menusu_Basligi);
 	}
 
 	public JTabbedPane getPersonel_Menusu() {
@@ -530,14 +510,6 @@ public class Herbalist_AppGUIData {
 
 	public void setYeni_Hastalik_Bilgisi_Girisi(JPanel yeni_Hastalik_Bilgisi_Girisi) {
 		swingdata.getJpaneldata().setYeni_Hastalik_Bilgisi_Girisi(yeni_Hastalik_Bilgisi_Girisi);
-	}
-
-	public JLabel getjLabel2() {
-		return swingdata.getJlabeldata().getjLabel2();
-	}
-
-	public void setjLabel2(JLabel jLabel2) {
-		this.swingdata.getJlabeldata().setjLabel2(jLabel2);
 	}
 
 	public JLabel getjLabel3() {
@@ -618,14 +590,6 @@ public class Herbalist_AppGUIData {
 
 	public void setjLabel7(JLabel jLabel7) {
 		this.swingdata.getJlabeldata().setjLabel7(jLabel7);
-	}
-
-	public JLabel getjLabel8() {
-		return swingdata.getJlabeldata().getjLabel8();
-	}
-
-	public void setjLabel8(JLabel jLabel8) {
-		this.swingdata.getJlabeldata().setjLabel8(jLabel8);
 	}
 
 	public JLabel getjLabel9() {
@@ -1412,35 +1376,35 @@ public class Herbalist_AppGUIData {
 		this.swingdata.getJlabeldata().setjLabel45(jLabel45);
 	}
 
-	public Vector<String> getBelirtiler() {
+	public Capsule_Vector_String getBelirtiler() {
 		return stringdata.getBelirtiler();
 	}
 
-	public void setBelirtiler(Vector<String> belirtiler) {
+	public void setBelirtiler(Capsule_Vector_String belirtiler) {
 		this.stringdata.setBelirtiler(belirtiler);
 	}
 
-	public Vector<String> getNedenler() {
+	public Capsule_Vector_String getNedenler() {
 		return stringdata.getNedenler();
 	}
 
-	public void setNedenler(Vector<String> nedenler) {
+	public void setNedenler(Capsule_Vector_String nedenler) {
 		this.stringdata.setNedenler(nedenler);
 	}
 
-	public Vector<String> getTedaviler() {
+	public Capsule_Vector_String getTedaviler() {
 		return stringdata.getTedaviler();
 	}
 
-	public void setTedaviler(Vector<String> tedaviler) {
+	public void setTedaviler(Capsule_Vector_String tedaviler) {
 		this.stringdata.setTedaviler(tedaviler);
 	}
 
-	public Vector<String> getBitkiler() {
+	public Capsule_Vector_String getBitkiler() {
 		return stringdata.getBitkiler();
 	}
 
-	public void setBitkiler(Vector<String> bitkiler) {
+	public void setBitkiler(Capsule_Vector_String bitkiler) {
 		this.stringdata.setBitkiler(bitkiler);
 	}
 

@@ -22,8 +22,8 @@ public class Bitki {
 	private int miktari;// paket cinsinden
 	private float fiyati;
 	private int kategori_no;
-	private Vector_string onerilen_hastaliklar;
-	private Vector_string ozellikleri;
+	private Capsule_Vector_String onerilen_hastaliklar;
+	private Capsule_Vector_String ozellikleri;
 
 	/**
 	 * @param adi
@@ -37,7 +37,7 @@ public class Bitki {
 	 * @param ozellikleri
 	 */
 	public Bitki(String adi, String latince_adi, String diskteki_yeri, String diskteki_adi, int miktari, float fiyati,
-			int kategori_no, Vector_string onerilen_hastaliklar, Vector_string ozellikleri) {
+			int kategori_no, Capsule_Vector_String onerilen_hastaliklar, Capsule_Vector_String ozellikleri) {
 		super();
 		this.adi = adi;
 		this.latince_adi = latince_adi;
@@ -62,7 +62,7 @@ public class Bitki {
 	 * @param ozellikleri
 	 */
 	public Bitki(String adi, String kategori, String latince_adi, int miktari, float fiyati, String diskteki_yeri,
-			String diskteki_adi, Vector_string onerilen_hastaliklar, Vector_string ozellikleri) {
+			String diskteki_adi, Capsule_Vector_String onerilen_hastaliklar, Capsule_Vector_String ozellikleri) {
 		setAdi(adi);
 		setKategori(Integer.parseInt(kategori));
 		setLatince_adi(latince_adi);
@@ -114,28 +114,28 @@ public class Bitki {
 	/**
 	 * @return the onerilen_hastaliklar
 	 */
-	public Vector_string getOnerilen_hastaliklar() {
+	public Capsule_Vector_String getOnerilen_hastaliklar() {
 		return onerilen_hastaliklar;
 	}
 
 	/**
 	 * @param onerilen_hastaliklar the onerilen_hastaliklar to set
 	 */
-	public void setOnerilen_hastaliklar(Vector_string onerilen_hastaliklar) {
+	public void setOnerilen_hastaliklar(Capsule_Vector_String onerilen_hastaliklar) {
 		this.onerilen_hastaliklar = onerilen_hastaliklar;
 	}
 
 	/**
 	 * @return the ozellikleri
 	 */
-	public Vector_string getOzellikleri() {
+	public Capsule_Vector_String getOzellikleri() {
 		return ozellikleri;
 	}
 
 	/**
 	 * @param ozellikleri the ozellikleri to set
 	 */
-	public void setOzellikleri(Vector_string ozellikleri) {
+	public void setOzellikleri(Capsule_Vector_String ozellikleri) {
 		this.ozellikleri = ozellikleri;
 	}
 
@@ -143,14 +143,14 @@ public class Bitki {
 	 * 
 	 */
 	private void hastaliklari_ekle() {
-		setonerilen_hastaliklar(new Vector_string());
+		setonerilen_hastaliklar(new Capsule_Vector_String());
 	}
 
 	/**
 	 * @param ozellikleri
 	 */
 	private void ozellikleri_ekle(String ozellikleri) {
-		setozellikleri(new Vector_string());
+		setozellikleri(new Capsule_Vector_String());
 		StringTokenizer st3 = new StringTokenizer(ozellikleri, "_");
 		while (st3.hasMoreTokens()) {
 			ozellik_ekle(st3);
@@ -225,19 +225,19 @@ public class Bitki {
 		this.fiyati = fiyati;
 	}
 
-	public Vector_string getonerilen_hastaliklar() {
+	public Capsule_Vector_String getonerilen_hastaliklar() {
 		return onerilen_hastaliklar;
 	}
 
-	public void setonerilen_hastaliklar(Vector_string onerilen_hastaliklar) {
+	public void setonerilen_hastaliklar(Capsule_Vector_String onerilen_hastaliklar) {
 		this.onerilen_hastaliklar = onerilen_hastaliklar;
 	}
 
-	public Vector_string getozellikleri() {
+	public Capsule_Vector_String getozellikleri() {
 		return ozellikleri;
 	}
 
-	public void setozellikleri(Vector_string ozellikleri) {
+	public void setozellikleri(Capsule_Vector_String ozellikleri) {
 		this.ozellikleri = ozellikleri;
 	}
 
@@ -288,5 +288,26 @@ public class Bitki {
 	public static void setNode_sayisi(int node_sayisi) {
 		Bitki.node_sayisi = node_sayisi;
 	}
-
+	private String bitkinin_ozellikleri() {
+		String metin = "";
+		int n = this.getozellikleri().size() - 1;
+		for (int i = 0; i < n; i++) {
+			metin += this.getozellikleri().elementAt(i) + "_";
+		}
+		metin += this.getozellikleri().lastElement();
+		return metin;
+	}
+	public String toUpdateString() {
+		return this.getAdi() + "#" + this.getKategori() + "#" + this.getLatince_adi() + "#"
+				+ bitkinin_ozellikleri() + "#" + this.getMiktari() + "#" + this.getFiyati() + "#"
+				+ this.getDiskteki_yeri() + "#" + this.getDiskteki_adi() + "#"
+				+ this.getonerilen_hastaliklar().size();
+	}
+	public String faydali_oldugu_hastaliklar() {
+		String metin = "";
+		for (int i = 0; i < this.getonerilen_hastaliklar().size(); i++) {
+			metin += ">>" + this.getonerilen_hastaliklar().elementAt(i);
+		}
+		return metin;
+	}
 }

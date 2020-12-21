@@ -6,49 +6,53 @@ package main.java.generic;
  * @param <T>
  */
 public class Node<T> {
-
-	/**
-	 * @param node       current node
-	 * @param sonraki    sonraki node
-	 * @param left_node  sol cocuk dugum
-	 * @param right_node sag cocuk dugum
-	 */
-	public Node(T node, Node<T> sonraki, Node<T> left_node, Node<T> right_node) {
-		super();
-		this.node = node;
-		this.sonraki = sonraki;
-		this.left_node = left_node;
-		this.right_node = right_node;
-	}
-
 	// T stands for "Type"
 	/**
 	 * 
 	 */
-	private T node;
+	private T current_node;
+	/**
+	 * 
+	 */
+	private Node<T> next_node;
+	/**
+	 * 
+	 */
+	private Node<T> left_node;
+	/**
+	 * 
+	 */
+	private Node<T> right_node;
+	/**
+	 * @param current_node       current current_node
+	 * @param next_node    next_node current_node
+	 * @param left_node  sol cocuk dugum
+	 * @param right_node sag cocuk dugum
+	 */
+	public Node(T current_node, Node<T> next_node, Node<T> left_node, Node<T> right_node) {
+		super();
+		this.current_node = current_node;
+		this.next_node = next_node;
+		this.left_node = left_node;
+		this.right_node = right_node;
+	}
+
 
 	/**
-	 * @return the node
+	 * @return the current_node
 	 */
 	public T getNode() {
-		return node;
+		return current_node;
 	}
 
 	/**
-	 * @param node the node to set
+	 * @param current_node the current_node to set
 	 */
 	public void setNode(T node) {
-		this.node = node;
+		this.current_node = node;
 	}
 
-	/**
-	 * 
-	 */
-	private Node<T> sonraki;
-	/**
-	 * 
-	 */
-	private Node<T> left_node, right_node;
+
 
 	/**
 	 * 
@@ -60,31 +64,31 @@ public class Node<T> {
 	 * @param t
 	 */
 	public Node(T t) {
-		this.node = t;
+		this.current_node = t;
 	}
 
 	/**
-	 * @return the sonraki
+	 * @return the next_node
 	 */
-	public Node<T> getSonraki() {
-		return sonraki;
+	public Node<T> getNext() {
+		return next_node;
 	}
 
 	/**
-	 * @param sonraki the sonraki to set
+	 * @param next_node the next_node to set
 	 */
-	public void setSonraki(Node<T> sonraki) {
-		this.sonraki = sonraki;
+	public void setNext(Node<T> sonraki) {
+		this.next_node = sonraki;
 	}
 
 	/**
 	 *
 	 */
 	public String toString() {
-		if (node == null) {
+		if (current_node == null) {
 			return null;
 		} else {
-			return node.toString();
+			return current_node.toString();
 		}
 	}
 

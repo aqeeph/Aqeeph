@@ -6,43 +6,6 @@ package main.java.generic;
  *
  */
 public class Bagli_Liste<T> {
-	@Override
-	public String toString() {
-		return "Bagli_Liste [bas=" + bas + ", yeniBalon=" + yeniBalon + ", simdiki=" + simdiki + ", gecici=" + gecici
-				+ ", silinecek=" + silinecek + ", katNumarasi=" + katNumarasi + ", sayac=" + sayac + ", dolas=" + dolas
-				+ "]";
-	}
-
-	/**
-	 * @return the bas
-	 */
-	public T getBas() {
-		return bas;
-	}
-
-	/**
-	 * @param bas
-	 * @param yeniBalon
-	 * @param simdiki
-	 * @param gecici
-	 * @param silinecek
-	 * @param katNumarasi
-	 * @param sayac
-	 * @param dolas
-	 */
-	public Bagli_Liste(T bas, T yeniBalon, T simdiki, T gecici,
-			T silinecek, int katNumarasi, int sayac, T dolas) {
-		super();
-		this.bas = bas;
-		this.yeniBalon = yeniBalon;
-		this.simdiki = simdiki;
-		this.gecici = gecici;
-		this.silinecek = silinecek;
-		this.katNumarasi = katNumarasi;
-		this.sayac = sayac;
-		this.dolas = dolas;
-	}
-
 	/**
 	 * 
 	 */
@@ -50,7 +13,7 @@ public class Bagli_Liste<T> {
 	/**
 	 * 
 	 */
-	private T yeniBalon;
+	private T yeni;
 	/**
 	 * 
 	 */
@@ -77,6 +40,28 @@ public class Bagli_Liste<T> {
 	private T dolas;// listemiz dairesel oldugu icin sonuna gelinip
 	// gelinmedigini anlamak icin ayrica bir balon olusturmak
 	// lazimdir.
+	/**
+	 * @param bas
+	 * @param yeni
+	 * @param simdiki
+	 * @param gecici
+	 * @param silinecek
+	 * @param katNumarasi
+	 * @param sayac
+	 * @param dolas
+	 */
+	public Bagli_Liste(T bas, T yeni, T simdiki, T gecici,
+			T silinecek, int katNumarasi, int sayac, T dolas) {
+		super();
+		this.bas = bas;
+		this.yeni = yeni;
+		this.simdiki = simdiki;
+		this.gecici = gecici;
+		this.silinecek = silinecek;
+		this.katNumarasi = katNumarasi;
+		this.sayac = sayac;
+		this.dolas = dolas;
+	}
 
 	/**
 	 * @param katNumarasi
@@ -87,6 +72,13 @@ public class Bagli_Liste<T> {
 	}
 	
 	public Bagli_Liste() {
+	}
+
+	/**
+	 * @return the bas
+	 */
+	public T getBas() {
+		return bas;
 	}
 
 	/**
@@ -107,14 +99,14 @@ public class Bagli_Liste<T> {
 	 * @return
 	 */
 	public T getYeniBalon() {
-		return yeniBalon;
+		return yeni;
 	}
 
 	/**
-	 * @param yeniBalon
+	 * @param yeni
 	 */
 	public void setYeniBalon(T yeniBalon) {
-		this.yeniBalon = yeniBalon;
+		this.yeni = yeniBalon;
 	}
 
 	/**
@@ -199,5 +191,30 @@ public class Bagli_Liste<T> {
 	 */
 	public void setDolas(T dolas) {
 		this.dolas = dolas;
+	}
+	@Override
+	public String toString() {
+		return "Bagli_Liste [bas=" + bas + ", yeni=" + yeni + ", simdiki=" + simdiki + ", gecici=" + gecici
+				+ ", silinecek=" + silinecek + ", katNumarasi=" + katNumarasi + ", sayac=" + sayac + ", dolas=" + dolas
+				+ "]";
+	}
+
+	public String Bas_toString() {
+		return this.getBas().toString();
+	}
+	public String Dolas_toString() {
+		return this.getDolas().toString();
+	}
+	public String Gecici_toString() {
+		return this.getGecici().toString();
+	}
+	public String Silinecek_toString() {
+		return this.getSilinecek().toString();
+	}
+	public String YeniBalon_toString() {
+		return this.getYeniBalon().toString();
+	}
+	public String Simdiki_toString() {
+		return this.getSimdiki().toString();
 	}
 }

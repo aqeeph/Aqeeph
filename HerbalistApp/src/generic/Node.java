@@ -1,4 +1,4 @@
-package agac;
+package generic;
 
 /**
  * @author MehmetAkif-PC
@@ -125,5 +125,12 @@ public class Node<T> {
 		} else {
 			return this.left_node.minNode();
 		}
+	}
+	/**
+	 * @param current
+	 * @return
+	 */
+	public Node<T> sol_doluysa_sol_yoksa_sag_dugum() {
+		return (this.getLeft_node() != null) ? (Node<T>) this.getLeft_node() : (Node<T>) this.getRight_node();
 	}
 }
