@@ -26,13 +26,9 @@ import javax.swing.SwingUtilities;
 import dert.Hastalik;
 import deva.Capsule_Vector_String;
 import veri_tabani.Kategori;
-import veri_tabani.Veritabani_Listesi;
 
 @SuppressWarnings("deprecation")
 public class Herbalist_App {
-	/**
-	 * @param args
-	 */
 	private JFrame Herbalist_Application = null; // @jve:decl-index=0:visual-constraint="10,0"
 	private JPanel Menu = null;
 	private JMenuBar jJMenuBar = null;
@@ -116,7 +112,88 @@ public class Herbalist_App {
 	private JButton jButton3 = null;
 	private JButton jButton4 = null;
 	private JTextArea jTextArea2 = null;
-
+	private JLabel jLabel28 = null;
+	private static JTextField jTextField2 = null;
+	private JLabel jLabel29 = null;
+	private static JTextField jTextField3 = null;
+	private JButton jButton5 = null;
+	private JButton jButton6 = null;
+	private JLabel jLabel30 = null;
+	private JTextArea jTextArea4 = null;
+	private JLabel jLabel31 = null;
+	private JTextField jTextField4 = null;
+	private JButton jButton7 = null;
+	private JButton Kategori_Listeleyici = null;
+	private JLabel jLabel = null;
+	private static JTextField jTextField5 = null;
+	private JLabel jLabel1 = null;
+	private JTextField jTextField6 = null;
+	private JButton jButton8 = null;
+	private JButton jButton9 = null;
+	private JLabel jLabel32 = null;
+	private JButton Kategori_Listeleyici_2 = null;
+	private JTextArea jTextArea7 = null;
+	private JLabel jLabel19 = null;
+	private static JTextField jTextField7 = null;
+	private JButton jButton10 = null;
+	private JLabel jLabel20 = null;
+	private JTextField jTextField8 = null;
+	private JButton jButton11 = null;
+	private JLabel jLabel33 = null;
+	private JButton urun_Bilgisi_Listeleyici = null;
+	private static JTextArea jTextArea8 = null;
+	private JTextArea gesici_metin_kutusu = null;
+	private JTextField jTextField9 = null;
+	private JLabel jLabel34 = null;
+	private JButton jButton12 = null;
+	private JTextArea jTextArea9 = null;
+	private JLabel jLabel35 = null;
+	private JTextField jTextField10 = null;
+	private JLabel jLabel37 = null;
+	private JTextField jTextField12 = null;
+	private JButton jButton14 = null;
+	private JLabel jLabel38 = null;
+	private JTextField jTextField13 = null;
+	private JButton jButton15 = null;
+	private JLabel jLabel39 = null;
+	private JTextField jTextField14 = null;
+	private JButton jButton16 = null;
+	private JLabel jLabel40 = null;
+	private JButton jButton17 = null;
+	private JTextField jTextField15 = null;
+	private JTextArea jTextArea10 = null;
+	private JLabel jLabel41 = null;
+	private JLabel jLabel42 = null;
+	private JTextArea jTextArea11 = null;
+	private JLabel jLabel43 = null;
+	private JTextArea jTextArea12 = null;
+	private JLabel jLabel44 = null;
+	private JTextArea jTextArea13 = null;
+	private JButton jButton18 = null;
+	private JLabel jLabel36 = null;
+	private JTextArea jTextArea14 = null;
+	private JLabel jLabel45 = null;
+	String yanit = ""; // @jve:decl-index=0:
+	private JTextArea jTextArea6 = null;
+	public Capsule_Vector_String belirtiler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String nedenler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String tedaviler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	public Capsule_Vector_String bitkiler = new Capsule_Vector_String(); // @jve:decl-index=0:
+	private JLabel jLabel46 = null;
+	private JLabel jLabel47 = null;
+	private JLabel jLabel48 = null;
+	private JTextField jTextField11 = null;
+	private JTextField jTextField16 = null;
+	private JButton jButton13 = null;
+	private JTextArea jTextArea15 = null;
+	private JTextField jTextField17 = null;
+	private JLabel jLabel49 = null;
+	private JTextField jTextField18 = null;
+	private JLabel jLabel27 = null;
+	private JTextField jTextField19 = null;
+	private JLabel jLabel50 = null;
+	private JTextField jTextField20 = null;
+	private JButton jButton19 = null;
 	/**
 	 * This method initializes Kullanici_Menusu
 	 * 
@@ -799,7 +876,7 @@ public class Herbalist_App {
 			jButton.setText("Aranan urunun Bilgilerini Listele");
 			jButton.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					jTextArea1.setText(Veritabani_Listesi.aranan_urunun_bilgilerini_listele(jTextField.getText()));
+					jTextArea1.setText(SQL.getVeritabani_listesi().aranan_urunun_bilgilerini_listele(jTextField.getText()));
 					System.out.println("Aranan urun Bilgileri Listelendi");
 					// Auto-generated
 					// Event stub
@@ -936,8 +1013,8 @@ public class Herbalist_App {
 		return jTextField1;
 	}
 
-	public static String kategori_var_mi(String aranan) {
-		String yanit = Veritabani_Listesi.getKategori_veri_tabani().kategoriyi_arastir(aranan);
+	public synchronized String kategori_var_mi(String aranan) {
+		String yanit = SQL.getVeritabani_listesi().getKategori_veri_tabani().kategoriyi_arastir(aranan);
 		return yanit;
 	}
 
@@ -946,8 +1023,7 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JButton
 	 */
-	String yanit = ""; // @jve:decl-index=0:
-	private JTextArea jTextArea6 = null;
+
 
 	private JButton getJButton1() {
 		if (jButton1 == null) {
@@ -959,11 +1035,11 @@ public class Herbalist_App {
 					yanit = kategori_var_mi(jTextField1.getText());
 					jTextArea5.setText(yanit);
 					if (yanit.compareTo("Bulunamadi") != 0) {
-						int endex = Veritabani_Listesi.getKategori_veri_tabani()
+						int endex = SQL.getVeritabani_listesi().getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex);
+						SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex);
 						jTextField20.setText(
-								"" + Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode_sayisi());
+								"" + SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex).getNode_sayisi());
 					}
 					System.out.println("mouseClicked()");
 					// Event stub
@@ -1016,14 +1092,13 @@ public class Herbalist_App {
 					jButton2.setText("Tiklandi zaten...");
 					if (jTextArea5.getText().compareTo("ilk snce Arama Yapmaniz Gerekmektedir.") != 0
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
-						int endex = Veritabani_Listesi.getKategori_veri_tabani()
+						int endex = SQL.getVeritabani_listesi().getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
+						SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex)
 								.setInorder(new Capsule_Vector_String());
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+						SQL.getVeritabani_listesi().getAgac_vektoru().inOrder_request(endex, 0);
 						jTextArea2.setText(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).inOrder_yazdir());
+								SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex).inOrder_yazdir());
 						// jTextArea2.setText(getAgac_vektoru().getagaclar().elementAt(endex).preOrder_yazdir());
 					}
 					System.out.println("mouseClicked()");
@@ -1062,15 +1137,14 @@ public class Herbalist_App {
 					jButton3.setText("Tiklandi zaten...");
 					if (jTextArea5.getText().compareTo("ilk snce Arama Yapmaniz Gerekmektedir.") != 0
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
-						int endex = Veritabani_Listesi.getKategori_veri_tabani()
+						int endex = SQL.getVeritabani_listesi().getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
+						SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex)
 								.setPreorder(new Capsule_Vector_String());
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+						SQL.getVeritabani_listesi().getAgac_vektoru().preOrder_request(endex, 0);
 						// jTextArea3.setText(getAgac_vektoru().getagaclar().elementAt(endex).inOrder_yazdir());
 						jTextArea3.setText(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).preOrder_yazdir());
+								SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex).preOrder_yazdir());
 					}
 					System.out.println("mouseClicked()");
 					// Event stub
@@ -1108,15 +1182,14 @@ public class Herbalist_App {
 					jButton4.setText("Tiklandi zaten...");
 					if (jTextArea5.getText().compareTo("ilk snce Arama Yapmaniz Gerekmektedir.") != 0
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
-						int endex = Veritabani_Listesi.getKategori_veri_tabani()
+						int endex = SQL.getVeritabani_listesi().getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex)
+						SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex)
 								.setPostorder(new Capsule_Vector_String());
-						Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).getNode(), 0);
+						SQL.getVeritabani_listesi().getAgac_vektoru().postOrder_request(endex, 0);
 						// jTextArea6.setText(getAgac_vektoru().getagaclar().elementAt(endex).postOrder_yazdir());
 						jTextArea6.setText(
-								Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(endex).postOrder_yazdir());
+								SQL.getVeritabani_listesi().getAgac_vektoru().getAgaclar().elementAt(endex).postOrder_yazdir());
 					}
 					System.out.println("mouseClicked()");
 					// Event stub
@@ -1167,67 +1240,6 @@ public class Herbalist_App {
 		return jTextArea6;
 	}
 
-	private JLabel jLabel28 = null;
-	private static JTextField jTextField2 = null;
-	private JLabel jLabel29 = null;
-	private static JTextField jTextField3 = null;
-	private JButton jButton5 = null;
-	private JButton jButton6 = null;
-	private JLabel jLabel30 = null;
-	private JTextArea jTextArea4 = null;
-	private JLabel jLabel31 = null;
-	private JTextField jTextField4 = null;
-	private JButton jButton7 = null;
-	private JButton Kategori_Listeleyici = null;
-	private JLabel jLabel = null;
-	private static JTextField jTextField5 = null;
-	private JLabel jLabel1 = null;
-	private JTextField jTextField6 = null;
-	private JButton jButton8 = null;
-	private JButton jButton9 = null;
-	private JLabel jLabel32 = null;
-	private JButton Kategori_Listeleyici_2 = null;
-	private JTextArea jTextArea7 = null;
-	private JLabel jLabel19 = null;
-	private static JTextField jTextField7 = null;
-	private JButton jButton10 = null;
-	private JLabel jLabel20 = null;
-	private JTextField jTextField8 = null;
-	private JButton jButton11 = null;
-	private JLabel jLabel33 = null;
-	private JButton urun_Bilgisi_Listeleyici = null;
-	private static JTextArea jTextArea8 = null;
-	private JTextArea gesici_metin_kutusu = null;
-	private JTextField jTextField9 = null;
-	private JLabel jLabel34 = null;
-	private JButton jButton12 = null;
-	private JTextArea jTextArea9 = null;
-	private JLabel jLabel35 = null;
-	private JTextField jTextField10 = null;
-	private JLabel jLabel37 = null;
-	private JTextField jTextField12 = null;
-	private JButton jButton14 = null;
-	private JLabel jLabel38 = null;
-	private JTextField jTextField13 = null;
-	private JButton jButton15 = null;
-	private JLabel jLabel39 = null;
-	private JTextField jTextField14 = null;
-	private JButton jButton16 = null;
-	private JLabel jLabel40 = null;
-	private JButton jButton17 = null;
-	private JTextField jTextField15 = null;
-	private JTextArea jTextArea10 = null;
-	private JLabel jLabel41 = null;
-	private JLabel jLabel42 = null;
-	private JTextArea jTextArea11 = null;
-	private JLabel jLabel43 = null;
-	private JTextArea jTextArea12 = null;
-	private JLabel jLabel44 = null;
-	private JTextArea jTextArea13 = null;
-	private JButton jButton18 = null;
-	private JLabel jLabel36 = null;
-	private JTextArea jTextArea14 = null;
-	private JLabel jLabel45 = null;
 
 	/**
 	 * This method initializes jTextField2
@@ -1333,14 +1345,14 @@ public class Herbalist_App {
 		return jButton6;
 	}
 
-	@SuppressWarnings("static-access")
-	public static void kategori_ekle() {
-		int kategori_no = Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().size();
+
+	public synchronized void kategori_ekle() {
+		int kategori_no = SQL.getVeritabani_listesi().getKategori_veri_tabani().getKategoriler().size();
 		String kategori_adi = jTextField2.getText();
 		Kategori kategori = new Kategori(kategori_no, kategori_adi);
-		Veritabani_Listesi.getKategori_veri_tabani().add_kategori(kategori);
-		Veritabani_Listesi.getKategori_veri_tabani().update_file();
-		System.out.println(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().lastElement().toString());
+		SQL.getVeritabani_listesi().getKategori_veri_tabani().add_kategori(kategori);
+		SQL.getVeritabani_listesi().getKategori_veri_tabani().update_file();
+		System.out.println(SQL.getVeritabani_listesi().getKategori_veri_tabani().getKategoriler().lastElement().toString());
 	}
 
 	/**
@@ -1398,7 +1410,7 @@ public class Herbalist_App {
 			jButton7.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
 					Hastalik aranan;
-					aranan = Veritabani_Listesi.getHash_table().getHash_hastalik().get(jTextField4.getText());
+					aranan = SQL.getVeritabani_listesi().getHash_table().getHash_hastalik().get(jTextField4.getText());
 					if (aranan == null) {
 						jTextField10.setText("Bulunamadi");
 						yanit = "";
@@ -1440,7 +1452,7 @@ public class Herbalist_App {
 			Kategori_Listeleyici.setText("Kategori Listeleyici");
 			Kategori_Listeleyici.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					jTextArea4.setText(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().toString());
+					jTextArea4.setText(SQL.getVeritabani_listesi().getKategori_veri_tabani().getKategoriler().toString());
 					System.out.println("mouseClicked()");
 					// Auto-generated
 					// Event
@@ -1566,9 +1578,9 @@ public class Herbalist_App {
 		return jButton9;
 	}
 
-	public static void kategori_sil() {
-		Veritabani_Listesi.getKategori_veri_tabani().kategoriyi_sil();
-		Veritabani_Listesi.getKategori_veri_tabani().update_file();
+	public synchronized void kategori_sil() {
+		SQL.getVeritabani_listesi().getKategori_veri_tabani().kategoriyi_sil();
+		SQL.getVeritabani_listesi().getKategori_veri_tabani().update_file();
 	}
 
 	/**
@@ -1583,7 +1595,7 @@ public class Herbalist_App {
 			Kategori_Listeleyici_2.setText("Kategori Listeleyici");
 			Kategori_Listeleyici_2.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					jTextArea7.setText(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().toString());
+					jTextArea7.setText(SQL.getVeritabani_listesi().getKategori_veri_tabani().getKategoriler().toString());
 					System.out.println("mouseClicked()");
 					// Auto-generated
 					// Event
@@ -1676,7 +1688,7 @@ public class Herbalist_App {
 
 	public String agac_kategorilerinde_ara(String aranan_urun) {
 		String aranan_bitki = "";
-		aranan_bitki = Veritabani_Listesi.getAgac_vektoru().find(aranan_urun);
+		aranan_bitki = SQL.getVeritabani_listesi().getAgac_vektoru().find(aranan_urun);
 		return aranan_bitki;
 	}
 
@@ -1740,17 +1752,16 @@ public class Herbalist_App {
 		return jButton11;
 	}
 
-	public static void bitki_veri_tabanindan_kaldir() {
-		Veritabani_Listesi.getBitki_veri_tabani().remove(jTextField7.getText());
-		Veritabani_Listesi.getBitki_veri_tabani().update_file();
+	public synchronized void bitki_veri_tabanindan_kaldir() {
+		SQL.getVeritabani_listesi().getBitki_veri_tabani().remove(jTextField7.getText());
+		SQL.getVeritabani_listesi().getBitki_veri_tabani().update_file();
 	}
 
-	public static void agac_vektorunden_kaldir() {
+	public synchronized void agac_vektorunden_kaldir() {
 		int urunun_bulundusu_kategorinin_nosu;
-		urunun_bulundusu_kategorinin_nosu = Veritabani_Listesi.getAgac_vektoru()
+		urunun_bulundusu_kategorinin_nosu = SQL.getVeritabani_listesi().getAgac_vektoru()
 				.getAranan_urun_hangi_kategoride_bulundu();
-		boolean sonus = Veritabani_Listesi.getAgac_vektoru().getAgaclar().elementAt(urunun_bulundusu_kategorinin_nosu)
-				.agac_remove(jTextField7.getText());
+		boolean sonus = SQL.getVeritabani_listesi().getAgac_vektoru().agac_remove(urunun_bulundusu_kategorinin_nosu,jTextField7.getText());
 		if (sonus == true) {
 			jTextArea8.setText("agac_vektorunden urun Silindi");
 			System.out.println("agac_vektorunden urun Silindi");
@@ -1850,7 +1861,7 @@ public class Herbalist_App {
 			jButton12.setText("Aranan Hastalisin Bilgilerini Listele");
 			jButton12.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					yanit = Veritabani_Listesi.getHash_table().getHash_hastalik().get(jTextField9.getText()).toString();
+					yanit = SQL.getVeritabani_listesi().getHash_table().getHash_hastalik().get(jTextField9.getText()).toString();
 
 					if (yanit != null) {
 						jTextArea9.setText(yanit);
@@ -1927,25 +1938,7 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JButton
 	 */
-	public Capsule_Vector_String belirtiler = new Capsule_Vector_String(); // @jve:decl-index=0:
-	public Capsule_Vector_String nedenler = new Capsule_Vector_String(); // @jve:decl-index=0:
-	public Capsule_Vector_String tedaviler = new Capsule_Vector_String(); // @jve:decl-index=0:
-	public Capsule_Vector_String bitkiler = new Capsule_Vector_String(); // @jve:decl-index=0:
-	private JLabel jLabel46 = null;
-	private JLabel jLabel47 = null;
-	private JLabel jLabel48 = null;
-	private JTextField jTextField11 = null;
-	private JTextField jTextField16 = null;
-	private JButton jButton13 = null;
-	private JTextArea jTextArea15 = null;
-	private JTextField jTextField17 = null;
-	private JLabel jLabel49 = null;
-	private JTextField jTextField18 = null;
-	private JLabel jLabel27 = null;
-	private JTextField jTextField19 = null;
-	private JLabel jLabel50 = null;
-	private JTextField jTextField20 = null;
-	private JButton jButton19 = null;
+
 
 	private JButton getJButton14() {
 		if (jButton14 == null) {
@@ -2219,9 +2212,9 @@ public class Herbalist_App {
 					if (jTextField10.getText().compareTo("Bulunamadi") == 0) {
 						jTextArea14.setText("Veriler Kaydediliyor");
 						Hastalik yeni = new Hastalik(jTextField4.getText(), belirtiler, nedenler, tedaviler, bitkiler);
-						Veritabani_Listesi.getHash_table().getHash_hastalik().put(jTextField4.getText(), yeni);
-						Veritabani_Listesi.getHastalik_veri_tabani().getHastaliklar().add(yeni);
-						Veritabani_Listesi.getHastalik_veri_tabani().update_file();
+						SQL.getVeritabani_listesi().getHash_table().getHash_hastalik().put(jTextField4.getText(), yeni);
+						SQL.getVeritabani_listesi().getHastalik_veri_tabani().getHastaliklar().add(yeni);
+						SQL.getVeritabani_listesi().getHastalik_veri_tabani().update_file();
 						jTextArea14.setText("Veriler Kaydedildi");
 					}
 					System.out.println("mouseClicked()");
@@ -2303,7 +2296,7 @@ public class Herbalist_App {
 					min = Float.parseFloat(jTextField11.getText());
 					max = Float.parseFloat(jTextField16.getText());
 					if (min >= 0 && max >= min) {
-						jTextArea15.setText(Veritabani_Listesi.getBitki_veri_tabani().urunleri_listele(min, max));
+						jTextArea15.setText(SQL.getVeritabani_listesi().getBitki_veri_tabani().urunleri_listele(min, max));
 					} else {
 						jTextArea15.setText("Dosru Aralikta Sayilar Giriniz");
 					}
@@ -2639,9 +2632,6 @@ public class Herbalist_App {
 
 	// *************************MAiN********************************************************
 	public static void main(String[] args) {
-		Veritabani_Listesi.veri_tabanlarini_olustur();
-		Veritabani_Listesi.veri_tabanlarini_veri_yapilarina_kopyala();
-
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				Herbalist_App application = new Herbalist_App();

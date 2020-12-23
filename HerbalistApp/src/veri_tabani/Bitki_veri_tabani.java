@@ -15,7 +15,7 @@ import deva.Bitki;
  *
  */
 public class Bitki_veri_tabani {
-	private Capsule_Vector_Bitki vector_bitki;
+	private static Capsule_Vector_Bitki vector_bitki;
 	private String kullandigi_dosya = "";
 
 	/**
@@ -24,7 +24,13 @@ public class Bitki_veri_tabani {
 	public Bitki_veri_tabani(String dosya_adi) {
 		vector_bitki = new Capsule_Vector_Bitki();
 		kullandigi_dosya=dosya_adi;
-		vector_bitki=Bitki_veri_tabani.dosya_oku(kullandigi_dosya);
+		try {
+			vector_bitki=Bitki_veri_tabani.dosya_oku(kullandigi_dosya);
+		} catch (Exception e) {
+			System.out.println("hata var");
+			e.printStackTrace();
+			System.exit(0);
+		}
 	}
 	/**
 	 * 
@@ -126,7 +132,7 @@ public class Bitki_veri_tabani {
 		return metin;
 	}
 
-	public static synchronized Capsule_Vector_Bitki dosya_oku(final String fileName) {
+	public synchronized static Capsule_Vector_Bitki dosya_oku(final String fileName) {
 		// Bitkiye iliskin bilgiler(bitki adi# kategori(bitkiler isin 0,bitki
 		// sayilari icin 1,vitaminler icin 2)#bitkinin latince ismi#bitkinin
 		// ozellikleri( _ ile ayrilidir)#miktari#fiyati#bitki resminin diskteki
@@ -153,7 +159,13 @@ public class Bitki_veri_tabani {
 				st = new StringTokenizer(line, "#");
 				bitki = new Bitki(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(),
 						st.nextToken(), st.nextToken(), st.nextToken());
-				System.out.println("bitki"+bitki);
+				try {
+					System.out.println("bitki"+bitki);
+				} catch (Exception e) {
+					System.out.println("hata var");
+					e.printStackTrace();
+					System.exit(0);
+				}
 				String onerilen_hastaliklar = st.nextToken();
 				st2 = new StringTokenizer(onerilen_hastaliklar, ">>");
 				bilgi_sayisi = Integer.parseInt(st2.nextToken());
@@ -190,9 +202,9 @@ public class Bitki_veri_tabani {
 		return vector_bitki;
 	}
 	public Capsule_Vector_Bitki getVector_bitki() {
-		return vector_bitki;
+		return Bitki_veri_tabani.vector_bitki;
 	}
 	public void setVector_bitki(Capsule_Vector_Bitki vector_bitki) {
-		this.vector_bitki = vector_bitki;
+		Bitki_veri_tabani.vector_bitki = vector_bitki;
 	}
 }

@@ -4,7 +4,7 @@
 package main.java;
 
 import herbalist.Form;
-import veri_tabani.Veritabani_Listesi;
+import test.java.SQL;
 
 /**
  * @author MehmetAkif-PC
@@ -44,9 +44,17 @@ public class Main {
 		if(headless == Boolean.FALSE) {
 			System.out.println("Sistem gorsel uygulamayı destekliyor.");
 			@SuppressWarnings("unused")
-			Veritabani_Listesi veritabani_listesi=new Veritabani_Listesi();
-			setForm1(new Form());
-			form1.herbalist_appgui();			
+			
+			SQL sql;
+			try {
+				sql = new SQL();
+			} catch (Exception e) {
+				System.out.println("hata var");
+				e.printStackTrace();
+				System.exit(0);
+			}
+			//setForm1(new Form());
+			//form1.herbalist_appgui();			
 		}else {
 			System.out.println("Sistem gorsel uygulamayı desteklemiyor.");
 			System.exit(0);

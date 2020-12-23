@@ -6,6 +6,11 @@ import java.util.Vector;
 import dert.Hastalik;
 
 public class Capsule_Hashtable_String_Hastalik {
+	@Override
+	public String toString() {
+		return "Capsule_Hashtable_String_Hastalik [hash_hastalik=" + hash_hastalik + "]";
+	}
+
 	private Hashtable<String, Hastalik> hash_hastalik;
 
 	// Örnek 46 Maraş

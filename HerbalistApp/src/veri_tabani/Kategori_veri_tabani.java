@@ -17,11 +17,11 @@ public class Kategori_veri_tabani {
 
 	public Kategori_veri_tabani(String dosya_adi) {
 		Kategori_veri_tabani.setKullandigi_dosya(dosya_adi);
-		dosya_oku(Kategori_veri_tabani.getKullandigi_dosya());
+		Kategori_veri_tabani.dosya_oku(Kategori_veri_tabani.getKullandigi_dosya());
 	}
 
-	public Kategori_veri_tabani() {
-		// TODO Auto-generated constructor stub
+	@SuppressWarnings("unused")
+	private Kategori_veri_tabani() {
 	}
 
 	public Vector<Kategori> getKategoriler() {
@@ -41,7 +41,7 @@ public class Kategori_veri_tabani {
 	}
 
 	// Kategoriye iliskin bilgiler(kategori_no#Kategori_adi)
-	public static void add_kategori(Kategori kategori) {
+	public synchronized static void add_kategori(Kategori kategori) {
 		synchronized (kategoriler) {
 			kategoriler.add(kategori);
 		}
@@ -124,7 +124,7 @@ public class Kategori_veri_tabani {
 	}
 
 	// Kategoriye iliskin bilgiler(kategori_no#Kategori_adi)
-	public static void dosya_oku(final String fileName) {
+	public synchronized static void dosya_oku(final String fileName) {
 		int no;
 		// burada tanimliyoruz boylece finally blogunda gorulebiliyor
 		BufferedReader input = null;
@@ -138,7 +138,7 @@ public class Kategori_veri_tabani {
 				final StringTokenizer st = new StringTokenizer(line, "#");
 				no = Integer.parseInt(st.nextToken());
 				Kategori yeni_kategori = new Kategori(no, st.nextToken());
-				add_kategori(yeni_kategori);
+				Kategori_veri_tabani.add_kategori(yeni_kategori);
 			}
 		} catch (final FileNotFoundException ex) {
 			// Dosya bulunamadi hatasi

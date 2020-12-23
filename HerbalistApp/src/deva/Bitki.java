@@ -36,7 +36,8 @@ public class Bitki {
 	 * @param onerilen_hastaliklar
 	 * @param ozellikleri
 	 */
-	public Bitki(String adi, String latince_adi, String diskteki_yeri, String diskteki_adi, int miktari, float fiyati,
+	@SuppressWarnings("unused")
+	private Bitki(String adi, String latince_adi, String diskteki_yeri, String diskteki_adi, int miktari, float fiyati,
 			int kategori_no, Capsule_Vector_String onerilen_hastaliklar, Capsule_Vector_String ozellikleri) {
 		super();
 		this.adi = adi;
@@ -61,7 +62,8 @@ public class Bitki {
 	 * @param onerilen_hastaliklar
 	 * @param ozellikleri
 	 */
-	public Bitki(String adi, String kategori, String latince_adi, int miktari, float fiyati, String diskteki_yeri,
+	@SuppressWarnings("unused")
+	private Bitki(String adi, String kategori, String latince_adi, int miktari, float fiyati, String diskteki_yeri,
 			String diskteki_adi, Capsule_Vector_String onerilen_hastaliklar, Capsule_Vector_String ozellikleri) {
 		setAdi(adi);
 		setKategori(Integer.parseInt(kategori));
@@ -246,7 +248,13 @@ public class Bitki {
 		stringBuilder.append("Adi           : ");
 		stringBuilder.append(adi);
 		stringBuilder.append("\nKategori      : ");
-		stringBuilder.append(Veritabani_Listesi.kategorisi(getKategori()));
+		try {
+			stringBuilder.append(Veritabani_Listesi.kategorisi(getKategori()));
+		} catch (Exception e) {
+			System.out.println("hata var");
+			e.printStackTrace();
+			System.exit(0);
+		}
 		stringBuilder.append("\nLatince adi   : ");
 		stringBuilder.append(latince_adi);
 		stringBuilder.append("\nozellikleri   : ");

@@ -19,7 +19,7 @@ public class Capsule_Node_Bitki {
 	 * 
 	 */
 	public Capsule_Node_Bitki() {
-		this.node_bitki=null;
+		this.node_bitki=new Node<Bitki>();
 	}
 
 	/**
