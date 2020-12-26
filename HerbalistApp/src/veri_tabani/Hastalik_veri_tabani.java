@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
+
+import capsule.Capsule_Vector_Hastalik;
 import dert.Hastalik;
 
 public class Hastalik_veri_tabani {

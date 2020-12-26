@@ -1,7 +1,7 @@
 /**
  * 
  */
-package deva;
+package capsule;
 
 import java.util.Vector;
 

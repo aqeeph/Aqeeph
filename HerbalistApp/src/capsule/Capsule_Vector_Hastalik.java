@@ -1,4 +1,4 @@
-package veri_tabani;
+package capsule;
 
 import java.util.Vector;
 

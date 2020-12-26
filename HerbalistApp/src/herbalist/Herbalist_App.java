@@ -23,9 +23,9 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
-import agaclar.Capsule_Vector_Agac;
+import capsule.Capsule_Vector_Agac_Bitki;
+import capsule.Capsule_Vector_String;
 import dert.Hastalik;
-import deva.Capsule_Vector_String;
 import gui.Herbalist_AppGUIData;
 import gui.Herbalist_AppJTextFieldData;
 import veri_tabani.Veritabani_Listesi;
@@ -1110,11 +1110,11 @@ public class Herbalist_App {
 									.compareTo("Biyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setInorder(new Capsule_Vector_String());
-						Capsule_Vector_Agac.inOrder_request(endex, 0);
+						Capsule_Vector_Agac_Bitki.inOrder_request(endex, 0);
 						herbalist_app_guidata.getjTextArea2().setText(
-								Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir());
+								Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir());
 					}
 				}
 
@@ -1153,7 +1153,7 @@ public class Herbalist_App {
 									.compareTo("Biyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setPreorder(new Capsule_Vector_String());
 						veritabani_listesi.verilen_indexteki_elemanin_preorder_ciktisini_hazirla(endex);
 						;
@@ -1197,7 +1197,7 @@ public class Herbalist_App {
 									.compareTo("Biyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = veritabani_listesi
 								.getKategori_veri_tabaninda_Aranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setPostorder(new Capsule_Vector_String());
 						veritabani_listesi.verilen_indexteki_elemanin_postorder_ciktisini_hazirla(endex);
 						herbalist_app_guidata.getjTextArea6().setText(
@@ -2228,12 +2228,13 @@ public class Herbalist_App {
 					float min, max;
 					min = Float.parseFloat(herbalist_app_guidata.getjTextField11().getText());
 					max = Float.parseFloat(herbalist_app_guidata.getjTextField16().getText());
-					if (min >= 0 && max >= min) {
-						herbalist_app_guidata.getjTextArea15()
-								.setText(Veritabani_Listesi.getBitki_veri_tabani().urunleri_listele(min, max));
-					} else {
-						herbalist_app_guidata.getjTextArea15().setText("Doiru Aralikta Sayilar GUruniz");
-					}
+					herbalist_app_guidata.getjTextArea15()
+					.setText(Veritabani_Listesi.getBitki_veri_tabani().urunleri_listele(min, max));
+//					if (min >= 0 && max >= min) {
+//						
+//					} else {
+//						herbalist_app_guidata.getjTextArea15().setText("Dogru Aralikta Sayilar GUruniz");
+//					}
 					System.out.println("mouseClicked()");
 				}
 

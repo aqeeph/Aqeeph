@@ -1,4 +1,4 @@
-package hash_table;
+package capsule;
 
 import java.util.Hashtable;
 import java.util.Vector;

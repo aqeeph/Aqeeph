@@ -1,6 +1,6 @@
 package test.java;
 
-import agaclar.Capsule_Vector_Agac;
+import capsule.Capsule_Vector_Agac_Bitki;
 import deva.Bitki;
 import generic.Node;
 import veri_tabani.Bitki_veri_tabani;
@@ -8,7 +8,6 @@ import veri_tabani.Veritabani_Listesi;
 
 public class Test_Agac {
 
-	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		Veritabani_Listesi veritabani_listesi = new Veritabani_Listesi();
@@ -34,13 +33,13 @@ public class Test_Agac {
 					//System.out.println("newyeninode.toString()" + newyeninode.toString());
 					Veritabani_Listesi.getAgac_vektoru().insert(0,newyeninode);
 				}
-				System.out.println("Capsule_Vector_Agac.find_request(0, \"Adacayi\")\n" + Capsule_Vector_Agac.find_request(0, "Adacayi"));
+				System.out.println("Capsule_Vector_Agac_Bitki.find_request(0, \"Adacayi\")\n" + Capsule_Vector_Agac_Bitki.find_request(0, "Adacayi"));
 				System.out.println("pre");
-				Capsule_Vector_Agac.preOrder_request(0, 0);
+				Capsule_Vector_Agac_Bitki.preOrder_request(0, 0);
 				System.out.println("in");
-				Capsule_Vector_Agac.inOrder_request(0, 0);
+				Capsule_Vector_Agac_Bitki.inOrder_request(0, 0);
 				System.out.println("post");
-				Capsule_Vector_Agac.postOrder_request(0, 0);
+				Capsule_Vector_Agac_Bitki.postOrder_request(0, 0);
 
 				// String aranan = "51";
 				/*

@@ -1,32 +1,32 @@
 
 package veri_tabani;
 
-import agaclar.Capsule_Agac_Bitki;
-import agaclar.Capsule_Vector_Agac;
+import capsule.Capsule_Agac_Bitki;
+import capsule.Capsule_Hashtable_String_Hastalik;
+import capsule.Capsule_Vector_Agac_Bitki;
 import deva.Bitki;
 import generic.Node;
-import hash_table.Capsule_Hashtable_String_Hastalik;
 
 public class Veritabani_Listesi {
 	private static Capsule_Hashtable_String_Hastalik hash_table;
-	private static Capsule_Vector_Agac agac_vektoru;
-	private static Kategori_veri_tabani kategori_veri_tabani;
+	private static Capsule_Vector_Agac_Bitki agac_vektoru;
+	private static Kategori_veritabani kategori_veritabani;
 	private static Bitki_veri_tabani bitki_veri_tabani;
 	private static Hastalik_veri_tabani hastalik_veri_tabani;
 	/**
 	 * @param hash_table
 	 * @param agac_vektoru
-	 * @param kategori_veri_tabani
+	 * @param kategori_veritabani
 	 * @param bitki_veri_tabani
 	 * @param hastalik_veri_tabani
 	 */
-	public Veritabani_Listesi(Capsule_Hashtable_String_Hastalik hash_table, Capsule_Vector_Agac agac_vektoru,
-			Kategori_veri_tabani kategori_veri_tabani, Bitki_veri_tabani bitki_veri_tabani,
+	public Veritabani_Listesi(Capsule_Hashtable_String_Hastalik hash_table, Capsule_Vector_Agac_Bitki agac_vektoru,
+			Kategori_veritabani kategori_veritabani, Bitki_veri_tabani bitki_veri_tabani,
 			Hastalik_veri_tabani hastalik_veri_tabani) {
 		super();
 		Veritabani_Listesi.hash_table = hash_table;
 		Veritabani_Listesi.agac_vektoru = agac_vektoru;
-		Veritabani_Listesi.kategori_veri_tabani = kategori_veri_tabani;
+		Veritabani_Listesi.kategori_veritabani = kategori_veritabani;
 		Veritabani_Listesi.bitki_veri_tabani = bitki_veri_tabani;
 		Veritabani_Listesi.hastalik_veri_tabani = hastalik_veri_tabani;
 	}
@@ -36,9 +36,9 @@ public class Veritabani_Listesi {
 	 */
 	public Veritabani_Listesi() {
 		super();
-		//Veritabani_Listesi.kategori_veri_tabani = new Kategori_veri_tabani();
+		//Veritabani_Listesi.kategori_veritabani = new Kategori_veritabani();
 		Veritabani_Listesi.hash_table = new Capsule_Hashtable_String_Hastalik();
-		Veritabani_Listesi.agac_vektoru = new Capsule_Vector_Agac();
+		Veritabani_Listesi.agac_vektoru = new Capsule_Vector_Agac_Bitki();
 		Veritabani_Listesi.bitki_veri_tabani = new Bitki_veri_tabani();
 		Veritabani_Listesi.hastalik_veri_tabani = new Hastalik_veri_tabani();
 		try {
@@ -89,8 +89,8 @@ public class Veritabani_Listesi {
 		}
 	}
 
-	public synchronized static Kategori_veri_tabani kategori_veri_tabani_olustur() {
-		return new Kategori_veri_tabani("files\\kategori.txt");
+	public synchronized static Kategori_veritabani kategori_veri_tabani_olustur() {
+		return new Kategori_veritabani("files\\kategori.txt");
 	}
 
 	public synchronized static void veri_tabanlarini_veri_yapilarina_kopyala() {
@@ -106,8 +106,8 @@ public class Veritabani_Listesi {
 		}
 	}
 
-	public synchronized static void setKategori_veri_tabani(Kategori_veri_tabani kategori_veri_tabani) {
-		Veritabani_Listesi.kategori_veri_tabani = kategori_veri_tabani;
+	public synchronized static void setKategori_veri_tabani(Kategori_veritabani kategori_veritabani) {
+		Veritabani_Listesi.kategori_veritabani = kategori_veritabani;
 	}
 
 	public synchronized static void setBitki_veri_tabani(Bitki_veri_tabani bitki_veri_tabani) {
@@ -119,7 +119,7 @@ public class Veritabani_Listesi {
 	}
 
 	public synchronized static void kategorilere_gore_agac_vektorunu_olustur() {
-		Veritabani_Listesi.setAgac_vektoru(new Capsule_Vector_Agac(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().size() + 1));
+		Veritabani_Listesi.setAgac_vektoru(new Capsule_Vector_Agac_Bitki(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().size() + 1));
 		// Son vektor elemani Kategorisiz olan bitkiler Icin
 	}
 
@@ -156,7 +156,7 @@ public class Veritabani_Listesi {
 		}
 	}
 
-	public synchronized static void setAgac_vektoru(Capsule_Vector_Agac agac_vektoru) {
+	public synchronized static void setAgac_vektoru(Capsule_Vector_Agac_Bitki agac_vektoru) {
 		Veritabani_Listesi.agac_vektoru = agac_vektoru;
 	}
 
@@ -164,11 +164,11 @@ public class Veritabani_Listesi {
 		return bitki_veri_tabani;
 	}
 
-	public static Kategori_veri_tabani getKategori_veri_tabani() {
-		return kategori_veri_tabani;
+	public static Kategori_veritabani getKategori_veri_tabani() {
+		return kategori_veritabani;
 	}
 
-	public static Capsule_Vector_Agac getAgac_vektoru() {
+	public static Capsule_Vector_Agac_Bitki getAgac_vektoru() {
 		return Veritabani_Listesi.agac_vektoru;
 	}
 
@@ -182,8 +182,8 @@ public class Veritabani_Listesi {
 
 	public synchronized String aranan_Urunun_bilgilerini_listele(String aranan_Urun) {
 		String yanit = "";
-		for (int i = 0; i < Capsule_Vector_Agac.getAgaclar().size(); i++) {
-			yanit = Capsule_Vector_Agac.find_request(i, aranan_Urun);
+		for (int i = 0; i < Capsule_Vector_Agac_Bitki.getAgaclar().size(); i++) {
+			yanit = Capsule_Vector_Agac_Bitki.find_request(i, aranan_Urun);
 			if (yanit.compareTo("Bulunamadi") != 0) {
 				break;
 			}
@@ -208,9 +208,9 @@ public class Veritabani_Listesi {
 	}
 
 	public static synchronized String kategorisi(int kategori_id) {
-		for (int i = 0; i < Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().size(); i++) {
-			if (Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().elementAt(i).getKategori_no() == kategori_id) {
-				return Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().elementAt(i).getKategori_adi();
+		for (int i = 0; i < Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().size(); i++) {
+			if (Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().elementAt(i).getKategori_no() == kategori_id) {
+				return Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().elementAt(i).getKategori_adi();
 			}
 		}
 		StringBuilder stringBuilder = new StringBuilder();
@@ -229,21 +229,21 @@ public class Veritabani_Listesi {
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_preorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().preOrder_yazdir();
+		return Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().preOrder_yazdir();
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_postorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().postOrder_yazdir();
+		return Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().postOrder_yazdir();
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_inorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir();
+		return Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir();
 	}
 
 	public synchronized String aranan_urunun_bilgilerini_listele(String aranan_urun) {
 		String yanit = "";
-		for (int i = 0; i < Capsule_Vector_Agac.getAgaclar().size(); i++) {
-			yanit = Capsule_Vector_Agac.find_request(i, aranan_urun);
+		for (int i = 0; i < Capsule_Vector_Agac_Bitki.getAgaclar().size(); i++) {
+			yanit = Capsule_Vector_Agac_Bitki.find_request(i, aranan_urun);
 			if (yanit.compareTo("Bulunamadi") != 0) {
 				break;
 			}
@@ -256,7 +256,7 @@ public class Veritabani_Listesi {
 	}
 
 	public synchronized static Capsule_Agac_Bitki getAgac_vektoru_getAgaclar_elementAt(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex);
+		return Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex);
 	}
 
 	public synchronized int su_kategorideki_agacin_node_sayisi(int endex) {
@@ -268,15 +268,15 @@ public class Veritabani_Listesi {
 	}
 
 	public synchronized void verilen_indexteki_elemanin_postorder_ciktisini_hazirla(int endex) {
-		Capsule_Vector_Agac.postOrder_request(endex, 0);
+		Capsule_Vector_Agac_Bitki.postOrder_request(endex, 0);
 	}
 
 	public synchronized void verilen_indexteki_elemanin_preorder_ciktisini_hazirla(int endex) {
-		Capsule_Vector_Agac.preOrder_request(endex, 0);
+		Capsule_Vector_Agac_Bitki.preOrder_request(endex, 0);
 	}
 
 	public synchronized void verilen_indexteki_elemanin_inorder_ciktisini_hazirla(int endex) {
-		Capsule_Vector_Agac.inOrder_request(endex, 0);
+		Capsule_Vector_Agac_Bitki.inOrder_request(endex, 0);
 	}
 
 	public synchronized void kategori_veri_tabanina_kategori_ekle(String kategori) {

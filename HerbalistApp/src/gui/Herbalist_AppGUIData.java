@@ -13,7 +13,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import deva.Capsule_Vector_String;
+import capsule.Capsule_Vector_String;
 
 public class Herbalist_AppGUIData {
 	private Herbalist_AppStringData stringdata;

@@ -1,7 +1,8 @@
 package dert;
 
 import java.util.StringTokenizer;
-import deva.Capsule_Vector_String;
+
+import capsule.Capsule_Vector_String;
 
 //Hastaliklara iliskin bilgiler(Hastalik adi,belirtileri ,nedenleri,tedavisi,onerilen bitkiler )
 //Hastalik adi#belirtileri(_ ile tutuluyor)#nedenleri(_ ile tutuluyor)#tedavisi(_ ile tutuluyor)#bilgi_sayisi>>onerilen bitkiler(>> ile tutuluyor)

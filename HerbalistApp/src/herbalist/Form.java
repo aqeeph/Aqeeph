@@ -2,7 +2,7 @@ package herbalist;
 
 import javax.swing.SwingUtilities;
 
-import deva.Capsule_Vector_String;
+import capsule.Capsule_Vector_String;
 import gui.Herbalist_AppGUIData;
 import gui.Herbalist_AppJButtonData;
 import gui.Herbalist_AppJDialogData;

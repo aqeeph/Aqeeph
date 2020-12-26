@@ -2,8 +2,8 @@ package test.java;
 
 import java.io.IOException;
 
+import capsule.Capsule_Vector_String;
 import deva.Bitki;
-import deva.Capsule_Vector_String;
 
 public class Test_Bitki {
 

@@ -23,11 +23,11 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
-import agaclar.Capsule_Vector_Agac;
+import capsule.Capsule_Vector_Agac_Bitki;
+import capsule.Capsule_Vector_String;
 import dert.Hastalik;
-import deva.Capsule_Vector_String;
 import veri_tabani.Kategori;
-import veri_tabani.Kategori_veri_tabani;
+import veri_tabani.Kategori_veritabani;
 import veri_tabani.Veritabani_Listesi;
 
 @SuppressWarnings("deprecation")
@@ -405,7 +405,7 @@ public class Herbalist_App {
 		if (Firmaya_Yeni_Turde_urun_Girisi == null) {
 			jLabel49 = new JLabel();
 			jLabel49.setBounds(new Rectangle(241, 16, 316, 16));
-			jLabel49.setText("Eklenmek istenen urun agac Kategorilerinde Var Mi?");
+			jLabel49.setText("Eklenmek istenen urun capsule Kategorilerinde Var Mi?");
 			jLabel46 = new JLabel();
 			jLabel46.setBounds(new Rectangle(1, 16, 241, 16));
 			jLabel46.setText("Eklemek istedisiniz urunun Adini Giriniz");
@@ -1040,9 +1040,9 @@ public class Herbalist_App {
 					if (yanit.compareTo("Bulunamadi") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex);
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex);
 						jTextField20.setText(
-								"" + Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().getNode_sayisi());
+								"" + Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().getNode_sayisi());
 					}
 					System.out.println("mouseClicked()");
 					// Event stub
@@ -1097,11 +1097,11 @@ public class Herbalist_App {
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setInorder(new Capsule_Vector_String());
-						Capsule_Vector_Agac.inOrder_request(endex, 0);
+						Capsule_Vector_Agac_Bitki.inOrder_request(endex, 0);
 						jTextArea2.setText(
-								Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir());
+								Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir());
 						// jTextArea2.setText(getAgac_vektoru().getagaclar().elementAt(endex).preOrder_yazdir());
 					}
 					System.out.println("mouseClicked()");
@@ -1142,11 +1142,11 @@ public class Herbalist_App {
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setPreorder(new Capsule_Vector_String());
-						Capsule_Vector_Agac.preOrder_request(endex, 0);
+						Capsule_Vector_Agac_Bitki.preOrder_request(endex, 0);
 						jTextArea3.setText(
-								Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().preOrder_yazdir());
+								Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().preOrder_yazdir());
 					}
 				}
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -1179,11 +1179,11 @@ public class Herbalist_App {
 							&& jTextArea5.getText().compareTo("Bsyle Bir Kategori Bulunmamaktadir") != 0) {
 						int endex = Veritabani_Listesi.getKategori_veri_tabani()
 								.getAranan_kategori_kacinci_sirada_bulundu();
-						Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki()
+						Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki()
 								.setPostorder(new Capsule_Vector_String());
-						Capsule_Vector_Agac.postOrder_request(endex, 0);
+						Capsule_Vector_Agac_Bitki.postOrder_request(endex, 0);
 						jTextArea6.setText(
-								Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().postOrder_yazdir());
+								Capsule_Vector_Agac_Bitki.getAgaclar().elementAt(endex).getAgac_bitki().postOrder_yazdir());
 					}
 				}
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -1334,12 +1334,12 @@ public class Herbalist_App {
 
 
 	public synchronized void kategori_ekle() {
-		int kategori_no = Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().size();
+		int kategori_no = Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().size();
 		String kategori_adi = jTextField2.getText();
 		Kategori kategori = new Kategori(kategori_no, kategori_adi);
-		Kategori_veri_tabani.add_kategori(kategori);
+		Kategori_veritabani.add_kategori(kategori);
 		Veritabani_Listesi.getKategori_veri_tabani().update_file();
-		System.out.println(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().lastElement().toString());
+		System.out.println(Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().lastElement().toString());
 	}
 
 	/**
@@ -2358,7 +2358,7 @@ public class Herbalist_App {
 		if (jButton19 == null) {
 			jButton19 = new JButton();
 			jButton19.setBounds(new Rectangle(3, 51, 235, 22));
-			jButton19.setText("agac Vektsrunde Var Mi?");
+			jButton19.setText("capsule Vektsrunde Var Mi?");
 		}
 		return jButton19;
 	}

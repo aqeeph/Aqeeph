@@ -1,10 +1,10 @@
 /**
  * 
  */
-package agaclar;
+package capsule;
 
-import agac.Agac;
 import deva.Bitki;
+import generic.Agac;
 
 /**
  * @author MEHMET AKIF ILYASOGULLARI

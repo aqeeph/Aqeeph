@@ -1,4 +1,4 @@
-package agac;
+package capsule;
 
 import deva.Bitki;
 import generic.Node;

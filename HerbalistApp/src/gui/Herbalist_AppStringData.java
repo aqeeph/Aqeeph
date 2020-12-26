@@ -1,6 +1,6 @@
 package gui;
 
-import deva.Capsule_Vector_String;
+import capsule.Capsule_Vector_String;
 
 public class Herbalist_AppStringData {
 	private String yanit;

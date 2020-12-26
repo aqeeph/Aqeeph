@@ -1,7 +1,6 @@
-package agac;
+package generic;
 
-import deva.Capsule_Vector_String;
-import generic.Node;
+import capsule.Capsule_Vector_String;
 
 public class Agac<T> {
 	/**

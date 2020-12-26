@@ -2,6 +2,7 @@ package deva;
 
 import java.util.StringTokenizer;
 
+import capsule.Capsule_Vector_String;
 import veri_tabani.Veritabani_Listesi;
 
 //Bitkiye iliskin bilgiler(bitki adi, kategori_no,bitkinin latince ismi,bitkinin ozellikleri,
@@ -20,7 +21,7 @@ public class Bitki {
 	private static int node_sayisi = 0;
 	private String adi = "asd", latince_adi = "", diskteki_yeri = "", diskteki_adi = "";
 	private int miktari;// paket cinsinden
-	private float fiyati;
+	private float fiyati=0;
 	private int kategori_no;
 	private Capsule_Vector_String onerilen_hastaliklar;
 	private Capsule_Vector_String ozellikleri;

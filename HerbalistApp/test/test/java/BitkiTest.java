@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import capsule.Capsule_Vector_String;
 import deva.Bitki;
-import deva.Capsule_Vector_String;
 
 public class BitkiTest {
 
