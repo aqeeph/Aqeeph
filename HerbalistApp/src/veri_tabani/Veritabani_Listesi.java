@@ -1,14 +1,18 @@
 
 package veri_tabani;
 
-import agac.Agac;
+import agaclar.Capsule_Agac_Bitki;
 import agaclar.Capsule_Vector_Agac;
 import deva.Bitki;
 import generic.Node;
 import hash_table.Capsule_Hashtable_String_Hastalik;
 
 public class Veritabani_Listesi {
-
+	private static Capsule_Hashtable_String_Hastalik hash_table;
+	private static Capsule_Vector_Agac agac_vektoru;
+	private static Kategori_veri_tabani kategori_veri_tabani;
+	private static Bitki_veri_tabani bitki_veri_tabani;
+	private static Hastalik_veri_tabani hastalik_veri_tabani;
 	/**
 	 * @param hash_table
 	 * @param agac_vektoru
@@ -53,11 +57,6 @@ public class Veritabani_Listesi {
 		}
 	}
 
-	private static Capsule_Hashtable_String_Hastalik hash_table;
-	private static Capsule_Vector_Agac agac_vektoru;
-	private static Kategori_veri_tabani kategori_veri_tabani;
-	private static Bitki_veri_tabani bitki_veri_tabani;
-	private static Hastalik_veri_tabani hastalik_veri_tabani;
 
 	public synchronized static Hastalik_veri_tabani getHastalik_veri_tabani() {
 		return Veritabani_Listesi.hastalik_veri_tabani;
@@ -184,7 +183,7 @@ public class Veritabani_Listesi {
 	public synchronized String aranan_Urunun_bilgilerini_listele(String aranan_Urun) {
 		String yanit = "";
 		for (int i = 0; i < Capsule_Vector_Agac.getAgaclar().size(); i++) {
-			yanit = Veritabani_Listesi.getAgac_vektoru().find_request(i, aranan_Urun);
+			yanit = Capsule_Vector_Agac.find_request(i, aranan_Urun);
 			if (yanit.compareTo("Bulunamadi") != 0) {
 				break;
 			}
@@ -225,26 +224,26 @@ public class Veritabani_Listesi {
 
 	public synchronized String agac_kategorilerinde_ara(String aranan_Urun) {
 		String aranan_bitki = "";
-		aranan_bitki = Veritabani_Listesi.getAgac_vektoru().find(aranan_Urun);
+		aranan_bitki = Veritabani_Listesi.getAgac_vektoru().search_on_trees(aranan_Urun);
 		return aranan_bitki;
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_preorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).preOrder_yazdir();
+		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().preOrder_yazdir();
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_postorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).postOrder_yazdir();
+		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().postOrder_yazdir();
 	}
 
 	public synchronized String agac_vektorundeki_su_indexteki_elemani_inorder_yazdir(int endex) {
-		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).inOrder_yazdir();
+		return Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().inOrder_yazdir();
 	}
 
 	public synchronized String aranan_urunun_bilgilerini_listele(String aranan_urun) {
 		String yanit = "";
 		for (int i = 0; i < Capsule_Vector_Agac.getAgaclar().size(); i++) {
-			yanit = Veritabani_Listesi.getAgac_vektoru().find_request(i, aranan_urun);
+			yanit = Capsule_Vector_Agac.find_request(i, aranan_urun);
 			if (yanit.compareTo("Bulunamadi") != 0) {
 				break;
 			}
@@ -256,12 +255,12 @@ public class Veritabani_Listesi {
 		return Veritabani_Listesi.getKategori_veri_tabani().getAranan_kategori_kacinci_sirada_bulundu();
 	}
 
-	public synchronized static Agac<Bitki> getAgac_vektoru_getAgaclar_elementAt(int endex) {
+	public synchronized static Capsule_Agac_Bitki getAgac_vektoru_getAgaclar_elementAt(int endex) {
 		return Capsule_Vector_Agac.getAgaclar().elementAt(endex);
 	}
 
 	public synchronized int su_kategorideki_agacin_node_sayisi(int endex) {
-		return Veritabani_Listesi.getAgac_vektoru_getAgaclar_elementAt(endex).getNode_sayisi();
+		return Veritabani_Listesi.getAgac_vektoru_getAgaclar_elementAt(endex).getAgac_bitki().getNode_sayisi();
 	}
 
 	public synchronized int getKategori_veri_tabaninda_Aranan_kategori_kacinci_sirada_bulundu() {
@@ -269,11 +268,11 @@ public class Veritabani_Listesi {
 	}
 
 	public synchronized void verilen_indexteki_elemanin_postorder_ciktisini_hazirla(int endex) {
-		Veritabani_Listesi.getAgac_vektoru().postOrder_request(endex, 0);
+		Capsule_Vector_Agac.postOrder_request(endex, 0);
 	}
 
 	public synchronized void verilen_indexteki_elemanin_preorder_ciktisini_hazirla(int endex) {
-		Veritabani_Listesi.getAgac_vektoru().preOrder_request(endex, 0);
+		Capsule_Vector_Agac.preOrder_request(endex, 0);
 	}
 
 	public synchronized void verilen_indexteki_elemanin_inorder_ciktisini_hazirla(int endex) {

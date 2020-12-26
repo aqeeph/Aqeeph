@@ -1,6 +1,6 @@
 package test.java;
 
-import agac.Agac;
+import agaclar.Capsule_Vector_Agac;
 import deva.Bitki;
 import generic.Node;
 import veri_tabani.Bitki_veri_tabani;
@@ -8,6 +8,7 @@ import veri_tabani.Veritabani_Listesi;
 
 public class Test_Agac {
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		Veritabani_Listesi veritabani_listesi = new Veritabani_Listesi();
@@ -19,10 +20,10 @@ public class Test_Agac {
 		}
 		if (database != null) {
 			if (database.getVector_bitki() != null) {
-				Agac<Bitki> tree = new Agac<Bitki>();
+				//Agac<Bitki> tree = new Agac<Bitki>();
 				Node<Bitki> newyeninode;
 				try {
-					System.out.println("datebase.getBitkiler().size()" + database.getVector_bitki().size());
+					//System.out.println("datebase.getBitkiler().size()" + database.getVector_bitki().size());
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 				} catch (Exception e) {
@@ -30,17 +31,16 @@ public class Test_Agac {
 				}
 				for (int i = 0; i < database.getVector_bitki().size(); i++) {
 					newyeninode = new Node<Bitki>(database.getVector_bitki().elementAt(i));
-					System.out.println("newyeninode.toString()" + newyeninode.toString());
-					veritabani_listesi.getAgac_vektoru().insert(0,newyeninode);
+					//System.out.println("newyeninode.toString()" + newyeninode.toString());
+					Veritabani_Listesi.getAgac_vektoru().insert(0,newyeninode);
 				}
-
-				veritabani_listesi.getAgac_vektoru().find(tree.getNode_bitki(), "Adacayi");
+				System.out.println("Capsule_Vector_Agac.find_request(0, \"Adacayi\")\n" + Capsule_Vector_Agac.find_request(0, "Adacayi"));
 				System.out.println("pre");
-				veritabani_listesi.getAgac_vektoru().preOrder_request(0, 0);
+				Capsule_Vector_Agac.preOrder_request(0, 0);
 				System.out.println("in");
-				veritabani_listesi.getAgac_vektoru().inOrder_request(0, 0);
+				Capsule_Vector_Agac.inOrder_request(0, 0);
 				System.out.println("post");
-				veritabani_listesi.getAgac_vektoru().postOrder_request(0, 0);
+				Capsule_Vector_Agac.postOrder_request(0, 0);
 
 				// String aranan = "51";
 				/*

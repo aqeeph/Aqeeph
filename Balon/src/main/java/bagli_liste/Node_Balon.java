@@ -40,7 +40,7 @@ public class Node_Balon {
 	@SuppressWarnings("unused")
 	private Node_Balon(int no, String renk) {
 		this_node_balon_init();
-		setNode(no, renk);
+		setcurrentNode(no, renk);
 	}
 	private void this_node_balon_init() {
 		try {
@@ -52,18 +52,6 @@ public class Node_Balon {
 			e.printStackTrace();
 			return;
 		}	
-	}
-	@SuppressWarnings("unused")
-	private void this_node_balon_setNode(Balon balon) {
-		try {
-			this.node_balon.setNode(new Balon());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return;
-		}
 	}
 	@SuppressWarnings("unused")
 	private void this_node_balon_getNode_setNo(int no) {
@@ -90,20 +78,34 @@ public class Node_Balon {
 			return;
 		}
 	}
+
+
+	/**
+	 * @return
+	 */
+	public Node<Balon> getNode_balon() {
+		return this.node_balon;
+	}
+	/**
+	 * @param node_balon
+	 */
+	public void setNode_balon(Node<Balon> node_balon) {
+		this.node_balon = node_balon;
+	}
 	/**
 	 * @param balon
 	 */
-	public void setNode(Balon balon) {
-		node_balon.setNode(balon);
+	public void setcurrentNode(Balon balon) {
+		this.node_balon.setcurrentNode(balon);
 	}
 	/**
 	 * @param no
 	 * @param random_renk
 	 */
-	public void setNode(int no, String random_renk) {
+	public void setcurrentNode(int no, String random_renk) {
 		Balon balon=new Balon(no, random_renk);
 		try {
-			this.getNode_balon().setNode(balon);
+			this.getNode_balon().setcurrentNode(balon);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -111,18 +113,6 @@ public class Node_Balon {
 			e.printStackTrace();
 			return;
 		}
-	}
-	/**
-	 * @return
-	 */
-	public Node<Balon> getNode_balon() {
-		return node_balon;
-	}
-	/**
-	 * @param node_balon
-	 */
-	public void setNode_balon(Node<Balon> node_balon) {
-		this.node_balon = node_balon;
 	}
 	/**
 	 * @param node_balon
@@ -137,7 +127,7 @@ public class Node_Balon {
 	 */
 	public Node<Balon> getSonraki_node_balon() {
 		// [Node<Balon> gecici].[getSonraki()]
-		return node_balon.getNext();
+		return this.node_balon.getNext();
 	}
 	/**
 	 * 

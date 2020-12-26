@@ -174,7 +174,9 @@ public class Bitki {
 	public String getAdi() {
 		return adi;
 	}
-
+	public int adi_compareTo(String value) {
+		return adi.compareTo(value);
+	}
 	public void setAdi(String adi) {
 		this.adi = adi;
 	}

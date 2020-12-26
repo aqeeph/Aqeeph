@@ -48,7 +48,7 @@ public class Node<T> {
 	/**
 	 * @param current_node the current_node to set
 	 */
-	public void setNode(T node) {
+	public void setcurrentNode(T node) {
 		this.current_node = node;
 	}
 

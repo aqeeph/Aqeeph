@@ -2,7 +2,6 @@ package agaclar;
 
 import java.util.Vector;
 
-import agac.Agac;
 import deva.Bitki;
 import generic.Node;
 
@@ -10,7 +9,7 @@ public class Capsule_Vector_Agac {
 	/**
 	 * 
 	 */
-	private static Vector<Agac<Bitki>> agaclar;
+	private static Vector<Capsule_Agac_Bitki> agaclar;
 	/**
 	 * 
 	 */
@@ -20,10 +19,10 @@ public class Capsule_Vector_Agac {
 	 * @param kategori_cesidi
 	 */
 	public Capsule_Vector_Agac(int kategori_cesidi) {
-		Capsule_Vector_Agac.setAgaclar(new Vector<Agac<Bitki>>());
+		Capsule_Vector_Agac.setAgaclar(new Vector<Capsule_Agac_Bitki>());
 		Capsule_Vector_Agac.agaclar.setSize(kategori_cesidi);
 		for (int i = 0; i < kategori_cesidi; i++) {
-			Capsule_Vector_Agac.agaclar.set(i, new Agac<Bitki>());
+			Capsule_Vector_Agac.agaclar.set(i, new Capsule_Agac_Bitki());
 		}
 	}
 
@@ -31,20 +30,20 @@ public class Capsule_Vector_Agac {
 	 * 
 	 */
 	public Capsule_Vector_Agac() {
-		Capsule_Vector_Agac.setAgaclar(new Vector<Agac<Bitki>>());
+		Capsule_Vector_Agac.setAgaclar(new Vector<Capsule_Agac_Bitki>());
 	}
 
 	/**
 	 * @return
 	 */
-	public static Vector<Agac<Bitki>> getAgaclar() {
+	public static Vector<Capsule_Agac_Bitki> getAgaclar() {
 		return Capsule_Vector_Agac.agaclar;
 	}
 
 	/**
 	 * @param agaclar
 	 */
-	public static void setAgaclar(Vector<Agac<Bitki>> agaclar) {
+	public static void setAgaclar(Vector<Capsule_Agac_Bitki> agaclar) {
 		Capsule_Vector_Agac.agaclar = agaclar;
 	}
 
@@ -52,21 +51,26 @@ public class Capsule_Vector_Agac {
 	 * @param data
 	 * @return
 	 */
-	public String find(String data) {
+	public String search_on_trees(String data) {
 		String yanit = "";
 		for (int i = 0; i < agaclar.size(); i++) {
-			yanit = Capsule_Vector_Agac.find(agaclar.elementAt(i).getNode_bitki(), data);
+			yanit = Capsule_Vector_Agac.find(Capsule_Vector_Agac.agaclar.elementAt(i).getAgac_bitki().getNode_bitki(), data);
 			if (yanit.compareTo("Bulunamadi") != 0) {
 				// Bulunduysa diger kategorilerde arama yapmaya gerek yok
-				setAranan_urun_hangi_kategoride_bulundu(i);
+				Capsule_Vector_Agac.setAranan_urun_hangi_kategoride_bulundu(i);
 				return yanit;
 			}
 		}
 		return yanit;
 	}
 
-	public String find_request(int i, String aranan_Urun) {
-		return Capsule_Vector_Agac.find(Capsule_Vector_Agac.getAgaclar().elementAt(i).getNode_bitki(), aranan_Urun);
+	/**
+	 * @param i
+	 * @param aranan_Urun
+	 * @return
+	 */
+	public static String find_request(int i, String aranan_Urun) {
+		return Capsule_Vector_Agac.find(Capsule_Vector_Agac.getAgaclar().elementAt(i).getAgac_bitki().getNode_bitki(), aranan_Urun);
 	}
 
 	/**
@@ -76,21 +80,27 @@ public class Capsule_Vector_Agac {
 	 */
 	public static String find(Node<Bitki> wanted, String data) {
 		if (wanted == null) {
-			System.out.println("Bulunamadi\n");
+			System.out.println("wanted Bulunamadi\n");
 			return "Bulunamadi";
 		} else {
-			int sonuc;
-			if ((sonuc = data.compareTo(wanted.getNode().getAdi())) == 0) {
-				System.out.println("Bulundu\n");
-				// System.out.println("Bulunan:\n" + wanted.toString());
-				return wanted.toString();
+			if (wanted.getNode() == null) {
+				System.out.println("wanted.getNode() Bulunamadi\n");
+				return "Bulunamadi";
 			} else {
-				if (sonuc < 0) {
-					return find(wanted.getLeft_node(), data);
+				int sonuc;
+				if ((sonuc = data.compareTo(wanted.getNode().getAdi())) == 0) {
+					System.out.println("Bulundu\n");
+					// System.out.println("Bulunan:\n" + wanted.toString());
+					return wanted.toString();
 				} else {
-					return find(wanted.getRight_node(), data);
+					if (sonuc < 0) {
+						return  Capsule_Vector_Agac.find(wanted.getLeft_node(), data);
+					} else {
+						return  Capsule_Vector_Agac.find(wanted.getRight_node(), data);
+					}
 				}
 			}
+			
 		}
 	}
 
@@ -100,19 +110,12 @@ public class Capsule_Vector_Agac {
 	 */
 	public void insert(int index, Node<Bitki> newnode) {
 		System.out.println("burayagirdi1");
-		if (Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki().getNode() == null) {
-			//System.out.println("buraya her kategori için 1 defa girmesi gerekiyor.");
-			//System.out.println("index"+index);
-			Capsule_Vector_Agac.agaclar.elementAt(index).setNode(newnode);
-			//System.out.println("Capsule_Vector_Agac.agaclar.elementAt(index).tostring"
-				//	+ Capsule_Vector_Agac.agaclar.elementAt(index).toString());
+		if (Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki().getNode() == null) {
+			/*buraya her kategori için 1 defa girmesi gerekiyor.*/
+			Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().setNode(newnode);
 		} else {
-			//System.out.println("Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki().tostring"
-				//	+ Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki());
-			Capsule_Vector_Agac.inOrder_request(index, 0);
-			//System.out.println("Capsule_Vector_Agac.getAgaclar().elementAt(endex).inOrder_yazdir();"
-				//	+ Capsule_Vector_Agac.getAgaclar().elementAt(index).inOrder_yazdir());
-			Node<Bitki> current = Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki();
+			Node<Bitki> current;
+			current= Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki();
 			Node<Bitki> parent;
 			if (current == null) {
 				System.out.println("current null var");
@@ -125,7 +128,6 @@ public class Capsule_Vector_Agac {
 				} else {
 					while (true) {
 						parent = current;
-						// newnode.get().getAdi().compareBitkio(current.get().getAdi()) < 0
 						String str = null;
 						try {
 							str = current.getNode().getAdi();
@@ -148,39 +150,34 @@ public class Capsule_Vector_Agac {
 					}
 				}
 			}
-		} // end else not node
-	} // end insert()
+		}
+	}
 
 	/**
 	 * @param value
 	 * @return
 	 */
 	public boolean agac_remove(int index, String value) {
-		if (Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki() == null) {
+		if (Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki() == null) {
 			return false;
 		} else {
-			if (Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki().getNode().getAdi().compareTo(value) == 0) {
+			if (Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki().getNode().adi_compareTo(value) == 0) {
 				Node<Bitki> auxnode = new Node<Bitki>(null);
-				auxnode.setLeft_node(Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki());
-				boolean result = remove(value, Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki(), auxnode);
-				Capsule_Vector_Agac.agaclar.elementAt(index).setNode(auxnode.getLeft_node());
+				auxnode.setLeft_node(Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki());
+				boolean result = remove(value, Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki(), auxnode);
+				Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().setNode(auxnode.getLeft_node());
 				return result;
 			} else {
-				return remove(value, Capsule_Vector_Agac.agaclar.elementAt(index).getNode_bitki(), null);
+				return remove(value, Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getNode_bitki(), null);
 			}
 		}
 	}
-
 	/**
-	 * @return left_node.minValue()
+	 * @param value
+	 * @param current
+	 * @param parent
+	 * @return
 	 */
-//	public String minValue(Node<Bitki> current) {
-//		if (current.getLeft_node() == null) {
-//			return current.getNode().getAdi();
-//		} else {
-//			return minValue(current.getLeft_node());
-//		}
-//	}
 	public boolean remove(String value, Node<Bitki> current, Node<Bitki> parent) {
 		if (value.compareTo(current.getNode().getAdi()) < 0) {
 			if (current.getLeft_node() != null) {
@@ -211,18 +208,22 @@ public class Capsule_Vector_Agac {
 	// **************** Listeleme
 	// Metotlari ************************************************
 	// Agacin preOrder Dolasilmasi
-	public void preOrder_request(int endex, int i) {
-		preOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getNode_bitki(), i);
+	/**
+	 * @param endex
+	 * @param i
+	 */
+	public static void preOrder_request(int endex, int i) {
+		Capsule_Vector_Agac.preOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().getNode_bitki(), i);
 	}
 
 	/**
 	 * @param localnode
 	 * @param duzey
 	 */
-	public void preOrder(int index, Node<Bitki> localnode, int duzey) {
+	private static void preOrder(int index, Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			// System.out.println(localnode.getBitki().getAdi());
-			Capsule_Vector_Agac.agaclar.elementAt(index).getPreorder()
+			Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getPreorder()
 					.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 			preOrder(index, localnode.getLeft_node(), ++duzey);
 			preOrder(index, localnode.getRight_node(), duzey);
@@ -230,20 +231,24 @@ public class Capsule_Vector_Agac {
 	}
 
 	// Agacin inOrder Dolasilmasi
+	/**
+	 * @param endex
+	 * @param i
+	 */
 	public static void inOrder_request(int endex, int i) {
-		Capsule_Vector_Agac.inOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getNode_bitki(), i);
+		Capsule_Vector_Agac.inOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().getNode_bitki(), i);
 	}
 
 	/**
 	 * @param localnode
 	 * @param duzey
 	 */
-	public static void inOrder(int index, Node<Bitki> localnode, int duzey) {
+	private static void inOrder(int index, Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
 			if (localnode.getNode() != null) {
 				Capsule_Vector_Agac.inOrder(index, localnode.getLeft_node(), duzey);
 				// System.out.println(localnode.getBitki().getAdi());
-				Capsule_Vector_Agac.agaclar.elementAt(index).getInorder()
+				Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getInorder()
 						.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 				Capsule_Vector_Agac.inOrder(index, localnode.getRight_node(), duzey);
 			}else {
@@ -253,20 +258,24 @@ public class Capsule_Vector_Agac {
 	}
 
 	// Agacin postOrder Dolasilmasi
-	public void postOrder_request(int endex, int i) {
-		postOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getNode_bitki(), i);
+	/**
+	 * @param endex
+	 * @param i
+	 */
+	public static void postOrder_request(int endex, int i) {
+		Capsule_Vector_Agac.postOrder(endex, Capsule_Vector_Agac.getAgaclar().elementAt(endex).getAgac_bitki().getNode_bitki(), i);
 	}
 
 	/**
 	 * @param localnode
 	 * @param duzey
 	 */
-	public void postOrder(int index, Node<Bitki> localnode, int duzey) {
+	private static void postOrder(int index, Node<Bitki> localnode, int duzey) {
 		if (localnode != null) {
-			postOrder(index, localnode.getLeft_node(), duzey);
-			postOrder(index, localnode.getRight_node(), duzey);
+			Capsule_Vector_Agac.postOrder(index, localnode.getLeft_node(), duzey);
+			Capsule_Vector_Agac.postOrder(index, localnode.getRight_node(), duzey);
 			// System.out.println(localnode.getBitki().getAdi());
-			Capsule_Vector_Agac.agaclar.elementAt(index).getPostorder()
+			Capsule_Vector_Agac.agaclar.elementAt(index).getAgac_bitki().getPostorder()
 					.add("Duzey: " + duzey + "Bitki Adi: " + localnode.getNode().getAdi() + "\n");
 		}
 	}
@@ -274,7 +283,7 @@ public class Capsule_Vector_Agac {
 	/**
 	 * @param aranan_urun_hangi_kategoride_bulundu
 	 */
-	public void setAranan_urun_hangi_kategoride_bulundu(int aranan_urun_hangi_kategoride_bulundu) {
+	public static void setAranan_urun_hangi_kategoride_bulundu(int aranan_urun_hangi_kategoride_bulundu) {
 		Capsule_Vector_Agac.aranan_urun_hangi_kategoride_bulundu = aranan_urun_hangi_kategoride_bulundu;
 	}
 
@@ -282,7 +291,6 @@ public class Capsule_Vector_Agac {
 	 * @return
 	 */
 	public int getAranan_urun_hangi_kategoride_bulundu() {
-		return aranan_urun_hangi_kategoride_bulundu;
+		return Capsule_Vector_Agac.aranan_urun_hangi_kategoride_bulundu;
 	}
-
 }

@@ -53,8 +53,8 @@ public class Main {
 				e.printStackTrace();
 				System.exit(0);
 			}
-			//setForm1(new Form());
-			//form1.herbalist_appgui();			
+			setForm1(new Form());
+			form1.herbalist_appgui();			
 		}else {
 			System.out.println("Sistem gorsel uygulamayı desteklemiyor.");
 			System.exit(0);

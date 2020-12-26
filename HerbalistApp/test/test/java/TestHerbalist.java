@@ -37,8 +37,8 @@ public class TestHerbalist extends TestCase {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("veritabani_listesi.getHash_table().toString()"+veritabani_listesi.getHash_table().toString());
-			//assertEquals("Bulundu", veritabani_listesi.Hash_tableda_hastalik_ara("Anemi"));
+			System.out.println("veritabani_listesi.getHash_table().toString()"+Veritabani_Listesi.getHash_table().toString());
+			assertEquals("Bulundu", veritabani_listesi.Hash_tableda_hastalik_ara("Anemi"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

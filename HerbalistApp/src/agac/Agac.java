@@ -12,7 +12,6 @@ public class Agac<T> {
 	 * 
 	 */
 	private int node_sayisi = 0;
-
 	/**
 	 * 
 	 */
@@ -25,7 +24,6 @@ public class Agac<T> {
 	 * 
 	 */
 	private Capsule_Vector_String postorder;
-
 	/**
 	 * @param node_bitki
 	 * @param node_sayisi
@@ -42,7 +40,6 @@ public class Agac<T> {
 		this.inorder = inorder;
 		this.postorder = postorder;
 	}
-
 	/**
 	 *
 	 */
@@ -51,7 +48,6 @@ public class Agac<T> {
 		return "Agac [node_bitki=" + getNode_bitki() + ", node_sayisi=" + getNode_sayisi() + ", preorder=" + preorder
 				+ ", inorder=" + inorder + ", postorder=" + postorder + "]";
 	}
-
 	/**
 	 * 
 	 */
@@ -65,20 +61,15 @@ public class Agac<T> {
 	public Node<T> getNode_bitki() {
 		return node_bitki;
 	}
-
 	public void setNode_bitki(Node<T> node_bitki) {
 		this.node_bitki = node_bitki;
 	}
-
 	/**
 	 * @param node
 	 */
 	public void setNode(Node<T> node) {
 		this.node_bitki=node;
 	}
-
-
-
 	// Duzey listeleme
 	/**
 	 * @param localnode
@@ -86,75 +77,64 @@ public class Agac<T> {
 	public void duzey_listele(Node<T> localnode) {
 
 	}
-
 	/**
 	 * @return
 	 */
 	public String preOrder_yazdir() {
 		return preorder.toString();
 	}
-
 	/**
 	 * @return
 	 */
 	public String inOrder_yazdir() {
 		return inorder.toString();
 	}
-
 	/**
 	 * @return
 	 */
 	public String postOrder_yazdir() {
 		return postorder.toString();
 	}
-
 	/**
 	 * @param preorder
 	 */
 	public void setPreorder(Capsule_Vector_String preorder) {
 		this.preorder = preorder;
 	}
-
 	/**
 	 * @return
 	 */
 	public Capsule_Vector_String getPreorder() {
 		return preorder;
 	}
-
 	/**
 	 * @param capsule_Vector_String
 	 */
 	public void setInorder(Capsule_Vector_String capsule_Vector_String) {
 		this.inorder = capsule_Vector_String;
 	}
-
 	/**
 	 * @return
 	 */
 	public Capsule_Vector_String getInorder() {
 		return inorder;
 	}
-
 	/**
 	 * @param capsule_Vector_String
 	 */
 	public void setPostorder(Capsule_Vector_String capsule_Vector_String) {
 		this.postorder = capsule_Vector_String;
 	}
-
 	/**
 	 * @return
 	 */
 	public Capsule_Vector_String getPostorder() {
 		return postorder;
 	}
-
 	public int getNode_sayisi() {
 		return node_sayisi;
 	}
-
 	public void setNode_sayisi(int node_sayisi) {
 		this.node_sayisi = node_sayisi;
 	}
-} // class Agac
+}
