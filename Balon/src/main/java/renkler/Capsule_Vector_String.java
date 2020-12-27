@@ -1,7 +1,7 @@
 /**
  * 
  */
-package capsule;
+package main.java.renkler;
 
 import java.util.Vector;
 

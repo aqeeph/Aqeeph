@@ -1,5 +1,6 @@
 package main.java.main;
 
+import main.java.renkler.Renkler;
 import main.java.stack.Stack_Problemi;
 import main.java.stack.Stack_Stack_Problemi;
 
@@ -8,6 +9,13 @@ import main.java.stack.Stack_Stack_Problemi;
  *
  */
 public class Solution {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Solution []");
+		return builder.toString();
+	}
+
 	/**
 	 * 
 	 */
@@ -17,6 +25,8 @@ public class Solution {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Renkler r=new Renkler();
+		r.renkleri_init();
 		setP(new Stack_Stack_Problemi());
 		if (getP() == null) {
 			//System.err.println("problem listesi null");

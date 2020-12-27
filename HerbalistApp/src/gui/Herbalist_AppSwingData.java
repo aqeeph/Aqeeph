@@ -7,13 +7,47 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Herbalist_AppSwingData {
+	private Herbalist_AppJFrameData jframedata;
+	private Herbalist_AppJMenuBarData jmenubardata;
+	private Herbalist_AppJMenuData jmenudata;
+	private Herbalist_AppJMenuItemData jmenuitemdata;
+	private Herbalist_AppJDialogData jdialogdata;
+	private Herbalist_AppJTabbedPaneData jtabbedpanedata;
+	private JScrollPaneData jscrollpanedata = new JScrollPaneData();
+	private Herbalist_AppJTextAreaData jtextareadata;
+	private Herbalist_AppJPanelData jpaneldata;
+	private Herbalist_AppJTextFieldData jtextfielddata;
+	private Herbalist_AppJButtonData jbuttondata;
+	private Herbalist_AppJLabelData jlabeldata;
 	@Override
 	public String toString() {
-		return "Herbalist_AppSwingData [jframedata=" + jframedata + ", jmenubardata=" + jmenubardata + ", jmenudata="
-				+ jmenudata + ", jmenuitemdata=" + jmenuitemdata + ", jdialogdata=" + jdialogdata + ", jtabbedpanedata="
-				+ jtabbedpanedata + ", jscrollpanedata=" + jscrollpanedata + ", jtextareadata=" + jtextareadata
-				+ ", jpaneldata=" + jpaneldata + ", jtextfielddata=" + jtextfielddata + ", jbuttondata=" + jbuttondata
-				+ ", jlabeldata=" + jlabeldata + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppSwingData [jframedata=");
+		builder.append(jframedata);
+		builder.append(", jmenubardata=");
+		builder.append(jmenubardata);
+		builder.append(", jmenudata=");
+		builder.append(jmenudata);
+		builder.append(", jmenuitemdata=");
+		builder.append(jmenuitemdata);
+		builder.append(", jdialogdata=");
+		builder.append(jdialogdata);
+		builder.append(", jtabbedpanedata=");
+		builder.append(jtabbedpanedata);
+		builder.append(", jscrollpanedata=");
+		builder.append(jscrollpanedata);
+		builder.append(", jtextareadata=");
+		builder.append(jtextareadata);
+		builder.append(", jpaneldata=");
+		builder.append(jpaneldata);
+		builder.append(", jtextfielddata=");
+		builder.append(jtextfielddata);
+		builder.append(", jbuttondata=");
+		builder.append(jbuttondata);
+		builder.append(", jlabeldata=");
+		builder.append(jlabeldata);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	/**
@@ -51,21 +85,6 @@ public class Herbalist_AppSwingData {
 		this.jlabeldata = jlabeldata;
 	}
 
-	private Herbalist_AppJFrameData jframedata;
-	private Herbalist_AppJMenuBarData jmenubardata;
-	private Herbalist_AppJMenuData jmenudata;
-	private Herbalist_AppJMenuItemData jmenuitemdata;
-	private Herbalist_AppJDialogData jdialogdata;
-	private Herbalist_AppJTabbedPaneData jtabbedpanedata;
-	private JScrollPaneData jscrollpanedata = new JScrollPaneData();
-	private Herbalist_AppJTextAreaData jtextareadata;
-	private Herbalist_AppJPanelData jpaneldata;
-	private Herbalist_AppJTextFieldData jtextfielddata;
-	private Herbalist_AppJButtonData jbuttondata;
-	private Herbalist_AppJLabelData jlabeldata;
-	
-
-
 	public Herbalist_AppSwingData(Herbalist_AppJFrameData jframedata, Herbalist_AppJMenuBarData jmenubardata,
 			Herbalist_AppJMenuData jmenudata, Herbalist_AppJMenuItemData jmenuitemdata,
 			Herbalist_AppJDialogData jdialogdata, Herbalist_AppJTabbedPaneData jtabbedpanedata,
@@ -83,7 +102,7 @@ public class Herbalist_AppSwingData {
 		this.jtextfielddata = jtextfielddata;
 		this.jbuttondata = jbuttondata;
 		this.setJlabeldata(jlabeldata);
-		this.setjTextArea8(jTextArea8);
+		Herbalist_AppSwingData.setjTextArea8(jTextArea8);
 	}
 
 	public JMenuBar getjJMenuBar() {
@@ -182,21 +201,21 @@ public class Herbalist_AppSwingData {
 		this.jframedata = jframedata;
 	}
 
-	public JTextArea getjTextArea8() {
-		return this.jtextareadata.getjTextArea8();
+	public static JTextArea getjTextArea8() {
+		return Herbalist_AppJTextAreaData.getjTextArea8();
 	}
 
-	public void setjTextArea8(JTextArea jTextArea8) {
-		this.jtextareadata.setjTextArea8(jTextArea8);
+	public static void setjTextArea8(JTextArea jTextArea8) {
+		Herbalist_AppJTextAreaData.setjTextArea8(jTextArea8);
 	}
 
-	public JTextField getJTextField2() {
-		return jtextfielddata.getjTextField2();
+	public static JTextField getJTextField2() {
+		return Herbalist_AppJTextFieldData.getjTextField2();
 	}
 
 
-	public void setjTextField2(JTextField jTextField2) {
-		jtextfielddata.setjTextField2(jTextField2);
+	public static void setjTextField2(JTextField jTextField2) {
+		Herbalist_AppJTextFieldData.setjTextField2(jTextField2);
 	}
 
 	/**

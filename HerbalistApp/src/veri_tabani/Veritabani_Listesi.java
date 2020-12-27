@@ -8,6 +8,13 @@ import deva.Bitki;
 import generic.Node;
 
 public class Veritabani_Listesi {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Veritabani_Listesi []");
+		return builder.toString();
+	}
+
 	private static Capsule_Hashtable_String_Hastalik hash_table;
 	private static Capsule_Vector_Agac_Bitki agac_vektoru;
 	private static Kategori_veritabani kategori_veritabani;
@@ -198,7 +205,7 @@ public class Veritabani_Listesi {
 
 	public synchronized boolean agac_vektorunden_sil(String string) {
 		int Urunun_bulundugu_kategorinin_nosu;
-		Urunun_bulundugu_kategorinin_nosu = Veritabani_Listesi.agac_vektoru.getAranan_urun_hangi_kategoride_bulundu();
+		Urunun_bulundugu_kategorinin_nosu = Capsule_Vector_Agac_Bitki.getAranan_urun_hangi_kategoride_bulundu();
 		return Veritabani_Listesi.agac_vektoru.agac_remove(Urunun_bulundugu_kategorinin_nosu, string);
 	}
 

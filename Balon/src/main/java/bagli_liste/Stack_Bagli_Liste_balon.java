@@ -95,6 +95,12 @@ public class Stack_Bagli_Liste_balon {
 	}
 	@Override
 	public String toString() {
-		return "Stack_Bagli_Liste_balon [yigin=" + yigin + ", gecici=" + gecici + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Stack_Bagli_Liste_balon [yigin=");
+		builder.append(yigin);
+		builder.append(", gecici=");
+		builder.append(gecici);
+		builder.append("]");
+		return builder.toString();
 	}
 }

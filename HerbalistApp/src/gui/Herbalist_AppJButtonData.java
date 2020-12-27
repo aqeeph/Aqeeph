@@ -3,6 +3,57 @@ package gui;
 import javax.swing.JButton;
 
 public class Herbalist_AppJButtonData {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJButtonData [jButton=");
+		builder.append(jButton);
+		builder.append(", jButton2=");
+		builder.append(jButton2);
+		builder.append(", jButton3=");
+		builder.append(jButton3);
+		builder.append(", jButton4=");
+		builder.append(jButton4);
+		builder.append(", jButton5=");
+		builder.append(jButton5);
+		builder.append(", jButton6=");
+		builder.append(jButton6);
+		builder.append(", jButton7=");
+		builder.append(jButton7);
+		builder.append(", Kategori_Listeleyici=");
+		builder.append(Kategori_Listeleyici);
+		builder.append(", jButton8=");
+		builder.append(jButton8);
+		builder.append(", jButton9=");
+		builder.append(jButton9);
+		builder.append(", Kategori_Listeleyici_2=");
+		builder.append(Kategori_Listeleyici_2);
+		builder.append(", jButton10=");
+		builder.append(jButton10);
+		builder.append(", jButton11=");
+		builder.append(jButton11);
+		builder.append(", Urun_Bilgisi_Listeleyici=");
+		builder.append(Urun_Bilgisi_Listeleyici);
+		builder.append(", jButton12=");
+		builder.append(jButton12);
+		builder.append(", jButton14=");
+		builder.append(jButton14);
+		builder.append(", jButton15=");
+		builder.append(jButton15);
+		builder.append(", jButton16=");
+		builder.append(jButton16);
+		builder.append(", jButton17=");
+		builder.append(jButton17);
+		builder.append(", jButton18=");
+		builder.append(jButton18);
+		builder.append(", jButton13=");
+		builder.append(jButton13);
+		builder.append(", jButton19=");
+		builder.append(jButton19);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private JButton jButton;
 	private JButton jButton2;
 	private JButton jButton3;

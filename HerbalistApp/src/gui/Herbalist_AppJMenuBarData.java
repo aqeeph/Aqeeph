@@ -15,7 +15,11 @@ public class Herbalist_AppJMenuBarData {
 	private JMenuBar jJMenuBar;
 	@Override
 	public String toString() {
-		return "Herbalist_AppJMenuBarData [jJMenuBar=" + jJMenuBar + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJMenuBarData [jJMenuBar=");
+		builder.append(jJMenuBar);
+		builder.append("]");
+		return builder.toString();
 	}
 	/**
 	 * 

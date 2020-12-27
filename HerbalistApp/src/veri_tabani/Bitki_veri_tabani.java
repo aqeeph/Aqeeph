@@ -30,6 +30,12 @@ public class Bitki_veri_tabani {
 			System.exit(0);
 		}
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Bitki_veri_tabani []");
+		return builder.toString();
+	}
 	/**
 	 * 
 	 */

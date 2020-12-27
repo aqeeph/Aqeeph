@@ -6,6 +6,15 @@ package main.java.generic;
  * @param <T>
  */
 public class Node<T> {
+	@Override
+	public String toString() {
+		if (current_node == null) {
+			return null;
+		} else {
+			return current_node.toString();
+		}
+	}
+
 	// T stands for "Type"
 	/**
 	 * 
@@ -79,17 +88,6 @@ public class Node<T> {
 	 */
 	public void setNext(Node<T> sonraki) {
 		this.next_node = sonraki;
-	}
-
-	/**
-	 *
-	 */
-	public String toString() {
-		if (current_node == null) {
-			return null;
-		} else {
-			return current_node.toString();
-		}
 	}
 
 	/**

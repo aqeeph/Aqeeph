@@ -17,12 +17,20 @@ import deva.Bitki;
  *
  */
 public class Capsule_Vector_Bitki {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < getBitkiler().size(); i++) {
+			builder.append(getBitkiler().elementAt(i));
+		}
+		return builder.toString();
+	}
 	private Vector<Bitki> bitkiler;
 	/**
 	 * 
 	 */
 	public Capsule_Vector_Bitki() {
-		bitkiler = new Vector<Bitki>();
+		setBitkiler(new Vector<Bitki>());
 	}
 	public Vector<Bitki> getBitkiler() {
 		return bitkiler;
@@ -31,16 +39,16 @@ public class Capsule_Vector_Bitki {
 		this.bitkiler = bitkiler;
 	}
 	public int size() {
-		return bitkiler.size();
+		return getBitkiler().size();
 	}
 	public Bitki elementAt(int i) {
-		return bitkiler.elementAt(i);
+		return getBitkiler().elementAt(i);
 	}
 	public void remove(int i) {
-		bitkiler.remove(i);
+		getBitkiler().remove(i);
 	}
 	public void add(Bitki bitki) {
-		bitkiler.add(bitki);
+		getBitkiler().add(bitki);
 	}
 	public synchronized static Capsule_Vector_Bitki dosya_oku(final String fileName) {
 		// Bitkiye iliskin bilgiler(bitki adi# kategori(bitkiler isin 0,bitki

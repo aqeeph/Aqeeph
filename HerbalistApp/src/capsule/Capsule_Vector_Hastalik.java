@@ -9,32 +9,44 @@ public class Capsule_Vector_Hastalik {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < this.hastaliklar.size(); i++) {
-			stringBuilder.append(this.hastaliklar.elementAt(i).toString());
+		for (int i = 0; i < this.getHastaliklar().size(); i++) {
+			stringBuilder.append(this.getHastaliklar().elementAt(i).toString());
 		}
 		return stringBuilder.toString();
 	}
 	public Capsule_Vector_Hastalik() {
-		hastaliklar = new Vector<Hastalik>();
+		setHastaliklar(new Vector<Hastalik>());
 	}
 	private Vector<Hastalik> hastaliklar;
 
 	public Vector<Hastalik> getHastalikler() {
-		return hastaliklar;
+		return getHastaliklar();
 	}
 	public void setHastalikler(Vector<Hastalik> hastaliklar) {
-		this.hastaliklar = hastaliklar;
+		this.setHastaliklar(hastaliklar);
 	}
 	public int size() {
-		return hastaliklar.size();
+		return getHastaliklar().size();
 	}
 	public Hastalik elementAt(int i) {
-		return hastaliklar.elementAt(i);
+		return getHastaliklar().elementAt(i);
 	}
 	public void remove(int i) {
-		hastaliklar.remove(i);
+		getHastaliklar().remove(i);
 	}
 	public void add(Hastalik bitki) {
-		hastaliklar.add(bitki);
+		getHastaliklar().add(bitki);
+	}
+	/**
+	 * @return the hastaliklar
+	 */
+	private Vector<Hastalik> getHastaliklar() {
+		return hastaliklar;
+	}
+	/**
+	 * @param hastaliklar the hastaliklar to set
+	 */
+	private void setHastaliklar(Vector<Hastalik> hastaliklar) {
+		this.hastaliklar = hastaliklar;
 	}
 }

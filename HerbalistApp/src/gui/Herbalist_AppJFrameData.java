@@ -15,7 +15,11 @@ public class Herbalist_AppJFrameData {
 	private JFrame Herbalist_Application;
 	@Override
 	public String toString() {
-		return "Herbalist_AppJFrameData [Herbalist_Application=" + Herbalist_Application + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJFrameData [Herbalist_Application=");
+		builder.append(Herbalist_Application);
+		builder.append("]");
+		return builder.toString();
 	}
 	/**
 	 * 

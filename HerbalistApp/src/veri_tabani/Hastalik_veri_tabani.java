@@ -152,9 +152,14 @@ public class Hastalik_veri_tabani {
 		return metin;
 	}
 
+	@Override
 	public String toString() {
-		return hastaliklar.toString();
+		StringBuilder builder = new StringBuilder();
+		//builder.append("Hastalik_veri_tabani [hastaliklar=");
+		builder.append(hastaliklar);
+		//builder.append(", kullandigi_dosya=");
+		//builder.append(kullandigi_dosya);
+		//builder.append("]");
+		return builder.toString();
 	}
-	// Hastalik arama ve ekleme islemleri hash table ile is birligi icerisinde
-	// yapiliyor
 }

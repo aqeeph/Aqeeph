@@ -4,6 +4,69 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Herbalist_AppJPanelData {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJPanelData [Menu=");
+		builder.append(Menu);
+		builder.append(", aboutContentPane=");
+		builder.append(aboutContentPane);
+		builder.append(", musteri_bolumu=");
+		builder.append(musteri_bolumu);
+		builder.append(", firma_bolumu=");
+		builder.append(firma_bolumu);
+		builder.append(", Adindan_Urun_Arama_ve_Listeleme_bolumu=");
+		builder.append(Adindan_Urun_Arama_ve_Listeleme_bolumu);
+		builder.append(", Belirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi=");
+		builder.append(Belirli_Fiyatlar_Arasindaki_Tum_Turlerin_Bulunup_Listelenmesi);
+		builder.append(
+				", Verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Istenebilir_Listelenmesi=");
+		builder.append(
+				Verilen_Bir_Kelimenin_Kategori_Agaclarinda_Tutulan_Bitkilerin_Ozellikleri_Icinden_Aratilmasi_Bulunan_Bitki_Istenebilir_Listelenmesi);
+		builder.append(", Urun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi=");
+		builder.append(Urun_Siparisi_Birden_Cok_Paket_Istenebilir_ve_Alimi);
+		builder.append(", jPanel6=");
+		builder.append(jPanel6);
+		builder.append(", Firmaya_Yeni_Turde_Urun_Girisi=");
+		builder.append(Firmaya_Yeni_Turde_Urun_Girisi);
+		builder.append(", Adindan_Urun_Arama_ve_Silme=");
+		builder.append(Adindan_Urun_Arama_ve_Silme);
+		builder.append(", Urun_Bilgilerinde_Degisiklik=");
+		builder.append(Urun_Bilgilerinde_Degisiklik);
+		builder.append(", Yeni_Hastalik_Bilgisi_Girisi=");
+		builder.append(Yeni_Hastalik_Bilgisi_Girisi);
+		builder.append(", Kategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma=");
+		builder.append(Kategori_Listeleme_Agac_Derinligini_ve_Eleman_Sayisini_Yazdirma);
+		builder.append(", Kategori_Agaclarini_Dengeleme=");
+		builder.append(Kategori_Agaclarini_Dengeleme);
+		builder.append(", Verilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan=");
+		builder.append(Verilen_Bir_Hastaliga_Iliskin_Bilgilerin_Listelenmesi_Hash_Table_Dan);
+		builder.append(
+				", Belli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi=");
+		builder.append(
+				Belli_Bir_Hastaliga_iyi_Gelebilen_Bitkilerin_Fiyatlarina_Gire_Heap_e_Atilmasi_ve_N_Tanesinden_Birer_Paket_Satin_Alinmasi);
+		builder.append(", jPanel16=");
+		builder.append(jPanel16);
+		builder.append(", Kategori_Ekleme=");
+		builder.append(Kategori_Ekleme);
+		builder.append(", Kategori_Silme=");
+		builder.append(Kategori_Silme);
+		builder.append(", Adindan_Urun_Arama_ve_Listeleme=");
+		builder.append(Adindan_Urun_Arama_ve_Listeleme);
+		builder.append(", jPanel23=");
+		builder.append(jPanel23);
+		builder.append(", jPanel11=");
+		builder.append(jPanel11);
+		builder.append(", jPanel24=");
+		builder.append(jPanel24);
+		builder.append(", jPanel25=");
+		builder.append(jPanel25);
+		builder.append(", jButton1=");
+		builder.append(jButton1);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private JPanel Menu;
 	private JPanel aboutContentPane;
 	private JPanel musteri_bolumu;
@@ -51,19 +114,19 @@ public class Herbalist_AppJPanelData {
 	}
 
 	public JPanel getmusteri_bolumu() {
-		return musteri_bolumu;
+		return getMusteri_bolumu();
 	}
 
 	public void setmusteri_bolumu(JPanel jPanel) {
-		this.musteri_bolumu = jPanel;
+		this.setMusteri_bolumu(jPanel);
 	}
 
 	public JPanel getfirma_bolumu() {
-		return firma_bolumu;
+		return getFirma_bolumu();
 	}
 
 	public void setfirma_bolumu(JPanel jPanel) {
-		this.firma_bolumu = jPanel;
+		this.setFirma_bolumu(jPanel);
 	}
 
 	public JPanel getAdindan_Urun_Arama_ve_Listeleme_bolumu() {
@@ -246,6 +309,34 @@ public class Herbalist_AppJPanelData {
 
 	public void setjButton1(JButton jButton1) {
 		this.jButton1 = jButton1;
+	}
+
+	/**
+	 * @return the musteri_bolumu
+	 */
+	private JPanel getMusteri_bolumu() {
+		return musteri_bolumu;
+	}
+
+	/**
+	 * @param musteri_bolumu the musteri_bolumu to set
+	 */
+	private void setMusteri_bolumu(JPanel musteri_bolumu) {
+		this.musteri_bolumu = musteri_bolumu;
+	}
+
+	/**
+	 * @return the firma_bolumu
+	 */
+	private JPanel getFirma_bolumu() {
+		return firma_bolumu;
+	}
+
+	/**
+	 * @param firma_bolumu the firma_bolumu to set
+	 */
+	private void setFirma_bolumu(JPanel firma_bolumu) {
+		this.firma_bolumu = firma_bolumu;
 	}
 
 }

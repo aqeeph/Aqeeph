@@ -67,22 +67,22 @@ public class Hastalik {
 		setNedenleri(new Capsule_Vector_String());
 		setTedavisi(new Capsule_Vector_String());
 		setOnerilen_bitkiler(new Capsule_Vector_String());
-		st = new StringTokenizer(belirtileri, "_");
-		while (st.hasMoreTokens()) {
-			getBelirtileri().add(st.nextToken());// belirtiler ekleniyor
+		setSt(new StringTokenizer(belirtileri, "_"));
+		while (getSt().hasMoreTokens()) {
+			getBelirtileri().add(getSt().nextToken());// belirtiler ekleniyor
 		}
-		st = new StringTokenizer(nedenleri, "_");
-		while (st.hasMoreTokens()) {
-			getNedenleri().add(st.nextToken());// nedenler ekleniyor
+		setSt(new StringTokenizer(nedenleri, "_"));
+		while (getSt().hasMoreTokens()) {
+			getNedenleri().add(getSt().nextToken());// nedenler ekleniyor
 		}
-		st = new StringTokenizer(tedavisi, "_");
-		while (st.hasMoreTokens()) {
-			getTedavisi().add(st.nextToken());// tedaviler ekleniyor
+		setSt(new StringTokenizer(tedavisi, "_"));
+		while (getSt().hasMoreTokens()) {
+			getTedavisi().add(getSt().nextToken());// tedaviler ekleniyor
 		}
-		st = new StringTokenizer(onerilen_bitkiler, ">>");
-		setBilgi_sayisi(Integer.parseInt(st.nextToken()));
-		while (st.hasMoreTokens()) {
-			getonerilen_bitkiler().add(st.nextToken());// tedaviler ekleniyor
+		setSt(new StringTokenizer(onerilen_bitkiler, ">>"));
+		setBilgi_sayisi(Integer.parseInt(getSt().nextToken()));
+		while (getSt().hasMoreTokens()) {
+			getonerilen_bitkiler().add(getSt().nextToken());// tedaviler ekleniyor
 		}
 	}
 
@@ -153,7 +153,7 @@ public class Hastalik {
 	 * @return
 	 */
 	public Capsule_Vector_String getonerilen_bitkiler() {
-		return onerilen_bitkiler;
+		return getOnerilen_bitkiler();
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class Hastalik {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Adi              :");
-		stringBuilder.append(adi);
+		stringBuilder.append(getAdi());
 		stringBuilder.append("\nBelirtileri      :");
 		stringBuilder.append(belirtileri_toString());
 		stringBuilder.append("\nNedenleri        :");
@@ -193,48 +193,69 @@ public class Hastalik {
 	 * @param onerilen_bitki
 	 */
 	public void add_onerilen_bitki(String onerilen_bitki) {
-		onerilen_bitkiler.add(onerilen_bitki);
+		getOnerilen_bitkiler().add(onerilen_bitki);
 	}
 
 	/**
 	 * @return
 	 */
 	private String onerilen_bitkiler_toString() {
-		return onerilen_bitkiler.toString();
+		return getOnerilen_bitkiler().toString();
 	}
 
 	/**
 	 * @param onerilen_tedavi
 	 */
 	public void add_tedavi(String onerilen_tedavi) {
-		tedavisi.add(onerilen_tedavi);
+		getTedavisi().add(onerilen_tedavi);
 	}
 
 	/**
 	 * @return
 	 */
 	private String tedavisi_toString() {
-		return tedavisi.toString();
+		return getTedavisi().toString();
 	}
 
 	/**
 	 * @param yeni_neden
 	 */
 	public void add_neden(String yeni_neden) {
-		nedenleri.add(yeni_neden);
+		getNedenleri().add(yeni_neden);
 	}
 
 	/**
 	 * @return
 	 */
 	private String nedenleri_toString() {
-		return nedenleri.toString();
+		return getNedenleri().toString();
 	}
 
 	/**
 	 * @return
 	 */
 	private String belirtileri_toString() {
-		return belirtileri.toString();
+		return getBelirtileri().toString();
+	}
+
+	/**
+	 * @return the st
+	 */
+	private static StringTokenizer getSt() {
+		return st;
+	}
+
+	/**
+	 * @param st the st to set
+	 */
+	private static void setSt(StringTokenizer st) {
+		Hastalik.st = st;
+	}
+
+	/**
+	 * @return the onerilen_bitkiler
+	 */
+	private Capsule_Vector_String getOnerilen_bitkiler() {
+		return onerilen_bitkiler;
 	}
 }

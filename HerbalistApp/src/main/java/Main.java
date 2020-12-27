@@ -11,6 +11,13 @@ import test.java.SQL;
  *
  */
 public class Main {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Main []");
+		return builder.toString();
+	}
+
 	/**
 	 * 
 	 */
@@ -54,7 +61,7 @@ public class Main {
 				System.exit(0);
 			}
 			setForm1(new Form());
-			form1.herbalist_appgui();			
+			getForm1().herbalist_appgui();			
 		}else {
 			System.out.println("Sistem gorsel uygulamayı desteklemiyor.");
 			System.exit(0);

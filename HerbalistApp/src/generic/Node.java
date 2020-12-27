@@ -15,10 +15,10 @@ public class Node<T> {
 	 */
 	public Node(T node, Node<T> sonraki, Node<T> left_node, Node<T> right_node) {
 		super();
-		this.node = node;
-		this.sonrakiNode = sonraki;
-		this.left_node = left_node;
-		this.right_node = right_node;
+		this.setNode(node);
+		this.setSonrakiNode(sonraki);
+		this.setLeft_node(left_node);
+		this.setRight_node(right_node);
 	}
 
 	// T stands for "Type"
@@ -48,7 +48,8 @@ public class Node<T> {
 	/**
 	 * 
 	 */
-	private Node<T> left_node, right_node;
+	private Node<T> left_node;
+	private Node<T> right_node;
 
 	/**
 	 * 
@@ -60,7 +61,7 @@ public class Node<T> {
 	 * @param t
 	 */
 	public Node(T t) {
-		this.node = t;
+		this.setNode(t);
 	}
 
 	/**
@@ -77,15 +78,19 @@ public class Node<T> {
 		this.sonrakiNode = sonraki;
 	}
 
-	/**
-	 *
-	 */
+	@Override
 	public String toString() {
-		if (node == null) {
-			return null;
-		} else {
-			return node.toString();
-		}
+		StringBuilder builder = new StringBuilder();
+		builder.append("Node [node=");
+		builder.append(node);
+		builder.append(", sonrakiNode=");
+		builder.append(sonrakiNode);
+		builder.append(", left_node=");
+		builder.append(left_node);
+		builder.append(", right_node=");
+		builder.append(right_node);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	/**
@@ -120,10 +125,10 @@ public class Node<T> {
 	 * @return left_node.minValue()
 	 */
 	public T minNode() {
-		if (this.left_node == null) {
+		if (this.getLeft_node() == null) {
 			return this.getNode();
 		} else {
-			return this.left_node.minNode();
+			return this.getLeft_node().minNode();
 		}
 	}
 	/**

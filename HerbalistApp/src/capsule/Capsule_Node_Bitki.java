@@ -13,21 +13,22 @@ public class Capsule_Node_Bitki {
 	 */
 	public Capsule_Node_Bitki(Node<Bitki> node_bitki) {
 		super();
-		this.node_bitki = node_bitki;
+		this.setNode_bitki(node_bitki);
 	}
 	/**
 	 * 
 	 */
 	public Capsule_Node_Bitki() {
-		this.node_bitki=new Node<Bitki>();
+		this.setNode_bitki(new Node<Bitki>());
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
-		return "Capsule_Node_Bitki [node_bitki=" + node_bitki + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Capsule_Node_Bitki [node_bitki=");
+		builder.append(node_bitki);
+		builder.append("]");
+		return builder.toString();
 	}
 	/**
 	 * @return
@@ -40,6 +41,12 @@ public class Capsule_Node_Bitki {
 	 * @param node
 	 */
 	public void setNode(Node<Bitki> node) {
-		this.node_bitki = node;
+		this.setNode_bitki(node);
+	}
+	/**
+	 * @param node_bitki the node_bitki to set
+	 */
+	private void setNode_bitki(Node<Bitki> node_bitki) {
+		this.node_bitki = node_bitki;
 	}
 }

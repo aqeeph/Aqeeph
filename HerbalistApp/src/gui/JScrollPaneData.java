@@ -5,6 +5,15 @@ import javax.swing.JScrollPane;
 public class JScrollPaneData {
 	private JScrollPane jScrollPane1;
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("JScrollPaneData [jScrollPane1=");
+		builder.append(jScrollPane1);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	public JScrollPaneData() {
 	}
 

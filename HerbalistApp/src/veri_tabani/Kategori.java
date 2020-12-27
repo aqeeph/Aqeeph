@@ -46,10 +46,14 @@ public class Kategori {
 		this.kategori_no = kategori_no;
 	}
 
-	/**
-	 *
-	 */
+	@Override
 	public String toString() {
-		return "Kategori No: " + kategori_no + "Kategori_Adi: " + kategori_adi + "\n";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Kategori [kategori_no=");
+		builder.append(kategori_no);
+		builder.append(", kategori_adi=");
+		builder.append(kategori_adi);
+		builder.append("]");
+		return builder.toString();
 	}
 }

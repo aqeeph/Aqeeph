@@ -3,6 +3,25 @@ package gui;
 import javax.swing.JTabbedPane;
 
 public class Herbalist_AppJTabbedPaneData {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJTabbedPaneData [Kullanici_Menusu=");
+		builder.append(Kullanici_Menusu);
+		builder.append(", Musteri_Menusu=");
+		builder.append(Musteri_Menusu);
+		builder.append(", Personel_Menusu=");
+		builder.append(Personel_Menusu);
+		builder.append(", jTabbedPane3=");
+		builder.append(jTabbedPane3);
+		builder.append(", Kategori_Ekleme_ve_Silme_Menusu=");
+		builder.append(Kategori_Ekleme_ve_Silme_Menusu);
+		builder.append(", jTabbedPane6=");
+		builder.append(jTabbedPane6);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private JTabbedPane Kullanici_Menusu;
 	private JTabbedPane Musteri_Menusu;
 	private JTabbedPane Personel_Menusu;

@@ -542,4 +542,43 @@ public class Problem {
 		Problem.counter = counter;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Problem [bly=");
+		builder.append(bly);
+		builder.append(", str1=");
+		builder.append(str1);
+		builder.append(", str2=");
+		builder.append(str2);
+		builder.append(", uretilecek_olan_balon_sayisi=");
+		builder.append(uretilecek_olan_balon_sayisi);
+		builder.append(", kacta_bir_cikarilacak=");
+		builder.append(kacta_bir_cikarilacak);
+		builder.append(", sayac1=");
+		builder.append(sayac1);
+		builder.append(", sayac2=");
+		builder.append(sayac2);
+		builder.append(", katNo=");
+		builder.append(katNo);
+		builder.append(", problemSayisi=");
+		builder.append(problemSayisi);
+		builder.append(", problem_cozum_suresi=");
+		builder.append(problem_cozum_suresi);
+		builder.append(", baslangic=");
+		builder.append(baslangic);
+		builder.append(", gecici1=");
+		builder.append(gecici1);
+		builder.append(", gecici2=");
+		builder.append(gecici2);
+		builder.append(", liste_eleman_sayisi=");
+		builder.append(liste_eleman_sayisi);
+		builder.append(", yigin_bos_mu=");
+		builder.append(yigin_bos_mu);
+		builder.append(", ortalama_problem_cozum_suresi=");
+		builder.append(ortalama_problem_cozum_suresi);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

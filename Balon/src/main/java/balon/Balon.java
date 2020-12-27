@@ -71,11 +71,14 @@ public class Balon {
 		this.renk = renk;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
-		return "Balon [renk=" + renk + ", no=" + no + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Balon [renk=");
+		builder.append(renk);
+		builder.append(", no=");
+		builder.append(no);
+		builder.append("]");
+		return builder.toString();
 	}
 }

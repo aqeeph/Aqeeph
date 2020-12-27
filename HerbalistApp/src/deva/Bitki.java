@@ -19,7 +19,10 @@ import veri_tabani.Veritabani_Listesi;
  */
 public class Bitki {
 	private static int node_sayisi = 0;
-	private String adi = "asd", latince_adi = "", diskteki_yeri = "", diskteki_adi = "";
+	private String adi = "asd";
+	private String latince_adi = "";
+	private String diskteki_yeri = "";
+	private String diskteki_adi = "";
 	private int miktari;// paket cinsinden
 	private float fiyati=0;
 	private int kategori_no;
@@ -41,15 +44,15 @@ public class Bitki {
 	private Bitki(String adi, String latince_adi, String diskteki_yeri, String diskteki_adi, int miktari, float fiyati,
 			int kategori_no, Capsule_Vector_String onerilen_hastaliklar, Capsule_Vector_String ozellikleri) {
 		super();
-		this.adi = adi;
-		this.latince_adi = latince_adi;
-		this.diskteki_yeri = diskteki_yeri;
-		this.diskteki_adi = diskteki_adi;
-		this.miktari = miktari;
-		this.fiyati = fiyati;
-		this.kategori_no = kategori_no;
-		this.onerilen_hastaliklar = onerilen_hastaliklar;
-		this.ozellikleri = ozellikleri;
+		this.setAdi(adi);
+		this.setLatince_adi(latince_adi);
+		this.setDiskteki_yeri(diskteki_yeri);
+		this.setDiskteki_adi(diskteki_adi);
+		this.setMiktari(miktari);
+		this.setFiyati(fiyati);
+		this.setKategori_no(kategori_no);
+		this.setOnerilen_hastaliklar(onerilen_hastaliklar);
+		this.setOzellikleri(ozellikleri);
 	}
 
 	/**
@@ -169,25 +172,25 @@ public class Bitki {
 
 	@SuppressWarnings("unused")
 	private void hastalik_ekle(StringTokenizer st3) {
-		onerilen_hastaliklar.add(st3.nextToken());// hastalik ekleniyor
+		getOnerilen_hastaliklar().add(st3.nextToken());// hastalik ekleniyor
 	}
 
 	public String getAdi() {
 		return adi;
 	}
 	public int adi_compareTo(String value) {
-		return adi.compareTo(value);
+		return getAdi().compareTo(value);
 	}
 	public void setAdi(String adi) {
 		this.adi = adi;
 	}
 
 	public int getKategori() {
-		return kategori_no;
+		return getKategori_no();
 	}
 
 	public void setKategori(int kategori) {
-		this.kategori_no = kategori;
+		this.setKategori_no(kategori);
 	}
 
 	public String getLatince_adi() {
@@ -231,25 +234,25 @@ public class Bitki {
 	}
 
 	public Capsule_Vector_String getonerilen_hastaliklar() {
-		return onerilen_hastaliklar;
+		return getOnerilen_hastaliklar();
 	}
 
 	public void setonerilen_hastaliklar(Capsule_Vector_String onerilen_hastaliklar) {
-		this.onerilen_hastaliklar = onerilen_hastaliklar;
+		this.setOnerilen_hastaliklar(onerilen_hastaliklar);
 	}
 
 	public Capsule_Vector_String getozellikleri() {
-		return ozellikleri;
+		return getOzellikleri();
 	}
 
 	public void setozellikleri(Capsule_Vector_String ozellikleri) {
-		this.ozellikleri = ozellikleri;
+		this.setOzellikleri(ozellikleri);
 	}
 
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Adi           : ");
-		stringBuilder.append(adi);
+		stringBuilder.append(getAdi());
 		stringBuilder.append("\nKategori      : ");
 		try {
 			stringBuilder.append(Veritabani_Listesi.kategorisi(getKategori()));
@@ -259,18 +262,18 @@ public class Bitki {
 			System.exit(0);
 		}
 		stringBuilder.append("\nLatince adi   : ");
-		stringBuilder.append(latince_adi);
+		stringBuilder.append(getLatince_adi());
 		stringBuilder.append("\nozellikleri   : ");
 		stringBuilder.append(ozellikleri_toString());
 		stringBuilder.append("\n\nDiskteki Yeri : ");
-		stringBuilder.append(diskteki_yeri);
+		stringBuilder.append(getDiskteki_yeri());
 		stringBuilder.append("\nDiskteki Adi  : ");
-		stringBuilder.append(diskteki_adi);
+		stringBuilder.append(getDiskteki_adi());
 		stringBuilder.append("\nMiktari       : ");
-		stringBuilder.append(miktari);
+		stringBuilder.append(getMiktari());
 		stringBuilder.append(" Paket");
 		stringBuilder.append("\nFiyati        : ");
-		stringBuilder.append(fiyati);
+		stringBuilder.append(getFiyati());
 		stringBuilder.append("\n\nonerilen Hastaliklar\n");
 		stringBuilder.append(onerilen_hastaliklar_toString());
 		return stringBuilder.toString();
@@ -278,16 +281,16 @@ public class Bitki {
 
 	public String onerilen_hastaliklar_toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < onerilen_hastaliklar.size(); i++) {
-			stringBuilder.append("\n" + onerilen_hastaliklar.elementAt(i));
+		for (int i = 0; i < getOnerilen_hastaliklar().size(); i++) {
+			stringBuilder.append("\n" + getOnerilen_hastaliklar().elementAt(i));
 		}
 		return stringBuilder.toString();
 	}
 
 	public String ozellikleri_toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < ozellikleri.size(); i++) {
-			stringBuilder.append("\n" + ozellikleri.elementAt(i));
+		for (int i = 0; i < getOzellikleri().size(); i++) {
+			stringBuilder.append("\n" + getOzellikleri().elementAt(i));
 		}
 		return stringBuilder.toString();
 	}

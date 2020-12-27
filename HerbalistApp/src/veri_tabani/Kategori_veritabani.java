@@ -147,11 +147,12 @@ public class Kategori_veritabani {
 	 *
 	 */
 	public String toString() {
-		String metin = "";
+		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < kategoriler.getKategoriler().size(); i++) {
-			metin += kategoriler.getKategoriler().elementAt(i).toString() + "\n\n";
+			builder.append(kategoriler.getKategoriler().elementAt(i).toString());
+			builder.append("\n\n");
 		}
-		return metin;
+		return builder.toString();
 	}
 
 	/**

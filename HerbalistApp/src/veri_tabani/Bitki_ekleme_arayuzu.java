@@ -9,6 +9,21 @@ import javax.swing.JPanel;
 
 public class Bitki_ekleme_arayuzu extends JFrame {
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Bitki_ekleme_arayuzu [jContentPane=");
+		builder.append(jContentPane);
+		builder.append(", jLabel=");
+		builder.append(jLabel);
+		builder.append(", jLabel1=");
+		builder.append(jLabel1);
+		builder.append(", jLabel2=");
+		builder.append(jLabel2);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private static final long serialVersionUID = 1L;
 	private JPanel jContentPane = null;
 	private JLabel jLabel = null;

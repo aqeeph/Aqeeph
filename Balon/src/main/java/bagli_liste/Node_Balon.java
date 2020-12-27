@@ -149,11 +149,12 @@ public class Node_Balon {
 	public void root_olarak_ayarla() {
 		this.node_balon.setNext(node_balon);// dairesel hale geldi.
 	}
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
-		return "Node_Balon [node_balon=" + node_balon + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Node_Balon [node_balon=");
+		builder.append(node_balon);
+		builder.append("]");
+		return builder.toString();
 	}
 }

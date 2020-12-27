@@ -5,16 +5,6 @@ import java.awt.Rectangle;
 import javax.swing.JTextField;
 
 public class Herbalist_AppJTextFieldData {
-	@Override
-	public String toString() {
-		return "Herbalist_AppJTextFieldData [jTextField1=" + jTextField1 + ", jTextField4=" + jTextField4
-				+ ", jTextField6=" + jTextField6 + ", jTextField8=" + jTextField8 + ", jTextField9=" + jTextField9
-				+ ", jTextField10=" + jTextField10 + ", jTextField12=" + jTextField12 + ", jTextField13=" + jTextField13
-				+ ", jTextField14=" + jTextField14 + ", jTextField15=" + jTextField15 + ", jTextField11=" + jTextField11
-				+ ", jTextField16=" + jTextField16 + ", jTextField17=" + jTextField17 + ", jTextField18=" + jTextField18
-				+ ", jTextField19=" + jTextField19 + ", jTextField20=" + jTextField20 + "]";
-	}
-
 	private JTextField jTextField1;
 	private JTextField jTextField4;
 	private JTextField jTextField6;
@@ -36,6 +26,44 @@ public class Herbalist_AppJTextFieldData {
 	private static JTextField jTextField5;
 	private static JTextField jTextField3;
 	private static JTextField jTextField7;
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJTextFieldData [jTextField1=");
+		builder.append(jTextField1);
+		builder.append(", jTextField4=");
+		builder.append(jTextField4);
+		builder.append(", jTextField6=");
+		builder.append(jTextField6);
+		builder.append(", jTextField8=");
+		builder.append(jTextField8);
+		builder.append(", jTextField9=");
+		builder.append(jTextField9);
+		builder.append(", jTextField10=");
+		builder.append(jTextField10);
+		builder.append(", jTextField12=");
+		builder.append(jTextField12);
+		builder.append(", jTextField13=");
+		builder.append(jTextField13);
+		builder.append(", jTextField14=");
+		builder.append(jTextField14);
+		builder.append(", jTextField15=");
+		builder.append(jTextField15);
+		builder.append(", jTextField11=");
+		builder.append(jTextField11);
+		builder.append(", jTextField16=");
+		builder.append(jTextField16);
+		builder.append(", jTextField17=");
+		builder.append(jTextField17);
+		builder.append(", jTextField18=");
+		builder.append(jTextField18);
+		builder.append(", jTextField19=");
+		builder.append(jTextField19);
+		builder.append(", jTextField20=");
+		builder.append(jTextField20);
+		builder.append("]");
+		return builder.toString();
+	}
 
 	public Herbalist_AppJTextFieldData() {
 	}
@@ -182,7 +210,7 @@ public class Herbalist_AppJTextFieldData {
 		this.jTextField20 = jTextField20;
 	}
 
-	public JTextField getjTextField2() {
+	public static JTextField getjTextField2() {
 		if (Herbalist_AppJTextFieldData.jTextField2 == null) {
 			Herbalist_AppJTextFieldData.jTextField2 = new JTextField();
 			Herbalist_AppJTextFieldData.jTextField2.setBounds(new Rectangle(0, 32, 291, 20));
@@ -191,7 +219,7 @@ public class Herbalist_AppJTextFieldData {
 		return Herbalist_AppJTextFieldData.jTextField2;
 	}
 
-	public void setjTextField2(JTextField jTextField2) {
+	public static void setjTextField2(JTextField jTextField2) {
 		Herbalist_AppJTextFieldData.jTextField2 = jTextField2;
 	}
 

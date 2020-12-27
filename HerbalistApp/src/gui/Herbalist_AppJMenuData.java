@@ -8,8 +8,15 @@ public class Herbalist_AppJMenuData {
 	private JMenu helpMenu;
 	@Override
 	public String toString() {
-		return "Herbalist_AppJMenuData [fileMenu=" + fileMenu + ", editMenu=" + editMenu + ", helpMenu=" + helpMenu
-				+ "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJMenuData [fileMenu=");
+		builder.append(fileMenu);
+		builder.append(", editMenu=");
+		builder.append(editMenu);
+		builder.append(", helpMenu=");
+		builder.append(helpMenu);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public Herbalist_AppJMenuData() {

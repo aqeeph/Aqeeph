@@ -3,6 +3,45 @@ package gui;
 import javax.swing.JTextArea;
 
 public class Herbalist_AppJTextAreaData {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJTextAreaData [jTextArea=");
+		builder.append(jTextArea);
+		builder.append(", jTextArea1=");
+		builder.append(jTextArea1);
+		builder.append(", jTextArea3=");
+		builder.append(jTextArea3);
+		builder.append(", jTextArea5=");
+		builder.append(jTextArea5);
+		builder.append(", jTextArea2=");
+		builder.append(jTextArea2);
+		builder.append(", jTextArea6=");
+		builder.append(jTextArea6);
+		builder.append(", jTextArea4=");
+		builder.append(jTextArea4);
+		builder.append(", jTextArea7=");
+		builder.append(jTextArea7);
+		builder.append(", gecici_metin_kutusu=");
+		builder.append(gecici_metin_kutusu);
+		builder.append(", jTextArea9=");
+		builder.append(jTextArea9);
+		builder.append(", jTextArea10=");
+		builder.append(jTextArea10);
+		builder.append(", jTextArea11=");
+		builder.append(jTextArea11);
+		builder.append(", jTextArea12=");
+		builder.append(jTextArea12);
+		builder.append(", jTextArea13=");
+		builder.append(jTextArea13);
+		builder.append(", jTextArea14=");
+		builder.append(jTextArea14);
+		builder.append(", jTextArea15=");
+		builder.append(jTextArea15);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private JTextArea jTextArea;
 	private JTextArea jTextArea1;
 	private JTextArea jTextArea3;
@@ -152,11 +191,11 @@ public class Herbalist_AppJTextAreaData {
 		this.jTextArea15 = jTextArea15;
 	}
 
-	public JTextArea getjTextArea8() {
+	public static JTextArea getjTextArea8() {
 		return jTextArea8;
 	}
 
-	public void setjTextArea8(JTextArea jTextArea8) {
+	public static void setjTextArea8(JTextArea jTextArea8) {
 		Herbalist_AppJTextAreaData.jTextArea8 = jTextArea8;
 	}
 }

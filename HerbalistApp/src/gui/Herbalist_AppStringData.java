@@ -10,8 +10,19 @@ public class Herbalist_AppStringData {
 	private Capsule_Vector_String bitkiler;
 	@Override
 	public String toString() {
-		return "Herbalist_AppStringData [yanit=" + yanit + ", belirtiler=" + belirtiler.toString() + ", nedenler=" + nedenler.toString()
-				+ ", tedaviler=" + tedaviler.toString() + ", bitkiler=" + bitkiler.toString() + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppStringData [yanit=");
+		builder.append(yanit);
+		builder.append(", belirtiler=");
+		builder.append(belirtiler);
+		builder.append(", nedenler=");
+		builder.append(nedenler);
+		builder.append(", tedaviler=");
+		builder.append(tedaviler);
+		builder.append(", bitkiler=");
+		builder.append(bitkiler);
+		builder.append("]");
+		return builder.toString();
 	}
 	public Herbalist_AppStringData() {
 	}

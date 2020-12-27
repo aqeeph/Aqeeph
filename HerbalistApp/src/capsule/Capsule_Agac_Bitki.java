@@ -17,13 +17,13 @@ public class Capsule_Agac_Bitki {
 	 */
 	public Capsule_Agac_Bitki(Agac<Bitki> agac_bitki) {
 		super();
-		this.agac_bitki = agac_bitki;
+		this.setAgac_bitki(agac_bitki);
 	}
 	/**
 	 * 
 	 */
 	public Capsule_Agac_Bitki() {
-		this.agac_bitki=new Agac<Bitki>();
+		this.setAgac_bitki(new Agac<Bitki>());
 	}
 	public Agac<Bitki> getAgac_bitki() {
 		return agac_bitki;
@@ -33,6 +33,10 @@ public class Capsule_Agac_Bitki {
 	}
 	@Override
 	public String toString() {
-		return "Capsule_Agac_Bitki [agac_bitki=" + agac_bitki + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Capsule_Agac_Bitki [agac_bitki=");
+		builder.append(getAgac_bitki());
+		builder.append("]");
+		return builder.toString();
 	}
 }

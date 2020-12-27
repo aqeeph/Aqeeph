@@ -194,9 +194,25 @@ public class Bagli_Liste<T> {
 	}
 	@Override
 	public String toString() {
-		return "Bagli_Liste [bas=" + bas + ", yeni=" + yeni + ", simdiki=" + simdiki + ", gecici=" + gecici
-				+ ", silinecek=" + silinecek + ", katNumarasi=" + katNumarasi + ", sayac=" + sayac + ", dolas=" + dolas
-				+ "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Bagli_Liste [bas=");
+		builder.append(bas);
+		builder.append(", yeni=");
+		builder.append(yeni);
+		builder.append(", simdiki=");
+		builder.append(simdiki);
+		builder.append(", gecici=");
+		builder.append(gecici);
+		builder.append(", silinecek=");
+		builder.append(silinecek);
+		builder.append(", katNumarasi=");
+		builder.append(katNumarasi);
+		builder.append(", sayac=");
+		builder.append(sayac);
+		builder.append(", dolas=");
+		builder.append(dolas);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public String Bas_toString() {

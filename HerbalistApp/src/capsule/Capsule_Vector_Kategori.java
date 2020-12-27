@@ -12,6 +12,14 @@ import veri_tabani.Kategori;
  *
  */
 public class Capsule_Vector_Kategori {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < getKategoriler().size(); i++) {
+			builder.append(getKategoriler().elementAt(i));
+		}
+		return builder.toString();
+	}
 	private Vector<Kategori> kategoriler;
 	/**
 	 * 

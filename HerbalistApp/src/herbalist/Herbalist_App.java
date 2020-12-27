@@ -28,10 +28,22 @@ import capsule.Capsule_Vector_String;
 import dert.Hastalik;
 import gui.Herbalist_AppGUIData;
 import gui.Herbalist_AppJTextFieldData;
+import gui.Herbalist_AppSwingData;
 import veri_tabani.Veritabani_Listesi;
 
 @SuppressWarnings("deprecation")
 public class Herbalist_App {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_App [veritabani_listesi=");
+		builder.append(veritabani_listesi);
+		builder.append(", exitActionListener=");
+		builder.append(exitActionListener);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	Veritabani_Listesi veritabani_listesi = new Veritabani_Listesi();
 	private static Herbalist_AppGUIData herbalist_app_guidata;
 
@@ -1661,7 +1673,7 @@ public class Herbalist_App {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
 
 					if (herbalist_app_guidata.getjTextField8().getText().compareTo("Bulundu") == 0) {
-						herbalist_app_guidata.getSwingdata().getjTextArea8()
+						Herbalist_AppSwingData.getjTextArea8()
 								.setText("Veri Tabani Yenileniyor.Litfen Bekleyiniz");
 						boolean silinme_bilgisi = veritabani_listesi
 								.agac_vektorunden_sil(herbalist_app_guidata.getJTextField7().getText());
@@ -1717,7 +1729,7 @@ public class Herbalist_App {
 			herbalist_app_guidata.getUrun_Bilgisi_Listeleyici().setText("Urun Bilgisi Listeleyici");
 			herbalist_app_guidata.getUrun_Bilgisi_Listeleyici().addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					herbalist_app_guidata.getSwingdata().getjTextArea8().setText(herbalist_app_guidata.getYanit());
+					Herbalist_AppSwingData.getjTextArea8().setText(herbalist_app_guidata.getYanit());
 					System.out.println("Yanit Listelendi");
 					// Auto-generated
 					// Event
@@ -1745,12 +1757,12 @@ public class Herbalist_App {
 	 * 
 	 * @return javax.swing.JTextArea
 	 */
-	private JTextArea getJTextArea8() {
-		if (herbalist_app_guidata.getSwingdata().getjTextArea8() == null) {
-			herbalist_app_guidata.getSwingdata().setjTextArea8(new JTextArea());
-			herbalist_app_guidata.getSwingdata().getjTextArea8().setBounds(new Rectangle(-2, 89, 970, 469));
+	private static JTextArea getJTextArea8() {
+		if (Herbalist_AppSwingData.getjTextArea8() == null) {
+			Herbalist_AppSwingData.setjTextArea8(new JTextArea());
+			Herbalist_AppSwingData.getjTextArea8().setBounds(new Rectangle(-2, 89, 970, 469));
 		}
-		return herbalist_app_guidata.getSwingdata().getjTextArea8();
+		return Herbalist_AppSwingData.getjTextArea8();
 	}
 
 	/**

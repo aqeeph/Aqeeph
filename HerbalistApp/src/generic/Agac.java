@@ -33,25 +33,33 @@ public class Agac<T> {
 	public Agac(Node<T> node_bitki, int node_sayisi, Capsule_Vector_String preorder, Capsule_Vector_String inorder,
 			Capsule_Vector_String postorder) {
 		super();
-		this.node_bitki=node_bitki;
+		this.setNode_bitki(node_bitki);
 		this.setNode_sayisi(node_sayisi);
-		this.preorder = preorder;
-		this.inorder = inorder;
-		this.postorder = postorder;
+		this.setPreorder(preorder);
+		this.setInorder(inorder);
+		this.setPostorder(postorder);
 	}
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
-		return "Agac [node_bitki=" + getNode_bitki() + ", node_sayisi=" + getNode_sayisi() + ", preorder=" + preorder
-				+ ", inorder=" + inorder + ", postorder=" + postorder + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Agac [node_bitki=");
+		builder.append(node_bitki);
+		builder.append(", node_sayisi=");
+		builder.append(node_sayisi);
+		builder.append(", preorder=");
+		builder.append(preorder);
+		builder.append(", inorder=");
+		builder.append(inorder);
+		builder.append(", postorder=");
+		builder.append(postorder);
+		builder.append("]");
+		return builder.toString();
 	}
 	/**
 	 * 
 	 */
 	public Agac() {
-		this.node_bitki=new Node<T>();
+		this.setNode_bitki(new Node<T>());
 		setPreorder(new Capsule_Vector_String());
 		setInorder(new Capsule_Vector_String());
 		setPostorder(new Capsule_Vector_String());
@@ -67,7 +75,7 @@ public class Agac<T> {
 	 * @param node
 	 */
 	public void setNode(Node<T> node) {
-		this.node_bitki=node;
+		this.setNode_bitki(node);
 	}
 	// Duzey listeleme
 	/**
@@ -80,19 +88,19 @@ public class Agac<T> {
 	 * @return
 	 */
 	public String preOrder_yazdir() {
-		return preorder.toString();
+		return getPreorder().toString();
 	}
 	/**
 	 * @return
 	 */
 	public String inOrder_yazdir() {
-		return inorder.toString();
+		return getInorder().toString();
 	}
 	/**
 	 * @return
 	 */
 	public String postOrder_yazdir() {
-		return postorder.toString();
+		return getPostorder().toString();
 	}
 	/**
 	 * @param preorder

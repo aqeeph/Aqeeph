@@ -11,9 +11,21 @@ public class Herbalist_AppJMenuItemData {
 	private JMenuItem saveMenuItem;
 	@Override
 	public String toString() {
-		return "Herbalist_AppJMenuItemData [exitMenuItem=" + exitMenuItem + ", aboutMenuItem=" + aboutMenuItem
-				+ ", cutMenuItem=" + cutMenuItem + ", copyMenuItem=" + copyMenuItem + ", pasteMenuItem=" + pasteMenuItem
-				+ ", saveMenuItem=" + saveMenuItem + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJMenuItemData [exitMenuItem=");
+		builder.append(exitMenuItem);
+		builder.append(", aboutMenuItem=");
+		builder.append(aboutMenuItem);
+		builder.append(", cutMenuItem=");
+		builder.append(cutMenuItem);
+		builder.append(", copyMenuItem=");
+		builder.append(copyMenuItem);
+		builder.append(", pasteMenuItem=");
+		builder.append(pasteMenuItem);
+		builder.append(", saveMenuItem=");
+		builder.append(saveMenuItem);
+		builder.append("]");
+		return builder.toString();
 	}
 	public Herbalist_AppJMenuItemData() {
 	}

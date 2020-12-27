@@ -9,6 +9,15 @@ import javax.swing.JDialog;
  * @author  MehmetAkif-PC
  */
 public class Herbalist_AppJDialogData {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Herbalist_AppJDialogData [aboutDialog=");
+		builder.append(aboutDialog);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	/**
 	 * 
 	 */

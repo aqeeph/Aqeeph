@@ -37,12 +37,13 @@ public class Form {
 		this.herbalist_app_runnable = herbalist_app_runnable;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
-		return "Form [herbalist_app_runnable=" + herbalist_app_runnable + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Form [herbalist_app_runnable=");
+		builder.append(herbalist_app_runnable);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	/**
