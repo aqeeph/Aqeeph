@@ -15,7 +15,7 @@ public class Stack_Stack_Problemi {
 	 */
 	public Stack_Stack_Problemi(Stack<Stack_Problemi> problem_yigini) {
 		super();
-		this.problem_yigini = problem_yigini;
+		this.setProblem_yigini(problem_yigini);
 	}
 
 
@@ -33,7 +33,7 @@ public class Stack_Stack_Problemi {
 	public void solution() {
 		//System.err.println("solution() started");
 		try {
-			this.problem_yigini.pop().solution();// Paralel hesaplama yap�labilinir.
+			this.getProblem_yigini().pop().solution();// Paralel hesaplama yap�labilinir.
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			System.exit(0);
@@ -62,7 +62,7 @@ public class Stack_Stack_Problemi {
 	public void yeni_problem_ekle(Stack_Problemi stack_Problemi) {
 		//System.err.println("yeni_problem_ekleniyor");
 		try {
-			this.problem_yigini.push(stack_Problemi);
+			this.getProblem_yigini().push(stack_Problemi);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			System.exit(0);
@@ -76,7 +76,7 @@ public class Stack_Stack_Problemi {
 	 */
 	@Override
 	public String toString() {
-		return "Stack_Stack_Problemi [problem_yigini=" + problem_yigini + ", toString()=" + super.toString() + "]";
+		return "Stack_Stack_Problemi [problem_yigini=" + getProblem_yigini() + ", toString()=" + super.toString() + "]";
 	}
 
 }

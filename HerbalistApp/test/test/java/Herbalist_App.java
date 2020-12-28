@@ -116,9 +116,9 @@ public class Herbalist_App {
 	private JButton jButton4 = null;
 	private JTextArea jTextArea2 = null;
 	private JLabel jLabel28 = null;
-	private static JTextField jTextField2 = null;
+	private static JTextField gui_search_input_kategori = null;
 	private JLabel jLabel29 = null;
-	private static JTextField jTextField3 = null;
+	private static JTextField gui_search_output_kategori = null;
 	private JButton jButton5 = null;
 	private JButton jButton6 = null;
 	private JLabel jLabel30 = null;
@@ -145,7 +145,7 @@ public class Herbalist_App {
 	private JLabel jLabel33 = null;
 	private JButton urun_Bilgisi_Listeleyici = null;
 	private static JTextArea jTextArea8 = null;
-	private JTextArea gesici_metin_kutusu = null;
+	private JTextArea gecici_metin_kutusu = null;
 	private JTextField jTextField9 = null;
 	private JLabel jLabel34 = null;
 	private JButton jButton12 = null;
@@ -1229,31 +1229,31 @@ public class Herbalist_App {
 
 
 	/**
-	 * This method initializes jTextField2
+	 * This method initializes gui_search_input_kategori
 	 * 
 	 * @return javax.swing.JTextField
 	 */
 	private JTextField getJTextField2() {
-		if (jTextField2 == null) {
-			jTextField2 = new JTextField();
-			jTextField2.setBounds(new Rectangle(0, 32, 291, 20));
-			jTextField2.setText("");
+		if (gui_search_input_kategori == null) {
+			gui_search_input_kategori = new JTextField();
+			gui_search_input_kategori.setBounds(new Rectangle(0, 32, 291, 20));
+			gui_search_input_kategori.setText("");
 		}
-		return jTextField2;
+		return gui_search_input_kategori;
 	}
 
 	/**
-	 * This method initializes jTextField3
+	 * This method initializes gui_search_output_kategori
 	 * 
 	 * @return javax.swing.JTextField
 	 */
 	private JTextField getJTextField3() {
-		if (jTextField3 == null) {
-			jTextField3 = new JTextField();
-			jTextField3.setBounds(new Rectangle(290, 32, 284, 20));
-			jTextField3.setText("ilk snce Arama Yapmaniz Gerekmektedir.");
+		if (gui_search_output_kategori == null) {
+			gui_search_output_kategori = new JTextField();
+			gui_search_output_kategori.setBounds(new Rectangle(290, 32, 284, 20));
+			gui_search_output_kategori.setText("ilk once Arama Yapmaniz Gerekmektedir.");
 		}
-		return jTextField3;
+		return gui_search_output_kategori;
 	}
 
 	/**
@@ -1268,11 +1268,11 @@ public class Herbalist_App {
 			jButton5.setText("Kategori Var Mi?");
 			jButton5.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					yanit = kategori_var_mi(jTextField2.getText());
-					jTextField3.setText(yanit);
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
+					String search_input_kategori;
+					search_input_kategori=gui_search_input_kategori.getText();
+					String yanit;
+					yanit = kategori_var_mi(search_input_kategori);
+					gui_search_output_kategori.setText(yanit);
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -1301,14 +1301,14 @@ public class Herbalist_App {
 			jButton6 = new JButton();
 			jButton6.setBounds(new Rectangle(290, 51, 282, 18));
 			jButton6.setText("Ekleme Yapmak isin Tiklayiniz");
-			jTextField3.setText("ilk snce Arama Yapmaniz Gerekmektedir.");
+			gui_search_output_kategori.setText("ilk snce Arama Yapmaniz Gerekmektedir.");
 			jButton6.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					if (jTextField3.getText().compareTo("Bulundu") != 0
-							&& jTextField3.getText().compareTo("ilk snce Arama Yapmaniz Gerekmektedir.") != 0) {
-						jTextField3.setText("ilk snce Arama Yapmaniz Gerekmektedir.");
+					if (gui_search_output_kategori.getText().compareTo("Bulundu") != 0
+							&& gui_search_output_kategori.getText().compareTo("ilk snce Arama Yapmaniz Gerekmektedir.") != 0) {
+						gui_search_output_kategori.setText("ilk snce Arama Yapmaniz Gerekmektedir.");
 						kategori_ekle();
-						jTextField2.setText("Ekleme Yapildi");
+						gui_search_input_kategori.setText("Ekleme Yapildi");
 					}
 					jTextArea4.setText("Yenileniyor Lutfen Bekleyiniz");
 					System.out.println("mouseClicked()");
@@ -1335,7 +1335,7 @@ public class Herbalist_App {
 
 	public synchronized void kategori_ekle() {
 		int kategori_no = Veritabani_Listesi.getKategori_veri_tabani().getKategoriler().getKategoriler().size();
-		String kategori_adi = jTextField2.getText();
+		String kategori_adi = gui_search_input_kategori.getText();
 		Kategori kategori = new Kategori(kategori_no, kategori_adi);
 		Kategori_veritabani.add_kategori(kategori);
 		Veritabani_Listesi.getKategori_veri_tabani().update_file();
@@ -1732,10 +1732,10 @@ public class Herbalist_App {
 
 	public synchronized void agac_vektorunden_kaldir() {
 		int urunun_bulundusu_kategorinin_nosu;
-		urunun_bulundusu_kategorinin_nosu = Veritabani_Listesi.getAgac_vektoru()
+		urunun_bulundusu_kategorinin_nosu = Capsule_Vector_Agac_Bitki
 				.getAranan_urun_hangi_kategoride_bulundu();
-		boolean sonus = Veritabani_Listesi.getAgac_vektoru().agac_remove(urunun_bulundusu_kategorinin_nosu,jTextField7.getText());
-		if (sonus == true) {
+		boolean sonuc = Veritabani_Listesi.getAgac_vektoru().agac_remove(urunun_bulundusu_kategorinin_nosu,jTextField7.getText());
+		if (sonuc == true) {
 			jTextArea8.setText("agac_vektorunden urun Silindi");
 			System.out.println("agac_vektorunden urun Silindi");
 		} else {
@@ -1757,11 +1757,6 @@ public class Herbalist_App {
 			urun_Bilgisi_Listeleyici.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
 					jTextArea8.setText(yanit);
-					System.out.println("Yanit Listelendi");
-					// Auto-generated
-					// Event
-					// stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -1794,18 +1789,25 @@ public class Herbalist_App {
 	}
 
 	/**
-	 * This method initializes gesici_metin_kutusu
+	 * This method initializes gecici_metin_kutusu
 	 * 
 	 * @return javax.swing.JTextArea
 	 */
 	private JTextArea getGesici_metin_kutusu() {
-		if (gesici_metin_kutusu == null) {
-			gesici_metin_kutusu = new JTextArea();
-			gesici_metin_kutusu.setBounds(new Rectangle(604, 58, 238, 150));
-			gesici_metin_kutusu.setText(
-					"String adi\n, String kategori\n, String latince_adi\n, int miktari\n,float fiyati\n, String diskteki_yeri\n, String diskteki_adi\n,Vector<String> snerilen_hastaliklar\n, Vector<String> szellikleri");
+		if (gecici_metin_kutusu == null) {
+			gecici_metin_kutusu = new JTextArea();
+			gecici_metin_kutusu.setBounds(new Rectangle(604, 58, 238, 150));
+			gecici_metin_kutusu.append("String adi\n, ");
+			gecici_metin_kutusu.append("String kategori\n, ");
+			gecici_metin_kutusu.append("String latince_adi\n, ");
+			gecici_metin_kutusu.append("int miktari\n,");
+			gecici_metin_kutusu.append("float fiyati\n, ");
+			gecici_metin_kutusu.append("String diskteki_yeri\n, ");
+			gecici_metin_kutusu.append("String diskteki_adi\n,");
+			gecici_metin_kutusu.append("Vector<String> snerilen_hastaliklar\n, ");
+			gecici_metin_kutusu.append("Vector<String> szellikleri");
 		}
-		return gesici_metin_kutusu;
+		return gecici_metin_kutusu;
 	}
 
 	/**
@@ -1831,10 +1833,11 @@ public class Herbalist_App {
 		if (jButton12 == null) {
 			jButton12 = new JButton();
 			jButton12.setBounds(new Rectangle(0, 49, 262, 18));
-			jButton12.setText("Aranan Hastalisin Bilgilerini Listele");
+			jButton12.setText("Aranan Hastaligin Bilgilerini Listele");
 			jButton12.addMouseListener(new java.awt.event.MouseListener() {
 				public void mouseClicked(java.awt.event.MouseEvent e) {
-					yanit = Veritabani_Listesi.getHash_table().getHash_hastalik().get(jTextField9.getText()).toString();
+					String aranan_hastalik=jTextField9.getText();
+					yanit = Veritabani_Listesi.hastablede_hastalik_ara_ve_stringe_cevir(aranan_hastalik);
 					if (yanit != null) {
 						jTextArea9.setText(yanit);
 					} else {
@@ -1918,9 +1921,6 @@ public class Herbalist_App {
 					}
 					jTextArea10.setText(metin);
 					jTextField12.setText("Eklendi");
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -1974,9 +1974,6 @@ public class Herbalist_App {
 						jTextArea11.setText(metin);
 						jTextField13.setText("Eklendi");
 					}
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -2030,9 +2027,6 @@ public class Herbalist_App {
 						jTextArea12.setText(metin);
 						jTextField14.setText("Eklendi");
 					}
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -2072,9 +2066,6 @@ public class Herbalist_App {
 						jTextArea13.setText(metin);
 						jTextField15.setText("Eklendi");
 					}
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -2180,9 +2171,6 @@ public class Herbalist_App {
 						Veritabani_Listesi.getHastalik_veri_tabani().update_file();
 						jTextArea14.setText("Veriler Kaydedildi");
 					}
-					System.out.println("mouseClicked()");
-					// Event stub
-					// mouseClicked()
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {
@@ -2261,9 +2249,8 @@ public class Herbalist_App {
 					if (min >= 0 && max >= min) {
 						jTextArea15.setText(Veritabani_Listesi.getBitki_veri_tabani().urunleri_listele(min, max));
 					} else {
-						jTextArea15.setText("Dosru Aralikta Sayilar Giriniz");
+						jTextArea15.setText("Dogru Aralikta Sayilar Giriniz");
 					}
-					System.out.println("mouseClicked()");
 				}
 
 				public void mousePressed(java.awt.event.MouseEvent e) {

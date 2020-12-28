@@ -295,4 +295,8 @@ public class Veritabani_Listesi {
 		return Veritabani_Listesi.getHash_table().hastalik_ara("Anemi");
 	}
 
+	public static String hastablede_hastalik_ara_ve_stringe_cevir(String aranan_hastalik) {
+		return Veritabani_Listesi.getHash_table().getHash_hastalik().get(aranan_hastalik).toString();
+	}
+
 }

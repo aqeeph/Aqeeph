@@ -19,8 +19,8 @@ public class Balon {
 	 */
 	public Balon(String renk, int no) {
 		super();
-		this.renk = renk;
-		this.no = no;
+		this.setRenk(renk);
+		this.setNo(no);
 	}
 	/**
 	 * 
@@ -30,8 +30,8 @@ public class Balon {
 
 	@SuppressWarnings("unused")
 	private Balon(int no) {
-		this.no = no;
-		this.renk = Renkler.random_renk();
+		this.setNo(no);
+		this.setRenk(Renkler.random_renk());
 	}
 
 	/**
@@ -40,8 +40,8 @@ public class Balon {
 	 */
 	public Balon(int no, String random_renk) {
 		// TODO Auto-generated constructor stub
-		this.no = no;
-		this.renk = Renkler.random_renk();
+		this.setNo(no);
+		this.setRenk(Renkler.random_renk());
 	}
 	/**
 	 * @return the no
@@ -75,9 +75,9 @@ public class Balon {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Balon [renk=");
-		builder.append(renk);
+		builder.append(getRenk());
 		builder.append(", no=");
-		builder.append(no);
+		builder.append(getNo());
 		builder.append("]");
 		return builder.toString();
 	}

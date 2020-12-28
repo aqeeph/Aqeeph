@@ -53,22 +53,22 @@ public class Bagli_Liste<T> {
 	public Bagli_Liste(T bas, T yeni, T simdiki, T gecici,
 			T silinecek, int katNumarasi, int sayac, T dolas) {
 		super();
-		this.bas = bas;
-		this.yeni = yeni;
-		this.simdiki = simdiki;
-		this.gecici = gecici;
-		this.silinecek = silinecek;
-		this.katNumarasi = katNumarasi;
-		this.sayac = sayac;
-		this.dolas = dolas;
+		this.setBas(bas);
+		this.setYeni(yeni);
+		this.setSimdiki(simdiki);
+		this.setGecici(gecici);
+		this.setSilinecek(silinecek);
+		this.setKatNumarasi(katNumarasi);
+		this.setSayac(sayac);
+		this.setDolas(dolas);
 	}
 
 	/**
 	 * @param katNumarasi
 	 */
 	public Bagli_Liste(int katNumarasi) {// constructor
-		this.katNumarasi = katNumarasi;
-		bas = null;
+		this.setKatNumarasi(katNumarasi);
+		setBas(null);
 	}
 	
 	public Bagli_Liste() {
@@ -85,7 +85,7 @@ public class Bagli_Liste<T> {
 	 * @return
 	 */
 	public T getNode_balon() {
-		return bas;
+		return getBas();
 	}
 
 	/**
@@ -99,14 +99,14 @@ public class Bagli_Liste<T> {
 	 * @return
 	 */
 	public T getYeniBalon() {
-		return yeni;
+		return getYeni();
 	}
 
 	/**
 	 * @param yeni
 	 */
 	public void setYeniBalon(T yeniBalon) {
-		this.yeni = yeniBalon;
+		this.setYeni(yeniBalon);
 	}
 
 	/**
@@ -196,21 +196,21 @@ public class Bagli_Liste<T> {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Bagli_Liste [bas=");
-		builder.append(bas);
+		builder.append(getBas());
 		builder.append(", yeni=");
-		builder.append(yeni);
+		builder.append(getYeni());
 		builder.append(", simdiki=");
-		builder.append(simdiki);
+		builder.append(getSimdiki());
 		builder.append(", gecici=");
-		builder.append(gecici);
+		builder.append(getGecici());
 		builder.append(", silinecek=");
-		builder.append(silinecek);
+		builder.append(getSilinecek());
 		builder.append(", katNumarasi=");
-		builder.append(katNumarasi);
+		builder.append(getKatNumarasi());
 		builder.append(", sayac=");
-		builder.append(sayac);
+		builder.append(getSayac());
 		builder.append(", dolas=");
-		builder.append(dolas);
+		builder.append(getDolas());
 		builder.append("]");
 		return builder.toString();
 	}
@@ -232,5 +232,19 @@ public class Bagli_Liste<T> {
 	}
 	public String Simdiki_toString() {
 		return this.getSimdiki().toString();
+	}
+
+	/**
+	 * @return the yeni
+	 */
+	private T getYeni() {
+		return yeni;
+	}
+
+	/**
+	 * @param yeni the yeni to set
+	 */
+	private void setYeni(T yeni) {
+		this.yeni = yeni;
 	}
 }

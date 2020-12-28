@@ -1534,21 +1534,21 @@ public class Herbalist_AppGUIData {
 		this.getSwingdata().getJbuttondata().setjButton19(jButton19);
 	}
 
-	public void agac_vectorunden_urun_silindi_mi(boolean sonuc) {
+	public static void agac_vectorunden_urun_silindi_mi(boolean sonuc) {
 		if (sonuc == true) {
-			this.getSwingdata().getjTextArea8().setText("agac_vektorunden Urun Silindi");
+			Herbalist_AppSwingData.getjTextArea8().setText("agac_vektorunden Urun Silindi");
 			System.out.println("agac_vektorunden Urun Silindi");
 		} else {
-			this.getSwingdata().getjTextArea8().setText("agac_vektorunde Urun Bulunamadi");
+			Herbalist_AppSwingData.getjTextArea8().setText("agac_vektorunde Urun Bulunamadi");
 			System.out.println("agac_vektorunde Urun Bulunamadi");
 		}
 	}
 
-	public JTextField getJTextField2() {
-		return getSwingdata().getJTextField2();
+	public static JTextField getJTextField2() {
+		return Herbalist_AppSwingData.getJTextField2();
 	}
-	public void setjTextField2(JTextField jTextField2) {
-		getSwingdata().setjTextField2(jTextField2);
+	public static void setjTextField2(JTextField jTextField2) {
+		Herbalist_AppSwingData.setjTextField2(jTextField2);
 	}
 
 	/**

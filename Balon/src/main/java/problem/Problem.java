@@ -110,22 +110,22 @@ public class Problem {
 			long baslangic, Bagli_Liste_Node_Balon gecici1, Bagli_Liste_Node_Balon gecici2, int liste_eleman_sayisi,
 			boolean yigin_bos_mu, long ortalama_problem_cozum_suresi) {
 		super();
-		this.bly = bly;
-		this.str1 = str1;
-		this.str2 = str2;
-		this.uretilecek_olan_balon_sayisi = uretilecek_olan_balon_sayisi;
-		this.kacta_bir_cikarilacak = kacta_bir_cikarilacak;
-		this.sayac1 = sayac1;
-		this.sayac2 = sayac2;
-		this.katNo = katNo;
-		this.problemSayisi = problemSayisi;
-		this.problem_cozum_suresi = problem_cozum_suresi;
-		this.baslangic = baslangic;
-		this.gecici1 = gecici1;
-		this.gecici2 = gecici2;
-		this.liste_eleman_sayisi = liste_eleman_sayisi;
-		this.yigin_bos_mu = yigin_bos_mu;
-		this.ortalama_problem_cozum_suresi = ortalama_problem_cozum_suresi;
+		this.setBly(bly);
+		this.setStr1(str1);
+		this.setStr2(str2);
+		this.setUretilecek_olan_balon_sayisi(uretilecek_olan_balon_sayisi);
+		this.setKacta_bir_cikarilacak(kacta_bir_cikarilacak);
+		this.setSayac1(sayac1);
+		this.setSayac2(sayac2);
+		this.setKatNo(katNo);
+		this.setProblemSayisi(problemSayisi);
+		this.setProblem_cozum_suresi(problem_cozum_suresi);
+		this.setBaslangic(baslangic);
+		this.setGecici1(gecici1);
+		this.setGecici2(gecici2);
+		this.setListe_eleman_sayisi(liste_eleman_sayisi);
+		this.setYigin_bos_mu(yigin_bos_mu);
+		this.setOrtalama_problem_cozum_suresi(ortalama_problem_cozum_suresi);
 	}
 
 	/**
@@ -133,13 +133,13 @@ public class Problem {
 	 */
 	public Problem() {
 		super();
-		this.bly = new Stack_Bagli_Liste_balon();
-		this.sayac1 = 1;
-		this.sayac2 = 1;
-		this.katNo = 1;
-		this.problemSayisi = 0;
-		this.liste_eleman_sayisi = 10;
-		++Problem.counter;
+		this.setBly(new Stack_Bagli_Liste_balon());
+		this.setSayac1(1);
+		this.setSayac2(1);
+		this.setKatNo(1);
+		this.setProblemSayisi(0);
+		this.setListe_eleman_sayisi(10);
+		Problem.setCounter(Problem.getCounter() + 1);
 	}
 
 	/**
@@ -148,15 +148,15 @@ public class Problem {
 	protected void hesaplama_suresini_yazdir() {
 		@SuppressWarnings("unused")
 		long saniye_as_nano=1000000000;
-		if (this.problem_cozum_suresi == MINIMUM_PROBLEM_COZUM_SURESI) {
+		if (this.getProblem_cozum_suresi() == getMinimumProblemCozumSuresi()) {
 			System.out.println("Problemin cozum suresi, sistem saatinin algilayabilecegi kadar buyuk degil.");
 		} else {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append("----------------------------------------------------------------------------");
-			stringBuilder.append("\n\n" + this.problemSayisi + "problem cozuldu.");
+			stringBuilder.append("\n\n" + this.getProblemSayisi() + "problem cozuldu.");
 			ortalama_problem_cozum_suresini_hesapla();
 			stringBuilder
-					.append("1 adet problem yaklasik " + this.ortalama_problem_cozum_suresi + " nanosaniyede cozuldu.");
+					.append("1 adet problem yaklasik " + this.getOrtalama_problem_cozum_suresi() + " nanosaniyede cozuldu.");
 //			stringBuilder.append("1 saniyede cozulebilecek ortalama balon problemi sayisi	= "
 //					+ saniye_as_nano * this.problemSayisi / this.problem_cozum_suresi);
 			System.out.println(stringBuilder.toString());
@@ -167,42 +167,42 @@ public class Problem {
 	 * 
 	 */
 	private void ortalama_problem_cozum_suresini_hesapla() {
-		this.ortalama_problem_cozum_suresi = this.problem_cozum_suresi / (long) this.problemSayisi;
+		this.setOrtalama_problem_cozum_suresi(this.getProblem_cozum_suresi() / (long) this.getProblemSayisi());
 	}
 
 	/**
 	 * 
 	 */
 	protected void coz() {
-		this.baslangic = System.nanoTime(); // sistem saati degeri milisaniye olarak alindi.
+		this.setBaslangic(System.nanoTime()); // sistem saati degeri milisaniye olarak alindi.
 		//System.err.println("coz() started");
-		this.yigin_bos_mu = this.blynin_yigini_bos_mu();
-		while (!this.yigin_bos_mu) {
-			this.gecici2 = this.bly.pop_from_yigin();
-			if (this.gecici2 != null) {
+		this.setYigin_bos_mu(this.blynin_yigini_bos_mu());
+		while (!this.isYigin_bos_mu()) {
+			this.setGecici2(this.getBly().pop_from_yigin());
+			if (this.getGecici2() != null) {
 				try {
-					this.gecici2.patlat(kacta_bir_cikarilacak);
+					this.getGecici2().patlat(getKacta_bir_cikarilacak());
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 					System.exit(0);
 					return;
 				}
-				this.problemSayisi++;
+				this.setProblemSayisi(this.getProblemSayisi() + 1);
 			}
-			this.yigin_bos_mu = this.blynin_yigini_bos_mu();
+			this.setYigin_bos_mu(this.blynin_yigini_bos_mu());
 		} // yigit bosalana kadar her bir eleman gecici listeye atilip patlat metoduna
 			// maruz
 			// birakildi ve her bir liste bir balon problemi sayildi.
 		//System.err.println("coz() finished");
-		this.problem_cozum_suresi = System.nanoTime() - this.baslangic;
-		if(this.problem_cozum_suresi==0) {System.out.println("saatte hata var");}
+		this.setProblem_cozum_suresi(System.nanoTime() - this.getBaslangic());
+		if(this.getProblem_cozum_suresi()==0) {System.out.println("saatte hata var");}
 	}
 
 	/**
 	 * @return
 	 */
 	private boolean blynin_yigini_bos_mu() {
-		return this.bly.yigin_bos_mu();
+		return this.getBly().yigin_bos_mu();
 	}
 
 	/**
@@ -211,9 +211,9 @@ public class Problem {
 	protected void kac_tanede_bir_stackden_cikarilacak() {
 		do {
 			System.out.println("n degerini (kac dugumde bir yigindan cikarma isleminin yapilacagini) giriniz:");
-			this.str2 = new Scanner(System.in);
-			this.kacta_bir_cikarilacak = str2.nextInt();
-		} while (this.kacta_bir_cikarilacak < MINIMUM_CIKARMA_DEGERI);
+			this.setStr2(new Scanner(System.in));
+			this.setKacta_bir_cikarilacak(getStr2().nextInt());
+		} while (this.getKacta_bir_cikarilacak() < getMinimumCikarmaDegeri());
 		// girdiler alindi.
 	}
 
@@ -223,9 +223,9 @@ public class Problem {
 	protected void node_sayisini_kullanicidan_al() {
 		do {
 			System.out.println("m degerini (balon sayisini) giriniz:");
-			this.str1 = new Scanner(System.in);
-			this.uretilecek_olan_balon_sayisi = str1.nextInt();
-		} while (this.uretilecek_olan_balon_sayisi <= 0);
+			this.setStr1(new Scanner(System.in));
+			this.setUretilecek_olan_balon_sayisi(getStr1().nextInt());
+		} while (this.getUretilecek_olan_balon_sayisi() <= 0);
 	}
 
 	/**
@@ -234,18 +234,18 @@ public class Problem {
 	protected void insert_item_to_bly() {
 		//System.err.println("insert_item_to_bly() started");
 		try {
-			while (sayac1 <= uretilecek_olan_balon_sayisi) {
-				this.gecici1 = new Bagli_Liste_Node_Balon(katNo);// gruplama araci
-				System.out.println("\n" + katNo + ". kattaki bagli listedeki balonlar:");
-				this.sayac2 = 1;
-				if (this.gecici1 == null) {
+			while (getSayac1() <= getUretilecek_olan_balon_sayisi()) {
+				this.setGecici1(new Bagli_Liste_Node_Balon(getKatNo()));// gruplama araci
+				System.out.println("\n" + getKatNo() + ". kattaki bagli listedeki balonlar:");
+				this.setSayac2(1);
+				if (this.getGecici1() == null) {
 					//System.err.println("bagli listeye ekleme yapilamadi.");
 					System.exit(0);
 					return;
 				} else {
-					while (sayac2 <= liste_eleman_sayisi && sayac1 <= uretilecek_olan_balon_sayisi) {
+					while (getSayac2() <= getListe_eleman_sayisi() && getSayac1() <= getUretilecek_olan_balon_sayisi()) {
 						try {
-							this.gecici1.Ekle(this.sayac1);
+							this.getGecici1().Ekle(this.getSayac1());
 						} catch (NullPointerException e) {
 							e.printStackTrace();
 							System.exit(0);
@@ -255,11 +255,11 @@ public class Problem {
 							System.exit(0);
 							return;
 						}
-						this.sayac1++;
-						this.sayac2++;
+						this.setSayac1(this.getSayac1() + 1);
+						this.setSayac2(this.getSayac2() + 1);
 					}
 					try {
-						System.out.println("this.gecici1.dolas():" + this.gecici1.dolas());
+						System.out.println("this.gecici1.dolas():" + this.getGecici1().dolas());
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						System.exit(0);
@@ -270,13 +270,13 @@ public class Problem {
 						return;
 					}
 					try {
-						this.push_to_bly(this.gecici1);
+						this.push_to_bly(this.getGecici1());
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						System.exit(0);
 						return;
 					}
-					this.katNo++;
+					this.setKatNo(this.getKatNo() + 1);
 					// kucuk dongude her bir liste 10 eleman sayisina ulasinca o anki liste
 					// yigita atilir, kat no artirilip
 					// dongunun basina donulup yeni katin listesi olusturulur.
@@ -294,7 +294,7 @@ public class Problem {
 	 * @param gecici1
 	 */
 	protected void push_to_bly(Bagli_Liste_Node_Balon gecici1) {
-		this.bly.push_to_yigin(this.gecici1);
+		this.getBly().push_to_yigin(this.getGecici1());
 	}
 
 	/**
@@ -357,14 +357,14 @@ public class Problem {
 	 * @return
 	 */
 	protected int getKacta_bir_patlatilacak() {
-		return kacta_bir_cikarilacak;
+		return getKacta_bir_cikarilacak();
 	}
 
 	/**
 	 * @param kacta_bir_patlatilacak
 	 */
 	protected void setKacta_bir_patlatilacak(int kacta_bir_patlatilacak) {
-		this.kacta_bir_cikarilacak = kacta_bir_patlatilacak;
+		this.setKacta_bir_cikarilacak(kacta_bir_patlatilacak);
 	}
 
 	/**
@@ -497,7 +497,7 @@ public class Problem {
 	 * @return
 	 */
 	protected boolean isStack_bos_mu() {
-		return yigin_bos_mu;
+		return isYigin_bos_mu();
 	}
 
 	/**
@@ -546,39 +546,74 @@ public class Problem {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Problem [bly=");
-		builder.append(bly);
+		builder.append(getBly());
 		builder.append(", str1=");
-		builder.append(str1);
+		builder.append(getStr1());
 		builder.append(", str2=");
-		builder.append(str2);
+		builder.append(getStr2());
 		builder.append(", uretilecek_olan_balon_sayisi=");
-		builder.append(uretilecek_olan_balon_sayisi);
+		builder.append(getUretilecek_olan_balon_sayisi());
 		builder.append(", kacta_bir_cikarilacak=");
-		builder.append(kacta_bir_cikarilacak);
+		builder.append(getKacta_bir_cikarilacak());
 		builder.append(", sayac1=");
-		builder.append(sayac1);
+		builder.append(getSayac1());
 		builder.append(", sayac2=");
-		builder.append(sayac2);
+		builder.append(getSayac2());
 		builder.append(", katNo=");
-		builder.append(katNo);
+		builder.append(getKatNo());
 		builder.append(", problemSayisi=");
-		builder.append(problemSayisi);
+		builder.append(getProblemSayisi());
 		builder.append(", problem_cozum_suresi=");
-		builder.append(problem_cozum_suresi);
+		builder.append(getProblem_cozum_suresi());
 		builder.append(", baslangic=");
-		builder.append(baslangic);
+		builder.append(getBaslangic());
 		builder.append(", gecici1=");
-		builder.append(gecici1);
+		builder.append(getGecici1());
 		builder.append(", gecici2=");
-		builder.append(gecici2);
+		builder.append(getGecici2());
 		builder.append(", liste_eleman_sayisi=");
-		builder.append(liste_eleman_sayisi);
+		builder.append(getListe_eleman_sayisi());
 		builder.append(", yigin_bos_mu=");
-		builder.append(yigin_bos_mu);
+		builder.append(isYigin_bos_mu());
 		builder.append(", ortalama_problem_cozum_suresi=");
-		builder.append(ortalama_problem_cozum_suresi);
+		builder.append(getOrtalama_problem_cozum_suresi());
 		builder.append("]");
 		return builder.toString();
+	}
+
+	/**
+	 * @return the minimumProblemCozumSuresi
+	 */
+	private static int getMinimumProblemCozumSuresi() {
+		return MINIMUM_PROBLEM_COZUM_SURESI;
+	}
+
+	/**
+	 * @return the minimumCikarmaDegeri
+	 */
+	private static int getMinimumCikarmaDegeri() {
+		return MINIMUM_CIKARMA_DEGERI;
+	}
+
+	/**
+	 * @return the kacta_bir_cikarilacak
+	 */
+	private int getKacta_bir_cikarilacak() {
+		return kacta_bir_cikarilacak;
+	}
+
+	/**
+	 * @param kacta_bir_cikarilacak the kacta_bir_cikarilacak to set
+	 */
+	private void setKacta_bir_cikarilacak(int kacta_bir_cikarilacak) {
+		this.kacta_bir_cikarilacak = kacta_bir_cikarilacak;
+	}
+
+	/**
+	 * @return the yigin_bos_mu
+	 */
+	private boolean isYigin_bos_mu() {
+		return yigin_bos_mu;
 	}
 
 }

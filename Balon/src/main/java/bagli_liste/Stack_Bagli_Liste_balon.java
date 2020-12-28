@@ -22,8 +22,8 @@ public class Stack_Bagli_Liste_balon {
 	 */
 	public Stack_Bagli_Liste_balon(Stack<Bagli_Liste_Node_Balon> yigin, Bagli_Liste_Node_Balon gecici) {
 		super();
-		this.yigin = yigin;
-		this.gecici = gecici;
+		this.setYigin(yigin);
+		this.setGecici(gecici);
 	}
 
 
@@ -33,8 +33,8 @@ public class Stack_Bagli_Liste_balon {
 	 */
 	public Stack_Bagli_Liste_balon() {
 		super();
-		this.yigin = new Stack<Bagli_Liste_Node_Balon>();
-		gecici = null;
+		this.setYigin(new Stack<Bagli_Liste_Node_Balon>());
+		setGecici(null);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class Stack_Bagli_Liste_balon {
 			return;
 		} else {
 			// System.err.println(gecici1);
-			if (yigin == null) {
+			if (getYigin() == null) {
 				//System.out.println("yigin null");
 				System.exit(0);
 				return;
@@ -82,25 +82,43 @@ public class Stack_Bagli_Liste_balon {
 	 * @return
 	 */
 	public Bagli_Liste_Node_Balon pop_from_yigin() {
-		if (this.yigin == null) {
+		if (this.getYigin() == null) {
 		} else {
-			if (this.yigin.empty()) {
+			if (this.getYigin().empty()) {
 				//System.out.println("yigin bos");
 				System.exit(0);
 			} else {
-				this.gecici = this.getYigin().pop();
+				this.setGecici(this.getYigin().pop());
 			}
 		}
-		return this.gecici;
+		return this.getGecici();
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Stack_Bagli_Liste_balon [yigin=");
-		builder.append(yigin);
+		builder.append(getYigin());
 		builder.append(", gecici=");
-		builder.append(gecici);
+		builder.append(getGecici());
 		builder.append("]");
 		return builder.toString();
+	}
+
+
+
+	/**
+	 * @return the gecici
+	 */
+	private Bagli_Liste_Node_Balon getGecici() {
+		return gecici;
+	}
+
+
+
+	/**
+	 * @param gecici the gecici to set
+	 */
+	private void setGecici(Bagli_Liste_Node_Balon gecici) {
+		this.gecici = gecici;
 	}
 }

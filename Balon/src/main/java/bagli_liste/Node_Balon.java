@@ -17,14 +17,14 @@ public class Node_Balon {
 	 */
 	public Node_Balon(Node<Balon> node_balon) {
 		super();
-		this.node_balon = node_balon;
+		this.setNode_balon(node_balon);
 	}
 	/**
 	 * 
 	 */
 	public Node_Balon() {
 		try {
-			this.node_balon = new Node<Balon>();
+			this.setNode_balon(new Node<Balon>());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -44,7 +44,7 @@ public class Node_Balon {
 	}
 	private void this_node_balon_init() {
 		try {
-			this.node_balon = new Node<Balon>();
+			this.setNode_balon(new Node<Balon>());
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -56,7 +56,7 @@ public class Node_Balon {
 	@SuppressWarnings("unused")
 	private void this_node_balon_getNode_setNo(int no) {
 		try {
-			this.node_balon.getNode().setNo(no);
+			this.getNode_balon().getNode().setNo(no);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -69,7 +69,7 @@ public class Node_Balon {
 	@SuppressWarnings("unused")
 	private void this_node_balon_getNode_setRenk(String renk) {
 		try {
-			this.node_balon.getNode().setRenk(renk);
+			this.getNode_balon().getNode().setRenk(renk);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			return;
@@ -96,7 +96,7 @@ public class Node_Balon {
 	 * @param balon
 	 */
 	public void setcurrentNode(Balon balon) {
-		this.node_balon.setcurrentNode(balon);
+		this.getNode_balon().setcurrentNode(balon);
 	}
 	/**
 	 * @param no
@@ -120,40 +120,40 @@ public class Node_Balon {
 	public void setSonraki_node_balon(Node<Balon> node_balon) {
 		// [Node<Balon> node_balon].[setSonraki([Node_Balon node_balon].[Node<Balon>
 		// node_balon])]
-		this.node_balon.setNext(node_balon);
+		this.getNode_balon().setNext(node_balon);
 	}
 	/**
 	 * @return
 	 */
 	public Node<Balon> getSonraki_node_balon() {
 		// [Node<Balon> gecici].[getSonraki()]
-		return this.node_balon.getNext();
+		return this.getNode_balon().getNext();
 	}
 	/**
 	 * 
 	 */
 	public void sonraki_node_balonu_simdiki_node_balon_olarak_ayarla() {
-		if (this.node_balon == null) {
+		if (this.getNode_balon() == null) {
 			System.err.println("this.node_balon==null");
 			System.out.println("exit..."); 
             // Terminate JVM 
             System.exit(0);
 			return;
 		} else {
-			this.node_balon = this.node_balon.getNext();
+			this.setNode_balon(this.getNode_balon().getNext());
 		}
 	}
 	/**
 	 * 
 	 */
 	public void root_olarak_ayarla() {
-		this.node_balon.setNext(node_balon);// dairesel hale geldi.
+		this.getNode_balon().setNext(getNode_balon());// dairesel hale geldi.
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Node_Balon [node_balon=");
-		builder.append(node_balon);
+		builder.append(getNode_balon());
 		builder.append("]");
 		return builder.toString();
 	}
