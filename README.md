@@ -1,12 +1,11 @@
-# Proje amaçları
-Geliştirmiş olduğum tüm projeleri bu proje altında toplama,
-Geliştirmiş olduğum kodlardan kütüphane oluşturma
-Yazmaya çalışmış olduğum kod başka bir projede yazılmış olabileceğinden gereksiz yere farklı projelerde aynın kodları yazmanın önüne geçme
-Tüm projelerde refaktoring yaparak proje içerisinde gereksiz yere kod tekrarını önleme
-Proje yedeklemelerini düzenleme
-Proje bağımlılıklarının global olarak bulunabilir ve de güncellenebilir olması için maven projeleri oluşturma
-Versiyon kontrol işlemleri yapma
-Donanımsal sorunlara karşı internet üzerinde yedekleme yapma
-Bilgilerin yanlışlıkla veya sabotaj sonrası silinme ihtimaline binaen yedekleme yapma
-
+# Project objectives 
+Gathering all the projects I have developed under this project
+Creating a library from the codes I have developed
+Avoiding writing the same codes in different projects unnecessarily because the code I have tried to write may have been written in another project
+Avoiding unnecessary code repetition in all projects
+Organizing project backups
+Creating maven projects to make project dependencies globally available and updateable
+Performing version control operations
+Making backups on the internet against hardware problems
+Backing up data in case of accidental or sabotage deletion
 
