@@ -4,7 +4,7 @@
 package main.java;
 
 import herbalist.Form;
-import test.java.SQL;
+import veri_tabani.SQL;
 
 /**
  * @author MehmetAkif-PC

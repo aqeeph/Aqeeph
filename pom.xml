@@ -14,6 +14,9 @@
 	</modules>
 	<properties>
 		<repository_type>azure</repository_type>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.release>11</maven.compiler.release>
+		<javafx.version>13</javafx.version>
 	</properties>
 	<!-- Build Settings -->
 	<build>
@@ -74,6 +77,35 @@
 					<target>15</target>
 					<testSource>15</testSource>
 					<testTarget>15</testTarget>
+					<release>${maven.compiler.release}</release>
+					<outputEncoding>UTF-8</outputEncoding>
+					<archive>
+						<addMavenDescriptor />
+						<compress />
+						<forced />
+						<index />
+						<pomPropertiesFile />
+						<manifestFile />
+						<manifest>
+							<addClasspath />
+							<addDefaultEntries />
+							<addDefaultImplementationEntries />
+							<addDefaultSpecificationEntries />
+							<addBuildEnvironmentEntries />
+							<addExtensions />
+							<classpathLayoutType />
+							<classpathPrefix />
+							<customClasspathLayout />
+							<mainClass />
+							<packageName />
+							<useUniqueVersions />
+						</manifest>
+						<manifestEntries>
+							<key></key>
+						</manifestEntries>
+					</archive>
+					<verbose>true</verbose>
+					<fork>true</fork>
 					<compilerArgument>-Xlint:unchecked</compilerArgument>
 				</configuration>
 			</plugin>

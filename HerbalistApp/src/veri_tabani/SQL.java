@@ -1,6 +1,4 @@
-package test.java;
-
-import veri_tabani.Veritabani_Listesi;
+package veri_tabani;
 
 public class SQL {
 	/**

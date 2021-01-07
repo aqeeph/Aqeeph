@@ -1,26 +1,27 @@
-package test.java;
 
-import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import java.io.IOException;
 
 import capsule.Capsule_Vector_String;
 import deva.Bitki;
 
-public class BitkiTest {
+public class Test_Bitki {
 
-	@Test
-	public void test() {
+	/**
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
 		Bitki botan = new Bitki("0", "-1", "0", "0", "0", "0", "0", "0");
-		String adi = "Maras otu", diskteki_adi = "Maragee", diskteki_yeri = "C:\\", latince_adi = "Marageeka Botanika";
+		String adi = "Mara� otu", diskteki_adi = "Maragee", diskteki_yeri = "C:\\", latince_adi = "Marageeka Botanika";
 		Capsule_Vector_String ozellikleri = new Capsule_Vector_String();
-		ozellikleri.getstringlistesi().add("Anestezi");
+		ozellikleri.add("Anestezi");
 		float fiyati = (float) 1.9;
 		int miktari = 23;
 		Capsule_Vector_String onerilen_hastaliklar = new Capsule_Vector_String();
-		onerilen_hastaliklar.getstringlistesi().add("Agri");
-		onerilen_hastaliklar.getstringlistesi().add("Depresyon");
-		onerilen_hastaliklar.getstringlistesi().add("Psikolojik Hastaliklar");
+		onerilen_hastaliklar.add("Agri");
+		onerilen_hastaliklar.add("Depresyon");
+		onerilen_hastaliklar.add("Psikolojik Hastaliklar");
 		botan.setAdi(adi);
 		botan.setDiskteki_adi(diskteki_adi);
 		botan.setDiskteki_yeri(diskteki_yeri);
@@ -30,8 +31,6 @@ public class BitkiTest {
 		botan.setonerilen_hastaliklar(onerilen_hastaliklar);
 		botan.setozellikleri(ozellikleri);
 		botan.setKategori(-1);
-
-		assertEquals("Maras otu", botan.getAdi());
 		System.out.println(botan);
 	}
 

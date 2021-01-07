@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 import java.awt.BorderLayout;
 import java.awt.Event;
@@ -28,6 +28,7 @@ import capsule.Capsule_Vector_String;
 import dert.Hastalik;
 import veri_tabani.Kategori;
 import veri_tabani.Kategori_veritabani;
+import veri_tabani.SQL;
 import veri_tabani.Veritabani_Listesi;
 
 @SuppressWarnings("deprecation")

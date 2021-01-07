@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 public class Urun_Arama {
 

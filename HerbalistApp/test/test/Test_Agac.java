@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 import capsule.Capsule_Vector_Agac_Bitki;
 import deva.Bitki;
