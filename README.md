@@ -7,5 +7,5 @@ Organizing project backups
 Creating maven projects to make project dependencies globally available and updateable
 Performing version control operations
 Making backups on the internet against hardware problems
-Backing up data in case of accidental or sabotage deletion
+Backup of data in case of accidental, sabotage or hardware deletion
 
