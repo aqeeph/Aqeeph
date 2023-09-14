@@ -12,3 +12,6 @@ description: Why am I using github?
 * Version control operations over the internet against hardware problems
 * Data backup
 * Quick setup
+* Project sharing
+* Common development
+* Contribution to open source
